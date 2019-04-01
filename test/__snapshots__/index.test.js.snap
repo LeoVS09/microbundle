@@ -263,6 +263,49 @@ exports[`fixtures basic-css 7`] = `
 
 exports[`fixtures basic-css 8`] = `"{\\"version\\":3,\\"file\\":\\"basic-css.umd.js\\",\\"sources\\":[\\"../src/index.js\\"],\\"sourcesContent\\":[\\"import './two.css';\\\\n\\\\nexport default function() {\\\\n\\\\tconst el = document.createElement('div');\\\\n\\\\tel.className = 'testing';\\\\n\\\\treturn el;\\\\n}\\\\n\\"],\\"names\\":[\\"el\\",\\"document\\",\\"createElement\\",\\"className\\"],\\"mappings\\":\\"8KAEe,eACRA,EAAKC,SAASC,cAAc,cAClCF,EAAGG,UAAY,UACRH\\"}"`;
 
+exports[`fixtures basic-css-modules 1`] = `
+"Used script: microbundle --no-sourcemap --css-modules
+
+Directory tree:
+
+basic-css-modules
+  dist
+    basic-css-modules.css
+    basic-css-modules.js
+    basic-css-modules.mjs
+    basic-css-modules.umd.js
+  package.json
+  src
+    index.js
+    two.css
+
+
+Build \\"basicCssModules\\" to dist:
+111 B: basic-css-modules.js.gz
+70 B: basic-css-modules.js.br
+110 B: basic-css-modules.mjs.gz
+67 B: basic-css-modules.mjs.br
+197 B: basic-css-modules.umd.js.gz
+163 B: basic-css-modules.umd.js.br"
+`;
+
+exports[`fixtures basic-css-modules 2`] = `"._rHGVB{display:flex;color:red;background:#00f}"`;
+
+exports[`fixtures basic-css-modules 3`] = `
+"module.exports=function(){var e=document.createElement(\\"div\\");return e.className=\\"_rHGVB\\",e};
+"
+`;
+
+exports[`fixtures basic-css-modules 4`] = `
+"export default function(){var e=document.createElement(\\"div\\");return e.className=\\"_rHGVB\\",e}
+"
+`;
+
+exports[`fixtures basic-css-modules 5`] = `
+"!function(e,n){\\"object\\"==typeof exports&&\\"undefined\\"!=typeof module?module.exports=n():\\"function\\"==typeof define&&define.amd?define(n):e.basicCssModules=n()}(this,function(){return function(){var e=document.createElement(\\"div\\");return e.className=\\"_rHGVB\\",e}});
+"
+`;
+
 exports[`fixtures basic-json 1`] = `
 "Used script: microbundle
 
