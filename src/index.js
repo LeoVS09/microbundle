@@ -503,8 +503,7 @@ function createConfig(options, entry, format, writeMeta) {
 							}),
 						),
 					nodeResolve({
-						module: true,
-						jsnext: true,
+						mainFields: ['module', 'jsnext', 'main'],
 						browser: options.target !== 'node',
 					}),
 					commonjs({
