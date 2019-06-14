@@ -65,7 +65,7 @@ You can specify output builds in a `package.json` as follows:
 ```
 "main": "dist/foo.js",          // CJS bundle
 "umd:main": "dist/foo.umd.js",  // UMD bundle
-"module": "dist/foo.mjs",       // ES Modules bundle
+"module": "dist/foo.m.js",       // ES Modules bundle
 "source": "src/foo.js",         // custom entry module (same as 1st arg to microbundle)
 "types": "dist/foo.d.ts",       // TypeScript typings
 ```
@@ -116,10 +116,10 @@ Libraries often wish to rename internal object properties or class members to sm
     -h, --help       Displays this message
 
   Examples
-    $ microbundle microbundle --globals react=React,jquery=$
-    $ microbundle microbundle --define API_KEY=1234
-    $ microbundle microbundle --alias react=preact
-    $ microbundle microbundle --no-sourcemap # don't generate sourcemaps
+    $ microbundle build --globals react=React,jquery=$
+    $ microbundle build --define API_KEY=1234
+    $ microbundle build --alias react=preact
+    $ microbundle build --no-sourcemap # don't generate sourcemaps
 ```
 
 ## 🛣 Roadmap
