@@ -87,6 +87,14 @@ const parseMappingArgument = (globalStrings, processValue) => {
 	return globals;
 };
 
+// Parses values of the form "$=jQuery,React=react" into key-value object pairs.
+const parseMappingArgumentAlias = aliasStrings => {
+	return aliasStrings.split(',').map(str => {
+		let [key, value] = str.split('=');
+		return { find: key, replacement: value };
+	});
+};
+
 // Extensions to use when resolving modules
 const EXTENSIONS = ['.ts', '.tsx', '.js', '.jsx', '.es6', '.es', '.mjs'];
 
@@ -111,12 +119,19 @@ async function getSizeInfo(code, filename, raw) {
 		'gz',
 		raw || code.length < 5000,
 	);
-	const brotli = formatSize(
-		await brotliSize(code),
-		filename,
-		'br',
-		raw || code.length < 5000,
-	);
+	let brotli;
+	//wrap brotliSize in try/catch in case brotli is unavailable due to
+	//lower node version
+	try {
+		brotli = formatSize(
+			await brotliSize(code),
+			filename,
+			'br',
+			raw || code.length < 5000,
+		);
+	} catch (e) {
+		return gzip;
+	}
 	return gzip + '\n' + brotli;
 }
 
@@ -343,13 +358,15 @@ async function getOutput({ cwd, output, pkgMain, pkgName }) {
 }
 
 async function getEntries({ input, cwd }) {
-	let entries = (await map([].concat(input), async file => {
-		file = resolve(cwd, file);
-		if (await isDir(file)) {
-			file = resolve(file, 'index.js');
-		}
-		return file;
-	})).filter((item, i, arr) => arr.indexOf(item) === i);
+	let entries = (
+		await map([].concat(input), async file => {
+			file = resolve(cwd, file);
+			if (await isDir(file)) {
+				file = resolve(file, 'index.js');
+			}
+			return file;
+		})
+	).filter((item, i, arr) => arr.indexOf(item) === i);
 	return entries;
 }
 
@@ -370,8 +387,8 @@ function createConfig(options, entry, format, writeMeta) {
 	}
 
 	const moduleAliases = options.alias
-		? parseMappingArgument(options.alias)
-		: {};
+		? parseMappingArgumentAlias(options.alias)
+		: [];
 
 	const peerDeps = Object.keys(pkg.peerDependencies || {});
 	if (options.external === 'none') {
@@ -422,11 +439,11 @@ function createConfig(options, entry, format, writeMeta) {
 	let moduleMain = replaceName(
 		pkg.module && !pkg.module.match(/src\//)
 			? pkg.module
-			: pkg['jsnext:main'] || 'x.mjs',
+			: pkg['jsnext:main'] || 'x.esm.js',
 		mainNoExtension,
 	);
 	let modernMain = replaceName(
-		(pkg.syntax && pkg.syntax.esmodules) || pkg.esmodule || 'x.modern.mjs',
+		(pkg.syntax && pkg.syntax.esmodules) || pkg.esmodule || 'x.modern.js',
 		mainNoExtension,
 	);
 	let cjsMain = replaceName(pkg['cjs:main'] || 'x.js', mainNoExtension);
@@ -498,8 +515,8 @@ function createConfig(options, entry, format, writeMeta) {
 						].filter(Boolean),
 						autoModules:
 							options['css-modules'] === null || // microbundle --css-modules
-							(options['css-modules'] === 'true' ||
-								options['css-modules'] === true) || // microbundle --css-modules true
+							options['css-modules'] === 'true' ||
+							options['css-modules'] === true || // microbundle --css-modules true
 							!(
 								options['css-modules'] === 'false' ||
 								options['css-modules'] === false
@@ -519,12 +536,11 @@ function createConfig(options, entry, format, writeMeta) {
 						inject: false,
 						extract: !!writeMeta,
 					}),
-					Object.keys(moduleAliases).length > 0 &&
-						alias(
-							Object.assign({}, moduleAliases, {
-								resolve: EXTENSIONS,
-							}),
-						),
+					moduleAliases.length > 0 &&
+						alias({
+							resolve: EXTENSIONS,
+							entries: moduleAliases,
+						}),
 					nodeResolve({
 						mainFields: ['module', 'jsnext', 'main'],
 						browser: options.target !== 'node',
@@ -555,6 +571,7 @@ function createConfig(options, entry, format, writeMeta) {
 									jsxFactory: options.jsx || 'h',
 								},
 							},
+							tsconfig: options.tsconfig,
 							tsconfigOverride: {
 								compilerOptions: {
 									target: 'esnext',
@@ -602,6 +619,11 @@ function createConfig(options, entry, format, writeMeta) {
 								},
 								minifyOptions.compress || {},
 							),
+							output: {
+								// By default, Terser wraps function arguments in extra parens to trigger eager parsing.
+								// Whether this is a good idea is way too specific to guess, so we optimize for size by default:
+								wrap_func_args: false,
+							},
 							warnings: true,
 							ecma: modern ? 9 : 5,
 							toplevel: modern || format === 'cjs' || format === 'es',

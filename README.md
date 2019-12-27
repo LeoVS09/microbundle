@@ -150,6 +150,7 @@ Options
 	--sourcemap      Generate source map  (default true)
 	--raw            Show raw byte size  (default false)
 	--jsx            A custom JSX pragma like React.createElement (default: h)
+	--tsconfig       Specify the path to a custom tsconfig.json
 	-h, --help       Displays this message
 
 Examples
@@ -157,6 +158,7 @@ Examples
 	$ microbundle build --define API_KEY=1234
 	$ microbundle build --alias react=preact
 	$ microbundle watch --no-sourcemap # don't generate sourcemaps
+	$ microbundle build --tsconfig tsconfig.build.json
 ```
 
 ## 🛣 Roadmap
@@ -177,6 +179,7 @@ Here's what's coming up for Microbundle:
 - [react-hooks-lib](https://github.com/beizhedenglong/react-hooks-lib) A set of reusable react hooks.
 - [mdx-deck-live-code](https://github.com/JReinhold/mdx-deck-live-code) A library for [mdx-deck](https://github.com/jxnblk/mdx-deck) to do live React and JS coding directly in slides.
 - [react-router-ext](https://github.com/ri7nz/react-router-ext) An Extended [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) with simple usage.
+- [routex.js](https://github.com/alexhoma/routex.js) A dynamic routing library for Next.js.
 
 ## 🥂 License
 

@@ -7,8 +7,8 @@ Directory tree:
 
 alias
   dist
+    alias-mapping.esm.js
     alias-mapping.js
-    alias-mapping.mjs
     alias-mapping.umd.js
   package.json
   src
@@ -20,8 +20,8 @@ alias
 Build \\"aliasMapping\\" to dist:
 62 B: alias-mapping.js.gz
 46 B: alias-mapping.js.br
-62 B: alias-mapping.mjs.gz
-46 B: alias-mapping.mjs.br
+62 B: alias-mapping.esm.js.gz
+46 B: alias-mapping.esm.js.br
 118 B: alias-mapping.umd.js.gz
 83 B: alias-mapping.umd.js.br"
 `;
@@ -50,10 +50,10 @@ Directory tree:
 
 async-iife-ts
   dist
+    async-iife-ts.esm.js
+    async-iife-ts.esm.js.map
     async-iife-ts.js
     async-iife-ts.js.map
-    async-iife-ts.mjs
-    async-iife-ts.mjs.map
     async-iife-ts.umd.js
     async-iife-ts.umd.js.map
     index.d.ts
@@ -67,8 +67,8 @@ async-iife-ts
 Build \\"asyncIifeTs\\" to dist:
 70 B: async-iife-ts.js.gz
 55 B: async-iife-ts.js.br
-70 B: async-iife-ts.mjs.gz
-55 B: async-iife-ts.mjs.br
+70 B: async-iife-ts.esm.js.gz
+55 B: async-iife-ts.esm.js.br
 125 B: async-iife-ts.umd.js.gz
 95 B: async-iife-ts.umd.js.br"
 `;
@@ -77,13 +77,13 @@ exports[`fixtures build async-iife-ts with microbundle 2`] = `7`;
 
 exports[`fixtures build async-iife-ts with microbundle 3`] = `
 "try{console.log(\\"foo\\")}catch(o){Promise.reject(o)}
-//# sourceMappingURL=async-iife-ts.js.map
+//# sourceMappingURL=async-iife-ts.esm.js.map
 "
 `;
 
 exports[`fixtures build async-iife-ts with microbundle 4`] = `
 "try{console.log(\\"foo\\")}catch(o){Promise.reject(o)}
-//# sourceMappingURL=async-iife-ts.mjs.map
+//# sourceMappingURL=async-iife-ts.js.map
 "
 `;
 
@@ -102,10 +102,10 @@ Directory tree:
 
 async-ts
   dist
+    async-ts.esm.js
+    async-ts.esm.js.map
     async-ts.js
     async-ts.js.map
-    async-ts.mjs
-    async-ts.mjs.map
     async-ts.umd.js
     async-ts.umd.js.map
     index.d.ts
@@ -119,8 +119,8 @@ async-ts
 Build \\"asyncTs\\" to dist:
 103 B: async-ts.js.gz
 72 B: async-ts.js.br
-112 B: async-ts.mjs.gz
-91 B: async-ts.mjs.br
+112 B: async-ts.esm.js.gz
+91 B: async-ts.esm.js.br
 202 B: async-ts.umd.js.gz
 159 B: async-ts.umd.js.br"
 `;
@@ -128,14 +128,14 @@ Build \\"asyncTs\\" to dist:
 exports[`fixtures build async-ts with microbundle 2`] = `7`;
 
 exports[`fixtures build async-ts with microbundle 3`] = `
-"exports.MyClass=function(){function o(){}return o.prototype.foo=function(){return Promise.resolve()},o}();
-//# sourceMappingURL=async-ts.js.map
+"var o=function(){function o(){}return o.prototype.foo=function(){return Promise.resolve()},o}();export{o as MyClass};
+//# sourceMappingURL=async-ts.esm.js.map
 "
 `;
 
 exports[`fixtures build async-ts with microbundle 4`] = `
-"var o=function(){function o(){}return o.prototype.foo=function(){return Promise.resolve()},o}();export{o as MyClass};
-//# sourceMappingURL=async-ts.mjs.map
+"exports.MyClass=function(){function o(){}return o.prototype.foo=function(){return Promise.resolve()},o}();
+//# sourceMappingURL=async-ts.js.map
 "
 `;
 
@@ -159,10 +159,10 @@ Directory tree:
 
 basic
   dist
+    basic-lib.esm.js
+    basic-lib.esm.js.map
     basic-lib.js
     basic-lib.js.map
-    basic-lib.mjs
-    basic-lib.mjs.map
     basic-lib.umd.js
     basic-lib.umd.js.map
   package.json
@@ -174,8 +174,8 @@ basic
 Build \\"basicLib\\" to dist:
 229 B: basic-lib.js.gz
 174 B: basic-lib.js.br
-230 B: basic-lib.mjs.gz
-177 B: basic-lib.mjs.br
+230 B: basic-lib.esm.js.gz
+177 B: basic-lib.esm.js.br
 313 B: basic-lib.umd.js.gz
 251 B: basic-lib.umd.js.br"
 `;
@@ -183,14 +183,14 @@ Build \\"basicLib\\" to dist:
 exports[`fixtures build basic with microbundle 2`] = `6`;
 
 exports[`fixtures build basic with microbundle 3`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
-//# sourceMappingURL=basic-lib.js.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
+//# sourceMappingURL=basic-lib.esm.js.map
 "
 `;
 
 exports[`fixtures build basic with microbundle 4`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
-//# sourceMappingURL=basic-lib.mjs.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
+//# sourceMappingURL=basic-lib.js.map
 "
 `;
 
@@ -207,10 +207,10 @@ Directory tree:
 
 basic-babelrc
   dist
+    basic-babelrc.esm.js
+    basic-babelrc.esm.js.map
     basic-babelrc.js
     basic-babelrc.js.map
-    basic-babelrc.mjs
-    basic-babelrc.mjs.map
     basic-babelrc.umd.js
     basic-babelrc.umd.js.map
   package.json
@@ -221,8 +221,8 @@ basic-babelrc
 Build \\"basicBabelrc\\" to dist:
 122 B: basic-babelrc.js.gz
 91 B: basic-babelrc.js.br
-122 B: basic-babelrc.mjs.gz
-91 B: basic-babelrc.mjs.br
+122 B: basic-babelrc.esm.js.gz
+91 B: basic-babelrc.esm.js.br
 158 B: basic-babelrc.umd.js.gz
 121 B: basic-babelrc.umd.js.br"
 `;
@@ -231,13 +231,13 @@ exports[`fixtures build basic-babelrc with microbundle 2`] = `6`;
 
 exports[`fixtures build basic-babelrc with microbundle 3`] = `
 "function r(r){return void 0===r&&(r=function(r){throw new Error(\\"required!\\")}()),!0===r||function(r){throw new Error(\\"Falsey!\\")}()}r(!0),r(!1);
-//# sourceMappingURL=basic-babelrc.js.map
+//# sourceMappingURL=basic-babelrc.esm.js.map
 "
 `;
 
 exports[`fixtures build basic-babelrc with microbundle 4`] = `
 "function r(r){return void 0===r&&(r=function(r){throw new Error(\\"required!\\")}()),!0===r||function(r){throw new Error(\\"Falsey!\\")}()}r(!0),r(!1);
-//# sourceMappingURL=basic-babelrc.mjs.map
+//# sourceMappingURL=basic-babelrc.js.map
 "
 `;
 
@@ -254,10 +254,10 @@ Directory tree:
 
 basic-compress-false
   dist
+    basic-compress-false.esm.js
+    basic-compress-false.esm.js.map
     basic-compress-false.js
     basic-compress-false.js.map
-    basic-compress-false.mjs
-    basic-compress-false.mjs.map
     basic-compress-false.umd.js
     basic-compress-false.umd.js.map
   package.json
@@ -269,10 +269,10 @@ basic-compress-false
 Build \\"basicCompressFalse\\" to dist:
 303 B: basic-compress-false.js.gz
 244 B: basic-compress-false.js.br
-301 B: basic-compress-false.mjs.gz
-244 B: basic-compress-false.mjs.br
+301 B: basic-compress-false.esm.js.gz
+244 B: basic-compress-false.esm.js.br
 424 B: basic-compress-false.umd.js.gz
-351 B: basic-compress-false.umd.js.br"
+348 B: basic-compress-false.umd.js.br"
 `;
 
 exports[`fixtures build basic-compress-false with microbundle 2`] = `6`;
@@ -308,8 +308,8 @@ var index = (function () {
   }
 });
 
-module.exports = index;
-//# sourceMappingURL=basic-compress-false.js.map
+export default index;
+//# sourceMappingURL=basic-compress-false.esm.js.map
 "
 `;
 
@@ -344,8 +344,8 @@ var index = (function () {
   }
 });
 
-export default index;
-//# sourceMappingURL=basic-compress-false.mjs.map
+module.exports = index;
+//# sourceMappingURL=basic-compress-false.js.map
 "
 `;
 
@@ -354,7 +354,7 @@ exports[`fixtures build basic-compress-false with microbundle 5`] = `
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
 	(global = global || self, global.basicCompressFalse = factory());
-}(this, function () {
+}(this, (function () {
 	var two = function two() {
 	  try {
 	    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -387,7 +387,7 @@ exports[`fixtures build basic-compress-false with microbundle 5`] = `
 
 	return index;
 
-}));
+})));
 //# sourceMappingURL=basic-compress-false.umd.js.map
 "
 `;
@@ -400,10 +400,10 @@ Directory tree:
 basic-css
   dist
     basic-css.css
+    basic-css.esm.js
+    basic-css.esm.js.map
     basic-css.js
     basic-css.js.map
-    basic-css.mjs
-    basic-css.mjs.map
     basic-css.umd.js
     basic-css.umd.js.map
   package.json
@@ -415,31 +415,79 @@ basic-css
 Build \\"basicCss\\" to dist:
 107 B: basic-css.js.gz
 60 B: basic-css.js.br
-106 B: basic-css.mjs.gz
-56 B: basic-css.mjs.br
+106 B: basic-css.esm.js.gz
+56 B: basic-css.esm.js.br
 195 B: basic-css.umd.js.gz
 134 B: basic-css.umd.js.br"
 `;
 
 exports[`fixtures build basic-css with microbundle 2`] = `7`;
 
-exports[`fixtures build basic-css with microbundle 3`] = `".testing{display:flex;color:red;background:#00f}"`;
+exports[`fixtures build basic-css with microbundle 3`] = `".testing{display:-webkit-box;display:flex;color:red;background:#00f}"`;
 
 exports[`fixtures build basic-css with microbundle 4`] = `
-"module.exports=function(){var e=document.createElement(\\"div\\");return e.className=\\"testing\\",e};
-//# sourceMappingURL=basic-css.js.map
+"export default function(){var e=document.createElement(\\"div\\");return e.className=\\"testing\\",e}
+//# sourceMappingURL=basic-css.esm.js.map
 "
 `;
 
 exports[`fixtures build basic-css with microbundle 5`] = `
-"export default function(){var e=document.createElement(\\"div\\");return e.className=\\"testing\\",e}
-//# sourceMappingURL=basic-css.mjs.map
+"module.exports=function(){var e=document.createElement(\\"div\\");return e.className=\\"testing\\",e};
+//# sourceMappingURL=basic-css.js.map
 "
 `;
 
 exports[`fixtures build basic-css with microbundle 6`] = `
 "!function(e,n){\\"object\\"==typeof exports&&\\"undefined\\"!=typeof module?module.exports=n():\\"function\\"==typeof define&&define.amd?define(n):(e=e||self).basicCss=n()}(this,function(){return function(){var e=document.createElement(\\"div\\");return e.className=\\"testing\\",e}});
 //# sourceMappingURL=basic-css.umd.js.map
+"
+`;
+
+exports[`fixtures build basic-flow with microbundle 1`] = `
+"Used script: microbundle
+
+Directory tree:
+
+basic-flow
+  dist
+    basic-lib-flow.esm.js
+    basic-lib-flow.esm.js.map
+    basic-lib-flow.js
+    basic-lib-flow.js.map
+    basic-lib-flow.umd.js
+    basic-lib-flow.umd.js.map
+  package.json
+  src
+    fruits.js
+    index.js
+
+
+Build \\"basicLibFlow\\" to dist:
+57 B: basic-lib-flow.js.gz
+43 B: basic-lib-flow.js.br
+56 B: basic-lib-flow.esm.js.gz
+42 B: basic-lib-flow.esm.js.br
+172 B: basic-lib-flow.umd.js.gz
+133 B: basic-lib-flow.umd.js.br"
+`;
+
+exports[`fixtures build basic-flow with microbundle 2`] = `6`;
+
+exports[`fixtures build basic-flow with microbundle 3`] = `
+"export default[\\"banana\\",\\"raspberry\\"];
+//# sourceMappingURL=basic-lib-flow.esm.js.map
+"
+`;
+
+exports[`fixtures build basic-flow with microbundle 4`] = `
+"module.exports=[\\"banana\\",\\"raspberry\\"];
+//# sourceMappingURL=basic-lib-flow.js.map
+"
+`;
+
+exports[`fixtures build basic-flow with microbundle 5`] = `
+"!function(e,n){\\"object\\"==typeof exports&&\\"undefined\\"!=typeof module?module.exports=[\\"banana\\",\\"raspberry\\"]:\\"function\\"==typeof define&&define.amd?define(function(){return[\\"banana\\",\\"raspberry\\"]}):(e=e||self).basicLibFlow=[\\"banana\\",\\"raspberry\\"]}(this);
+//# sourceMappingURL=basic-lib-flow.umd.js.map
 "
 `;
 
@@ -495,10 +543,10 @@ Directory tree:
 
 basic-json
   dist
+    basic-json.esm.js
+    basic-json.esm.js.map
     basic-json.js
     basic-json.js.map
-    basic-json.mjs
-    basic-json.mjs.map
     basic-json.umd.js
     basic-json.umd.js.map
   package.json
@@ -510,8 +558,8 @@ basic-json
 Build \\"basicJson\\" to dist:
 93 B: basic-json.js.gz
 65 B: basic-json.js.br
-92 B: basic-json.mjs.gz
-64 B: basic-json.mjs.br
+92 B: basic-json.esm.js.gz
+64 B: basic-json.esm.js.br
 181 B: basic-json.umd.js.gz
 134 B: basic-json.umd.js.br"
 `;
@@ -519,14 +567,14 @@ Build \\"basicJson\\" to dist:
 exports[`fixtures build basic-json with microbundle 2`] = `6`;
 
 exports[`fixtures build basic-json with microbundle 3`] = `
-"var e={test:\\"true\\"};module.exports=function(){return Promise.resolve(e)};
-//# sourceMappingURL=basic-json.js.map
+"var e={test:\\"true\\"};export default function(){return Promise.resolve(e)}
+//# sourceMappingURL=basic-json.esm.js.map
 "
 `;
 
 exports[`fixtures build basic-json with microbundle 4`] = `
-"var e={test:\\"true\\"};export default function(){return Promise.resolve(e)}
-//# sourceMappingURL=basic-json.mjs.map
+"var e={test:\\"true\\"};module.exports=function(){return Promise.resolve(e)};
+//# sourceMappingURL=basic-json.js.map
 "
 `;
 
@@ -545,16 +593,16 @@ basic-multi-source
   a.js
   b.js
   dist
+    a.esm.js
+    a.esm.js.map
     a.js
     a.js.map
-    a.mjs
-    a.mjs.map
     a.umd.js
     a.umd.js.map
+    b.esm.js
+    b.esm.js.map
     b.js
     b.js.map
-    b.mjs
-    b.mjs.map
     b.umd.js
     b.umd.js.map
   package.json
@@ -563,14 +611,14 @@ basic-multi-source
 Build \\"basicMultiSource\\" to dist:
 43 B: a.js.gz
 27 B: a.js.br
-43 B: a.mjs.gz
-27 B: a.mjs.br
+43 B: a.esm.js.gz
+27 B: a.esm.js.br
 99 B: a.umd.js.gz
 84 B: a.umd.js.br
 43 B: b.js.gz
 27 B: b.js.br
-43 B: b.mjs.gz
-27 B: b.mjs.br
+43 B: b.esm.js.gz
+27 B: b.esm.js.br
 99 B: b.umd.js.gz
 79 B: b.umd.js.br"
 `;
@@ -579,13 +627,13 @@ exports[`fixtures build basic-multi-source with microbundle 2`] = `12`;
 
 exports[`fixtures build basic-multi-source with microbundle 3`] = `
 "console.log(\\"i am a\\");
-//# sourceMappingURL=a.js.map
+//# sourceMappingURL=a.esm.js.map
 "
 `;
 
 exports[`fixtures build basic-multi-source with microbundle 4`] = `
 "console.log(\\"i am a\\");
-//# sourceMappingURL=a.mjs.map
+//# sourceMappingURL=a.js.map
 "
 `;
 
@@ -597,13 +645,13 @@ exports[`fixtures build basic-multi-source with microbundle 5`] = `
 
 exports[`fixtures build basic-multi-source with microbundle 6`] = `
 "console.log(\\"i am b\\");
-//# sourceMappingURL=b.js.map
+//# sourceMappingURL=b.esm.js.map
 "
 `;
 
 exports[`fixtures build basic-multi-source with microbundle 7`] = `
 "console.log(\\"i am b\\");
-//# sourceMappingURL=b.mjs.map
+//# sourceMappingURL=b.js.map
 "
 `;
 
@@ -620,10 +668,10 @@ Directory tree:
 
 basic-no-compress
   dist
+    basic-no-compress.esm.js
+    basic-no-compress.esm.js.map
     basic-no-compress.js
     basic-no-compress.js.map
-    basic-no-compress.mjs
-    basic-no-compress.mjs.map
     basic-no-compress.umd.js
     basic-no-compress.umd.js.map
   package.json
@@ -635,10 +683,10 @@ basic-no-compress
 Build \\"basicNoCompress\\" to dist:
 303 B: basic-no-compress.js.gz
 244 B: basic-no-compress.js.br
-301 B: basic-no-compress.mjs.gz
-244 B: basic-no-compress.mjs.br
-422 B: basic-no-compress.umd.js.gz
-349 B: basic-no-compress.umd.js.br"
+301 B: basic-no-compress.esm.js.gz
+244 B: basic-no-compress.esm.js.br
+421 B: basic-no-compress.umd.js.gz
+345 B: basic-no-compress.umd.js.br"
 `;
 
 exports[`fixtures build basic-no-compress with microbundle 2`] = `6`;
@@ -674,8 +722,8 @@ var index = (function () {
   }
 });
 
-module.exports = index;
-//# sourceMappingURL=basic-no-compress.js.map
+export default index;
+//# sourceMappingURL=basic-no-compress.esm.js.map
 "
 `;
 
@@ -710,8 +758,8 @@ var index = (function () {
   }
 });
 
-export default index;
-//# sourceMappingURL=basic-no-compress.mjs.map
+module.exports = index;
+//# sourceMappingURL=basic-no-compress.js.map
 "
 `;
 
@@ -720,7 +768,7 @@ exports[`fixtures build basic-no-compress with microbundle 5`] = `
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
 	(global = global || self, global.basicNoCompress = factory());
-}(this, function () {
+}(this, (function () {
 	var two = function two() {
 	  try {
 	    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -753,7 +801,7 @@ exports[`fixtures build basic-no-compress with microbundle 5`] = `
 
 	return index;
 
-}));
+})));
 //# sourceMappingURL=basic-no-compress.umd.js.map
 "
 `;
@@ -765,10 +813,10 @@ Directory tree:
 
 basic-ts
   dist
+    basic-lib-ts.esm.js
+    basic-lib-ts.esm.js.map
     basic-lib-ts.js
     basic-lib-ts.js.map
-    basic-lib-ts.mjs
-    basic-lib-ts.mjs.map
     basic-lib-ts.umd.js
     basic-lib-ts.umd.js.map
     car.d.ts
@@ -784,8 +832,8 @@ basic-ts
 Build \\"basicLibTs\\" to dist:
 104 B: basic-lib-ts.js.gz
 76 B: basic-lib-ts.js.br
-104 B: basic-lib-ts.mjs.gz
-82 B: basic-lib-ts.mjs.br
+104 B: basic-lib-ts.esm.js.gz
+82 B: basic-lib-ts.esm.js.br
 187 B: basic-lib-ts.umd.js.gz
 144 B: basic-lib-ts.umd.js.br"
 `;
@@ -793,14 +841,14 @@ Build \\"basicLibTs\\" to dist:
 exports[`fixtures build basic-ts with microbundle 2`] = `8`;
 
 exports[`fixtures build basic-ts with microbundle 3`] = `
-"var n=new(function(){function n(){}return n.prototype.drive=function(n){return!0},n}());module.exports=n;
-//# sourceMappingURL=basic-lib-ts.js.map
+"var n=new(function(){function n(){}return n.prototype.drive=function(n){return!0},n}());export default n;
+//# sourceMappingURL=basic-lib-ts.esm.js.map
 "
 `;
 
 exports[`fixtures build basic-ts with microbundle 4`] = `
-"var n=new(function(){function n(){}return n.prototype.drive=function(n){return!0},n}());export default n;
-//# sourceMappingURL=basic-lib-ts.mjs.map
+"var n=new(function(){function n(){}return n.prototype.drive=function(n){return!0},n}());module.exports=n;
+//# sourceMappingURL=basic-lib-ts.js.map
 "
 `;
 
@@ -834,10 +882,10 @@ Directory tree:
 
 basic-tsx
   dist
+    basic-lib-tsx.esm.js
+    basic-lib-tsx.esm.js.map
     basic-lib-tsx.js
     basic-lib-tsx.js.map
-    basic-lib-tsx.mjs
-    basic-lib-tsx.mjs.map
     basic-lib-tsx.umd.js
     basic-lib-tsx.umd.js.map
     index.d.ts
@@ -851,8 +899,8 @@ basic-tsx
 Build \\"basicLibTsx\\" to dist:
 235 B: basic-lib-tsx.js.gz
 188 B: basic-lib-tsx.js.br
-236 B: basic-lib-tsx.mjs.gz
-190 B: basic-lib-tsx.mjs.br
+236 B: basic-lib-tsx.esm.js.gz
+190 B: basic-lib-tsx.esm.js.br
 317 B: basic-lib-tsx.umd.js.gz
 260 B: basic-lib-tsx.umd.js.br"
 `;
@@ -860,14 +908,14 @@ Build \\"basicLibTsx\\" to dist:
 exports[`fixtures build basic-tsx with microbundle 2`] = `7`;
 
 exports[`fixtures build basic-tsx with microbundle 3`] = `
-"var r=function(r,n){for(var e=arguments.length,o=new Array(e>2?e-2:0),t=2;t<e;t++)o[t-2]=arguments[t];return{tag:r,props:n,children:o}};module.exports=function(){function n(){}return n.prototype.render=function(){return r(\\"div\\",{id:\\"app\\"},r(\\"h1\\",null,\\"Hello, World!\\"),r(\\"p\\",null,\\"A JSX demo.\\"))},n}();
-//# sourceMappingURL=basic-lib-tsx.js.map
+"var r=function(r,n){for(var e=arguments.length,t=new Array(e>2?e-2:0),o=2;o<e;o++)t[o-2]=arguments[o];return{tag:r,props:n,children:t}},n=function(){function n(){}return n.prototype.render=function(){return r(\\"div\\",{id:\\"app\\"},r(\\"h1\\",null,\\"Hello, World!\\"),r(\\"p\\",null,\\"A JSX demo.\\"))},n}();export default n;
+//# sourceMappingURL=basic-lib-tsx.esm.js.map
 "
 `;
 
 exports[`fixtures build basic-tsx with microbundle 4`] = `
-"var r=function(r,n){for(var e=arguments.length,t=new Array(e>2?e-2:0),o=2;o<e;o++)t[o-2]=arguments[o];return{tag:r,props:n,children:t}},n=function(){function n(){}return n.prototype.render=function(){return r(\\"div\\",{id:\\"app\\"},r(\\"h1\\",null,\\"Hello, World!\\"),r(\\"p\\",null,\\"A JSX demo.\\"))},n}();export default n;
-//# sourceMappingURL=basic-lib-tsx.mjs.map
+"var r=function(r,n){for(var e=arguments.length,o=new Array(e>2?e-2:0),t=2;t<e;t++)o[t-2]=arguments[t];return{tag:r,props:n,children:o}};module.exports=function(){function n(){}return n.prototype.render=function(){return r(\\"div\\",{id:\\"app\\"},r(\\"h1\\",null,\\"Hello, World!\\"),r(\\"p\\",null,\\"A JSX demo.\\"))},n}();
+//# sourceMappingURL=basic-lib-tsx.js.map
 "
 `;
 
@@ -891,10 +939,10 @@ Directory tree:
 
 basic
   dist
+    basic.esm.js
+    basic.esm.js.map
     basic.js
     basic.js.map
-    basic.mjs
-    basic.mjs.map
     basic.umd.js
     basic.umd.js.map
   package.json
@@ -906,8 +954,8 @@ basic
 Build \\"basic\\" to dist:
 229 B: basic.js.gz
 174 B: basic.js.br
-230 B: basic.mjs.gz
-177 B: basic.mjs.br
+230 B: basic.esm.js.gz
+177 B: basic.esm.js.br
 310 B: basic.umd.js.gz
 247 B: basic.umd.js.br"
 `;
@@ -915,14 +963,14 @@ Build \\"basic\\" to dist:
 exports[`fixtures build basic-with-cwd with microbundle 2`] = `6`;
 
 exports[`fixtures build basic-with-cwd with microbundle 3`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
-//# sourceMappingURL=basic.js.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
+//# sourceMappingURL=basic.esm.js.map
 "
 `;
 
 exports[`fixtures build basic-with-cwd with microbundle 4`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
-//# sourceMappingURL=basic.mjs.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
+//# sourceMappingURL=basic.js.map
 "
 `;
 
@@ -939,10 +987,10 @@ Directory tree:
 
 class-decorators-ts
   dist
+    class-decorators-ts.esm.js
+    class-decorators-ts.esm.js.map
     class-decorators-ts.js
     class-decorators-ts.js.map
-    class-decorators-ts.mjs
-    class-decorators-ts.mjs.map
     class-decorators-ts.umd.js
     class-decorators-ts.umd.js.map
     index.d.ts
@@ -956,8 +1004,8 @@ class-decorators-ts
 Build \\"classDecoratorsTs\\" to dist:
 333 B: class-decorators-ts.js.gz
 276 B: class-decorators-ts.js.br
-333 B: class-decorators-ts.mjs.gz
-278 B: class-decorators-ts.mjs.br
+333 B: class-decorators-ts.esm.js.gz
+278 B: class-decorators-ts.esm.js.br
 401 B: class-decorators-ts.umd.js.gz
 341 B: class-decorators-ts.umd.js.br"
 `;
@@ -965,14 +1013,14 @@ Build \\"classDecoratorsTs\\" to dist:
 exports[`fixtures build class-decorators-ts with microbundle 2`] = `7`;
 
 exports[`fixtures build class-decorators-ts with microbundle 3`] = `
-"var e=function(){function e(e){this.greeting=e}return e.prototype.greet=function(){return\\"Hello, \\"+this.greeting},e}(),t=new(e=function(e,t,r,o){var n,c=arguments.length,l=c<3?t:null===o?o=Object.getOwnPropertyDescriptor(t,r):o;if(\\"object\\"==typeof Reflect&&\\"function\\"==typeof Reflect.decorate)l=Reflect.decorate(e,t,r,o);else for(var f=e.length-1;f>=0;f--)(n=e[f])&&(l=(c<3?n(l):c>3?n(t,r,l):n(t,r))||l);return c>3&&l&&Object.defineProperty(t,r,l),l}([function(e){Object.seal(e),Object.seal(e.prototype)}],e))(\\"Hello World\\");module.exports=t;
-//# sourceMappingURL=class-decorators-ts.js.map
+"var e=function(){function e(e){this.greeting=e}return e.prototype.greet=function(){return\\"Hello, \\"+this.greeting},e}(),t=new(e=function(e,t,r,n){var o,c=arguments.length,l=c<3?t:null===n?n=Object.getOwnPropertyDescriptor(t,r):n;if(\\"object\\"==typeof Reflect&&\\"function\\"==typeof Reflect.decorate)l=Reflect.decorate(e,t,r,n);else for(var f=e.length-1;f>=0;f--)(o=e[f])&&(l=(c<3?o(l):c>3?o(t,r,l):o(t,r))||l);return c>3&&l&&Object.defineProperty(t,r,l),l}([function(e){Object.seal(e),Object.seal(e.prototype)}],e))(\\"Hello World\\");export default t;
+//# sourceMappingURL=class-decorators-ts.esm.js.map
 "
 `;
 
 exports[`fixtures build class-decorators-ts with microbundle 4`] = `
-"var e=function(){function e(e){this.greeting=e}return e.prototype.greet=function(){return\\"Hello, \\"+this.greeting},e}(),t=new(e=function(e,t,r,n){var o,c=arguments.length,l=c<3?t:null===n?n=Object.getOwnPropertyDescriptor(t,r):n;if(\\"object\\"==typeof Reflect&&\\"function\\"==typeof Reflect.decorate)l=Reflect.decorate(e,t,r,n);else for(var f=e.length-1;f>=0;f--)(o=e[f])&&(l=(c<3?o(l):c>3?o(t,r,l):o(t,r))||l);return c>3&&l&&Object.defineProperty(t,r,l),l}([function(e){Object.seal(e),Object.seal(e.prototype)}],e))(\\"Hello World\\");export default t;
-//# sourceMappingURL=class-decorators-ts.mjs.map
+"var e=function(){function e(e){this.greeting=e}return e.prototype.greet=function(){return\\"Hello, \\"+this.greeting},e}(),t=new(e=function(e,t,r,o){var n,c=arguments.length,l=c<3?t:null===o?o=Object.getOwnPropertyDescriptor(t,r):o;if(\\"object\\"==typeof Reflect&&\\"function\\"==typeof Reflect.decorate)l=Reflect.decorate(e,t,r,o);else for(var f=e.length-1;f>=0;f--)(n=e[f])&&(l=(c<3?n(l):c>3?n(t,r,l):n(t,r))||l);return c>3&&l&&Object.defineProperty(t,r,l),l}([function(e){Object.seal(e),Object.seal(e.prototype)}],e))(\\"Hello World\\");module.exports=t;
+//# sourceMappingURL=class-decorators-ts.js.map
 "
 `;
 
@@ -1000,10 +1048,10 @@ Directory tree:
 
 class-properties
   dist
+    class-properties.esm.js
+    class-properties.esm.js.map
     class-properties.js
     class-properties.js.map
-    class-properties.mjs
-    class-properties.mjs.map
     class-properties.umd.js
     class-properties.umd.js.map
   package.json
@@ -1014,8 +1062,8 @@ class-properties
 Build \\"classProperties\\" to dist:
 93 B: class-properties.js.gz
 79 B: class-properties.js.br
-96 B: class-properties.mjs.gz
-85 B: class-properties.mjs.br
+96 B: class-properties.esm.js.gz
+85 B: class-properties.esm.js.br
 198 B: class-properties.umd.js.gz
 150 B: class-properties.umd.js.br"
 `;
@@ -1023,14 +1071,14 @@ Build \\"classProperties\\" to dist:
 exports[`fixtures build class-properties with microbundle 2`] = `6`;
 
 exports[`fixtures build class-properties with microbundle 3`] = `
-"var a=function(){this.baz=3};a.bar=2;var o=new a;exports.Foo=a,exports.default=o;
-//# sourceMappingURL=class-properties.js.map
+"var a=function(){this.baz=3};a.bar=2;var r=new a;export default r;export{a as Foo};
+//# sourceMappingURL=class-properties.esm.js.map
 "
 `;
 
 exports[`fixtures build class-properties with microbundle 4`] = `
-"var a=function(){this.baz=3};a.bar=2;var r=new a;export default r;export{a as Foo};
-//# sourceMappingURL=class-properties.mjs.map
+"var a=function(){this.baz=3};a.bar=2;var o=new a;exports.Foo=a,exports.default=o;
+//# sourceMappingURL=class-properties.js.map
 "
 `;
 
@@ -1047,10 +1095,10 @@ Directory tree:
 
 custom-babelrc
   dist
+    custom-babelrc.esm.js
+    custom-babelrc.esm.js.map
     custom-babelrc.js
     custom-babelrc.js.map
-    custom-babelrc.mjs
-    custom-babelrc.mjs.map
     custom-babelrc.umd.js
     custom-babelrc.umd.js.map
   package.json
@@ -1059,30 +1107,30 @@ custom-babelrc
 
 
 Build \\"customBabelrc\\" to dist:
-234 B: custom-babelrc.js.gz
-184 B: custom-babelrc.js.br
-236 B: custom-babelrc.mjs.gz
-191 B: custom-babelrc.mjs.br
-327 B: custom-babelrc.umd.js.gz
-275 B: custom-babelrc.umd.js.br"
+5.92 kB: custom-babelrc.js.gz
+5.38 kB: custom-babelrc.js.br
+5.93 kB: custom-babelrc.esm.js.gz
+5.38 kB: custom-babelrc.esm.js.br
+6 kB: custom-babelrc.umd.js.gz
+5.44 kB: custom-babelrc.umd.js.br"
 `;
 
 exports[`fixtures build custom-babelrc with microbundle 2`] = `6`;
 
 exports[`fixtures build custom-babelrc with microbundle 3`] = `
-"require(\\"core-js/modules/es.promise\\"),exports.MyClass=class{constructor(){var e;e=[\\"foo\\",\\"bar\\"],\\"myFields\\"in this?Object.defineProperty(this,\\"myFields\\",{value:e,enumerable:!0,configurable:!0,writable:!0}):this.myFields=e}foo(){try{return this.myFields.find(e=>\\"bar\\"===e)}catch(e){return Promise.reject(e)}}};
-//# sourceMappingURL=custom-babelrc.js.map
+"var t=\\"undefined\\"!=typeof globalThis?globalThis:\\"undefined\\"!=typeof window?window:\\"undefined\\"!=typeof global?global:\\"undefined\\"!=typeof self?self:{};function n(t,n){return t(n={exports:{}},n.exports),n.exports}var e,r,o,i=function(t){return t&&t.Math==Math&&t},c=i(\\"object\\"==typeof globalThis&&globalThis)||i(\\"object\\"==typeof window&&window)||i(\\"object\\"==typeof self&&self)||i(\\"object\\"==typeof t&&t)||Function(\\"return this\\")(),u=function(t){try{return!!t()}catch(t){return!0}},f=!u(function(){return 7!=Object.defineProperty({},\\"a\\",{get:function(){return 7}}).a}),a={}.propertyIsEnumerable,s=Object.getOwnPropertyDescriptor,l={f:s&&!a.call({1:2},1)?function(t){var n=s(this,t);return!!n&&n.enumerable}:a},p=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}},v={}.toString,h=function(t){return v.call(t).slice(8,-1)},d=\\"\\".split,y=u(function(){return!Object(\\"z\\").propertyIsEnumerable(0)})?function(t){return\\"String\\"==h(t)?d.call(t,\\"\\"):Object(t)}:Object,m=function(t){return y(function(t){if(null==t)throw TypeError(\\"Can't call method on \\"+t);return t}(t))},g=function(t){return\\"object\\"==typeof t?null!==t:\\"function\\"==typeof t},b=function(t,n){if(!g(t))return t;var e,r;if(n&&\\"function\\"==typeof(e=t.toString)&&!g(r=e.call(t)))return r;if(\\"function\\"==typeof(e=t.valueOf)&&!g(r=e.call(t)))return r;if(!n&&\\"function\\"==typeof(e=t.toString)&&!g(r=e.call(t)))return r;throw TypeError(\\"Can't convert object to primitive value\\")},w={}.hasOwnProperty,j=function(t,n){return w.call(t,n)},P=c.document,S=g(P)&&g(P.createElement),O=function(t){return S?P.createElement(t):{}},E=!f&&!u(function(){return 7!=Object.defineProperty(O(\\"div\\"),\\"a\\",{get:function(){return 7}}).a}),T=Object.getOwnPropertyDescriptor,x={f:f?T:function(t,n){if(t=m(t),n=b(n,!0),E)try{return T(t,n)}catch(t){}if(j(t,n))return p(!l.f.call(t,n),t[n])}},M=function(t){if(!g(t))throw TypeError(String(t)+\\" is not an object\\");return t},k=Object.defineProperty,_={f:f?k:function(t,n,e){if(M(t),n=b(n,!0),M(e),E)try{return k(t,n,e)}catch(t){}if(\\"get\\"in e||\\"set\\"in e)throw TypeError(\\"Accessors not supported\\");return\\"value\\"in e&&(t[n]=e.value),t}},F=f?function(t,n,e){return _.f(t,n,p(1,e))}:function(t,n,e){return t[n]=e,t},I=function(t,n){try{F(c,t,n)}catch(e){c[t]=n}return n},A=c[\\"__core-js_shared__\\"]||I(\\"__core-js_shared__\\",{}),C=n(function(t){(t.exports=function(t,n){return A[t]||(A[t]=void 0!==n?n:{})})(\\"versions\\",[]).push({version:\\"3.4.7\\",mode:\\"global\\",copyright:\\"© 2019 Denis Pushkarev (zloirock.ru)\\"})}),L=Function.toString,N=C(\\"inspectSource\\",function(t){return L.call(t)}),z=c.WeakMap,D=\\"function\\"==typeof z&&/native code/.test(N(z)),R=0,W=Math.random(),q=function(t){return\\"Symbol(\\"+String(void 0===t?\\"\\":t)+\\")_\\"+(++R+W).toString(36)},G=C(\\"keys\\"),K={};if(D){var U=new(0,c.WeakMap),B=U.get,H=U.has,V=U.set;e=function(t,n){return V.call(U,t,n),n},r=function(t){return B.call(U,t)||{}},o=function(t){return H.call(U,t)}}else{var Y=G.state||(G.state=q(\\"state\\"));K[Y]=!0,e=function(t,n){return F(t,Y,n),n},r=function(t){return j(t,Y)?t[Y]:{}},o=function(t){return j(t,Y)}}var J={set:e,get:r,has:o,enforce:function(t){return o(t)?r(t):e(t,{})},getterFor:function(t){return function(n){var e;if(!g(n)||(e=r(n)).type!==t)throw TypeError(\\"Incompatible receiver, \\"+t+\\" required\\");return e}}},Q=n(function(t){var n=J.get,e=J.enforce,r=String(String).split(\\"String\\");(t.exports=function(t,n,o,i){var u=!!i&&!!i.unsafe,f=!!i&&!!i.enumerable,a=!!i&&!!i.noTargetGet;\\"function\\"==typeof o&&(\\"string\\"!=typeof n||j(o,\\"name\\")||F(o,\\"name\\",n),e(o).source=r.join(\\"string\\"==typeof n?n:\\"\\")),t!==c?(u?!a&&t[n]&&(f=!0):delete t[n],f?t[n]=o:F(t,n,o)):f?t[n]=o:I(n,o)})(Function.prototype,\\"toString\\",function(){return\\"function\\"==typeof this&&n(this).source||N(this)})}),X=c,Z=function(t){return\\"function\\"==typeof t?t:void 0},$=function(t,n){return arguments.length<2?Z(X[t])||Z(c[t]):X[t]&&X[t][n]||c[t]&&c[t][n]},tt=Math.ceil,nt=Math.floor,et=function(t){return isNaN(t=+t)?0:(t>0?nt:tt)(t)},rt=Math.min,ot=function(t){return t>0?rt(et(t),9007199254740991):0},it=Math.max,ct=Math.min,ut=function(t){return function(n,e,r){var o,i=m(n),c=ot(i.length),u=function(t,n){var e=et(t);return e<0?it(e+n,0):ct(e,n)}(r,c);if(t&&e!=e){for(;c>u;)if((o=i[u++])!=o)return!0}else for(;c>u;u++)if((t||u in i)&&i[u]===e)return t||u||0;return!t&&-1}},ft=(ut(!0),ut(!1)),at=[\\"constructor\\",\\"hasOwnProperty\\",\\"isPrototypeOf\\",\\"propertyIsEnumerable\\",\\"toLocaleString\\",\\"toString\\",\\"valueOf\\"].concat(\\"length\\",\\"prototype\\"),st={f:Object.getOwnPropertyNames||function(t){return function(t,n){var e,r=m(t),o=0,i=[];for(e in r)!j(K,e)&&j(r,e)&&i.push(e);for(;n.length>o;)j(r,e=n[o++])&&(~ft(i,e)||i.push(e));return i}(t,at)}},lt={f:Object.getOwnPropertySymbols},pt=$(\\"Reflect\\",\\"ownKeys\\")||function(t){var n=st.f(M(t)),e=lt.f;return e?n.concat(e(t)):n},vt=function(t,n){for(var e=pt(n),r=_.f,o=x.f,i=0;i<e.length;i++){var c=e[i];j(t,c)||r(t,c,o(n,c))}},ht=/#|\\\\.prototype\\\\./,dt=function(t,n){var e=mt[yt(t)];return e==bt||e!=gt&&(\\"function\\"==typeof n?u(n):!!n)},yt=dt.normalize=function(t){return String(t).replace(ht,\\".\\").toLowerCase()},mt=dt.data={},gt=dt.NATIVE=\\"N\\",bt=dt.POLYFILL=\\"P\\",wt=dt,jt=x.f,Pt=function(t,n){var e,r,o,i,u,f=t.target,a=t.global,s=t.stat;if(e=a?c:s?c[f]||I(f,{}):(c[f]||{}).prototype)for(r in n){if(i=n[r],o=t.noTargetGet?(u=jt(e,r))&&u.value:e[r],!wt(a?r:f+(s?\\".\\":\\"#\\")+r,t.forced)&&void 0!==o){if(typeof i==typeof o)continue;vt(i,o)}(t.sham||o&&o.sham)&&F(i,\\"sham\\",!0),Q(e,r,i,t)}},St=c.Promise,Ot=!!Object.getOwnPropertySymbols&&!u(function(){return!String(Symbol())}),Et=Ot&&!Symbol.sham&&\\"symbol\\"==typeof Symbol(),Tt=C(\\"wks\\"),xt=c.Symbol,Mt=Et?xt:q,kt=function(t){return j(Tt,t)||(Tt[t]=Ot&&j(xt,t)?xt[t]:Mt(\\"Symbol.\\"+t)),Tt[t]},_t=_.f,Ft=kt(\\"toStringTag\\"),It=kt(\\"species\\"),At=function(t){if(\\"function\\"!=typeof t)throw TypeError(String(t)+\\" is not a function\\");return t},Ct={},Lt=kt(\\"iterator\\"),Nt=Array.prototype,zt=function(t,n,e){if(At(t),void 0===n)return t;switch(e){case 0:return function(){return t.call(n)};case 1:return function(e){return t.call(n,e)};case 2:return function(e,r){return t.call(n,e,r)};case 3:return function(e,r,o){return t.call(n,e,r,o)}}return function(){return t.apply(n,arguments)}},Dt={};Dt[kt(\\"toStringTag\\")]=\\"z\\";var Rt=\\"[object z]\\"===String(Dt),Wt=kt(\\"toStringTag\\"),qt=\\"Arguments\\"==h(function(){return arguments}()),Gt=Rt?h:function(t){var n,e,r;return void 0===t?\\"Undefined\\":null===t?\\"Null\\":\\"string\\"==typeof(e=function(t,n){try{return t[n]}catch(t){}}(n=Object(t),Wt))?e:qt?h(n):\\"Object\\"==(r=h(n))&&\\"function\\"==typeof n.callee?\\"Arguments\\":r},Kt=kt(\\"iterator\\"),Ut=function(t,n,e,r){try{return r?n(M(e)[0],e[1]):n(e)}catch(n){var o=t.return;throw void 0!==o&&M(o.call(t)),n}},Bt=n(function(t){var n=function(t,n){this.stopped=t,this.result=n};(t.exports=function(t,e,r,o,i){var c,u,f,a,s,l,p,v,h=zt(e,r,o?2:1);if(i)c=t;else{if(\\"function\\"!=typeof(u=function(t){if(null!=t)return t[Kt]||t[\\"@@iterator\\"]||Ct[Gt(t)]}(t)))throw TypeError(\\"Target is not iterable\\");if(void 0!==(v=u)&&(Ct.Array===v||Nt[Lt]===v)){for(f=0,a=ot(t.length);a>f;f++)if((s=o?h(M(p=t[f])[0],p[1]):h(t[f]))&&s instanceof n)return s;return new n(!1)}c=u.call(t)}for(l=c.next;!(p=l.call(c)).done;)if(\\"object\\"==typeof(s=Ut(c,h,p.value,o))&&s&&s instanceof n)return s;return new n(!1)}).stop=function(t){return new n(!0,t)}}),Ht=kt(\\"iterator\\"),Vt=!1;try{var Yt=0,Jt={next:function(){return{done:!!Yt++}},return:function(){Vt=!0}};Jt[Ht]=function(){return this},Array.from(Jt,function(){throw 2})}catch(t){}var Qt,Xt,Zt,$t=kt(\\"species\\"),tn=$(\\"document\\",\\"documentElement\\"),nn=$(\\"navigator\\",\\"userAgent\\")||\\"\\",en=/(iphone|ipod|ipad).*applewebkit/i.test(nn),rn=c.location,on=c.setImmediate,cn=c.clearImmediate,un=c.process,fn=c.MessageChannel,an=c.Dispatch,sn=0,ln={},pn=function(t){if(ln.hasOwnProperty(t)){var n=ln[t];delete ln[t],n()}},vn=function(t){return function(){pn(t)}},hn=function(t){pn(t.data)},dn=function(t){c.postMessage(t+\\"\\",rn.protocol+\\"//\\"+rn.host)};on&&cn||(on=function(t){for(var n=[],e=1;arguments.length>e;)n.push(arguments[e++]);return ln[++sn]=function(){(\\"function\\"==typeof t?t:Function(t)).apply(void 0,n)},Qt(sn),sn},cn=function(t){delete ln[t]},\\"process\\"==h(un)?Qt=function(t){un.nextTick(vn(t))}:an&&an.now?Qt=function(t){an.now(vn(t))}:fn&&!en?(Zt=(Xt=new fn).port2,Xt.port1.onmessage=hn,Qt=zt(Zt.postMessage,Zt,1)):!c.addEventListener||\\"function\\"!=typeof postMessage||c.importScripts||u(dn)?Qt=\\"onreadystatechange\\"in O(\\"script\\")?function(t){tn.appendChild(O(\\"script\\")).onreadystatechange=function(){tn.removeChild(this),pn(t)}}:function(t){setTimeout(vn(t),0)}:(Qt=dn,c.addEventListener(\\"message\\",hn,!1)));var yn,mn,gn,bn,wn,jn,Pn,Sn,On={set:on,clear:cn},En=x.f,Tn=On.set,xn=c.MutationObserver||c.WebKitMutationObserver,Mn=c.process,kn=c.Promise,_n=\\"process\\"==h(Mn),Fn=En(c,\\"queueMicrotask\\"),In=Fn&&Fn.value;In||(yn=function(){var t,n;for(_n&&(t=Mn.domain)&&t.exit();mn;){n=mn.fn,mn=mn.next;try{n()}catch(t){throw mn?bn():gn=void 0,t}}gn=void 0,t&&t.enter()},_n?bn=function(){Mn.nextTick(yn)}:xn&&!en?(wn=!0,jn=document.createTextNode(\\"\\"),new xn(yn).observe(jn,{characterData:!0}),bn=function(){jn.data=wn=!wn}):kn&&kn.resolve?(Pn=kn.resolve(void 0),Sn=Pn.then,bn=function(){Sn.call(Pn,yn)}):bn=function(){Tn.call(c,yn)});var An,Cn,Ln=In||function(t){var n={fn:t,next:void 0};gn&&(gn.next=n),mn||(mn=n,bn()),gn=n},Nn=function(t){var n,e;this.promise=new t(function(t,r){if(void 0!==n||void 0!==e)throw TypeError(\\"Bad Promise constructor\\");n=t,e=r}),this.resolve=At(n),this.reject=At(e)},zn={f:function(t){return new Nn(t)}},Dn=function(t,n){if(M(t),g(n)&&n.constructor===t)return n;var e=zn.f(t);return(0,e.resolve)(n),e.promise},Rn=function(t){try{return{error:!1,value:t()}}catch(t){return{error:!0,value:t}}},Wn=c.process,qn=Wn&&Wn.versions,Gn=qn&&qn.v8;Gn?Cn=(An=Gn.split(\\".\\"))[0]+An[1]:nn&&(!(An=nn.match(/Edge\\\\/(\\\\d+)/))||An[1]>=74)&&(An=nn.match(/Chrome\\\\/(\\\\d+)/))&&(Cn=An[1]);var Kn,Un,Bn,Hn,Vn,Yn,Jn=Cn&&+Cn,Qn=On.set,Xn=kt(\\"species\\"),Zn=J.get,$n=J.set,te=J.getterFor(\\"Promise\\"),ne=St,ee=c.TypeError,re=c.document,oe=c.process,ie=$(\\"fetch\\"),ce=zn.f,ue=ce,fe=\\"process\\"==h(oe),ae=!!(re&&re.createEvent&&c.dispatchEvent),se=wt(\\"Promise\\",function(){if(N(ne)===String(ne)){if(66===Jn)return!0;if(!fe&&\\"function\\"!=typeof PromiseRejectionEvent)return!0}if(Jn>=51&&/native code/.test(ne))return!1;var t=ne.resolve(1),n=function(t){t(function(){},function(){})};return(t.constructor={})[Xn]=n,!(t.then(function(){})instanceof n)}),le=se||!function(t,n){if(!Vt)return!1;var e=!1;try{var r={};r[Ht]=function(){return{next:function(){return{done:e=!0}}}},ne.all(r).catch(function(){})}catch(t){}return e}(),pe=function(t){var n;return!(!g(t)||\\"function\\"!=typeof(n=t.then))&&n},ve=function(t,n,e){if(!n.notified){n.notified=!0;var r=n.reactions;Ln(function(){for(var o=n.value,i=1==n.state,c=0;r.length>c;){var u,f,a,s=r[c++],l=i?s.ok:s.fail,p=s.resolve,v=s.reject,h=s.domain;try{l?(i||(2===n.rejection&&me(t,n),n.rejection=1),!0===l?u=o:(h&&h.enter(),u=l(o),h&&(h.exit(),a=!0)),u===s.promise?v(ee(\\"Promise-chain cycle\\")):(f=pe(u))?f.call(u,p,v):p(u)):v(o)}catch(t){h&&!a&&h.exit(),v(t)}}n.reactions=[],n.notified=!1,e&&!n.rejection&&de(t,n)})}},he=function(t,n,e){var r,o;ae?((r=re.createEvent(\\"Event\\")).promise=n,r.reason=e,r.initEvent(t,!1,!0),c.dispatchEvent(r)):r={promise:n,reason:e},(o=c[\\"on\\"+t])?o(r):\\"unhandledrejection\\"===t&&function(t,n){var e=c.console;e&&e.error&&(1===arguments.length?e.error(t):e.error(t,n))}(\\"Unhandled promise rejection\\",e)},de=function(t,n){Qn.call(c,function(){var e,r=n.value;if(ye(n)&&(e=Rn(function(){fe?oe.emit(\\"unhandledRejection\\",r,t):he(\\"unhandledrejection\\",t,r)}),n.rejection=fe||ye(n)?2:1,e.error))throw e.value})},ye=function(t){return 1!==t.rejection&&!t.parent},me=function(t,n){Qn.call(c,function(){fe?oe.emit(\\"rejectionHandled\\",t):he(\\"rejectionhandled\\",t,n.value)})},ge=function(t,n,e,r){return function(o){t(n,e,o,r)}},be=function(t,n,e,r){n.done||(n.done=!0,r&&(n=r),n.value=e,n.state=2,ve(t,n,!0))},we=function t(n,e,r,o){if(!e.done){e.done=!0,o&&(e=o);try{if(n===r)throw ee(\\"Promise can't be resolved itself\\");var i=pe(r);i?Ln(function(){var o={done:!1};try{i.call(r,ge(t,n,o,e),ge(be,n,o,e))}catch(t){be(n,o,t,e)}}):(e.value=r,e.state=1,ve(n,e,!1))}catch(t){be(n,{done:!1},t,e)}}};se&&(ne=function(t){!function(t,n,e){if(!(t instanceof ne))throw TypeError(\\"Incorrect Promise invocation\\")}(this),At(t),Kn.call(this);var n=Zn(this);try{t(ge(we,this,n),ge(be,this,n))}catch(t){be(this,n,t)}},(Kn=function(t){$n(this,{type:\\"Promise\\",done:!1,notified:!1,parent:!1,reactions:[],rejection:!1,state:0,value:void 0})}).prototype=function(t,n,e){for(var r in n)Q(t,r,n[r],void 0);return t}(ne.prototype,{then:function(t,n){var e,r,o,i=te(this),c=ce((e=ne,void 0===(o=M(this).constructor)||null==(r=M(o)[$t])?e:At(r)));return c.ok=\\"function\\"!=typeof t||t,c.fail=\\"function\\"==typeof n&&n,c.domain=fe?oe.domain:void 0,i.parent=!0,i.reactions.push(c),0!=i.state&&ve(this,i,!1),c.promise},catch:function(t){return this.then(void 0,t)}}),Un=function(){var t=new Kn,n=Zn(t);this.promise=t,this.resolve=ge(we,t,n),this.reject=ge(be,t,n)},zn.f=ce=function(t){return t===ne||t===Bn?new Un(t):ue(t)},\\"function\\"==typeof St&&(Hn=St.prototype.then,Q(St.prototype,\\"then\\",function(t,n){var e=this;return new ne(function(t,n){Hn.call(e,t,n)}).then(t,n)},{unsafe:!0}),\\"function\\"==typeof ie&&Pt({global:!0,enumerable:!0,forced:!0},{fetch:function(t){return Dn(ne,ie.apply(c,arguments))}}))),Pt({global:!0,wrap:!0,forced:se},{Promise:ne}),(Vn=ne)&&!j(Vn=Vn.prototype,Ft)&&_t(Vn,Ft,{configurable:!0,value:\\"Promise\\"}),Yn=$(\\"Promise\\"),f&&Yn&&!Yn[It]&&(0,_.f)(Yn,It,{configurable:!0,get:function(){return this}}),Bn=$(\\"Promise\\"),Pt({target:\\"Promise\\",stat:!0,forced:se},{reject:function(t){var n=ce(this);return n.reject.call(void 0,t),n.promise}}),Pt({target:\\"Promise\\",stat:!0,forced:se},{resolve:function(t){return Dn(this,t)}}),Pt({target:\\"Promise\\",stat:!0,forced:le},{all:function(t){var n=this,e=ce(n),r=e.resolve,o=e.reject,i=Rn(function(){var e=At(n.resolve),i=[],c=0,u=1;Bt(t,function(t){var f=c++,a=!1;i.push(void 0),u++,e.call(n,t).then(function(t){a||(a=!0,i[f]=t,--u||r(i))},o)}),--u||r(i)});return i.error&&o(i.value),e.promise},race:function(t){var n=this,e=ce(n),r=e.reject,o=Rn(function(){var o=At(n.resolve);Bt(t,function(t){o.call(n,t).then(e.resolve,r)})});return o.error&&r(o.value),e.promise}});class je{constructor(){!function(t,n,e){n in t?Object.defineProperty(t,n,{value:e,enumerable:!0,configurable:!0,writable:!0}):t[n]=e}(this,\\"myFields\\",[\\"foo\\",\\"bar\\"])}foo(){try{return Promise.resolve(this.myFields.find(t=>\\"bar\\"===t))}catch(t){return Promise.reject(t)}}}export{je as MyClass};
+//# sourceMappingURL=custom-babelrc.esm.js.map
 "
 `;
 
 exports[`fixtures build custom-babelrc with microbundle 4`] = `
-"import\\"core-js/modules/es.promise\\";class e{constructor(){var e;e=[\\"foo\\",\\"bar\\"],\\"myFields\\"in this?Object.defineProperty(this,\\"myFields\\",{value:e,enumerable:!0,configurable:!0,writable:!0}):this.myFields=e}foo(){try{return this.myFields.find(e=>\\"bar\\"===e)}catch(e){return Promise.reject(e)}}}export{e as MyClass};
-//# sourceMappingURL=custom-babelrc.mjs.map
+"var t=\\"undefined\\"!=typeof globalThis?globalThis:\\"undefined\\"!=typeof window?window:\\"undefined\\"!=typeof global?global:\\"undefined\\"!=typeof self?self:{};function n(t,n){return t(n={exports:{}},n.exports),n.exports}var e,r,o,i=function(t){return t&&t.Math==Math&&t},c=i(\\"object\\"==typeof globalThis&&globalThis)||i(\\"object\\"==typeof window&&window)||i(\\"object\\"==typeof self&&self)||i(\\"object\\"==typeof t&&t)||Function(\\"return this\\")(),u=function(t){try{return!!t()}catch(t){return!0}},f=!u(function(){return 7!=Object.defineProperty({},\\"a\\",{get:function(){return 7}}).a}),a={}.propertyIsEnumerable,s=Object.getOwnPropertyDescriptor,l={f:s&&!a.call({1:2},1)?function(t){var n=s(this,t);return!!n&&n.enumerable}:a},p=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}},v={}.toString,h=function(t){return v.call(t).slice(8,-1)},d=\\"\\".split,y=u(function(){return!Object(\\"z\\").propertyIsEnumerable(0)})?function(t){return\\"String\\"==h(t)?d.call(t,\\"\\"):Object(t)}:Object,m=function(t){return y(function(t){if(null==t)throw TypeError(\\"Can't call method on \\"+t);return t}(t))},g=function(t){return\\"object\\"==typeof t?null!==t:\\"function\\"==typeof t},b=function(t,n){if(!g(t))return t;var e,r;if(n&&\\"function\\"==typeof(e=t.toString)&&!g(r=e.call(t)))return r;if(\\"function\\"==typeof(e=t.valueOf)&&!g(r=e.call(t)))return r;if(!n&&\\"function\\"==typeof(e=t.toString)&&!g(r=e.call(t)))return r;throw TypeError(\\"Can't convert object to primitive value\\")},w={}.hasOwnProperty,j=function(t,n){return w.call(t,n)},P=c.document,S=g(P)&&g(P.createElement),O=function(t){return S?P.createElement(t):{}},E=!f&&!u(function(){return 7!=Object.defineProperty(O(\\"div\\"),\\"a\\",{get:function(){return 7}}).a}),T=Object.getOwnPropertyDescriptor,x={f:f?T:function(t,n){if(t=m(t),n=b(n,!0),E)try{return T(t,n)}catch(t){}if(j(t,n))return p(!l.f.call(t,n),t[n])}},M=function(t){if(!g(t))throw TypeError(String(t)+\\" is not an object\\");return t},k=Object.defineProperty,_={f:f?k:function(t,n,e){if(M(t),n=b(n,!0),M(e),E)try{return k(t,n,e)}catch(t){}if(\\"get\\"in e||\\"set\\"in e)throw TypeError(\\"Accessors not supported\\");return\\"value\\"in e&&(t[n]=e.value),t}},F=f?function(t,n,e){return _.f(t,n,p(1,e))}:function(t,n,e){return t[n]=e,t},I=function(t,n){try{F(c,t,n)}catch(e){c[t]=n}return n},A=c[\\"__core-js_shared__\\"]||I(\\"__core-js_shared__\\",{}),C=n(function(t){(t.exports=function(t,n){return A[t]||(A[t]=void 0!==n?n:{})})(\\"versions\\",[]).push({version:\\"3.4.7\\",mode:\\"global\\",copyright:\\"© 2019 Denis Pushkarev (zloirock.ru)\\"})}),L=Function.toString,N=C(\\"inspectSource\\",function(t){return L.call(t)}),z=c.WeakMap,D=\\"function\\"==typeof z&&/native code/.test(N(z)),R=0,W=Math.random(),q=function(t){return\\"Symbol(\\"+String(void 0===t?\\"\\":t)+\\")_\\"+(++R+W).toString(36)},G=C(\\"keys\\"),K={};if(D){var U=new(0,c.WeakMap),B=U.get,H=U.has,V=U.set;e=function(t,n){return V.call(U,t,n),n},r=function(t){return B.call(U,t)||{}},o=function(t){return H.call(U,t)}}else{var Y=G.state||(G.state=q(\\"state\\"));K[Y]=!0,e=function(t,n){return F(t,Y,n),n},r=function(t){return j(t,Y)?t[Y]:{}},o=function(t){return j(t,Y)}}var J={set:e,get:r,has:o,enforce:function(t){return o(t)?r(t):e(t,{})},getterFor:function(t){return function(n){var e;if(!g(n)||(e=r(n)).type!==t)throw TypeError(\\"Incompatible receiver, \\"+t+\\" required\\");return e}}},Q=n(function(t){var n=J.get,e=J.enforce,r=String(String).split(\\"String\\");(t.exports=function(t,n,o,i){var u=!!i&&!!i.unsafe,f=!!i&&!!i.enumerable,a=!!i&&!!i.noTargetGet;\\"function\\"==typeof o&&(\\"string\\"!=typeof n||j(o,\\"name\\")||F(o,\\"name\\",n),e(o).source=r.join(\\"string\\"==typeof n?n:\\"\\")),t!==c?(u?!a&&t[n]&&(f=!0):delete t[n],f?t[n]=o:F(t,n,o)):f?t[n]=o:I(n,o)})(Function.prototype,\\"toString\\",function(){return\\"function\\"==typeof this&&n(this).source||N(this)})}),X=c,Z=function(t){return\\"function\\"==typeof t?t:void 0},$=function(t,n){return arguments.length<2?Z(X[t])||Z(c[t]):X[t]&&X[t][n]||c[t]&&c[t][n]},tt=Math.ceil,nt=Math.floor,et=function(t){return isNaN(t=+t)?0:(t>0?nt:tt)(t)},rt=Math.min,ot=function(t){return t>0?rt(et(t),9007199254740991):0},it=Math.max,ct=Math.min,ut=function(t){return function(n,e,r){var o,i=m(n),c=ot(i.length),u=function(t,n){var e=et(t);return e<0?it(e+n,0):ct(e,n)}(r,c);if(t&&e!=e){for(;c>u;)if((o=i[u++])!=o)return!0}else for(;c>u;u++)if((t||u in i)&&i[u]===e)return t||u||0;return!t&&-1}},ft=(ut(!0),ut(!1)),at=[\\"constructor\\",\\"hasOwnProperty\\",\\"isPrototypeOf\\",\\"propertyIsEnumerable\\",\\"toLocaleString\\",\\"toString\\",\\"valueOf\\"].concat(\\"length\\",\\"prototype\\"),st={f:Object.getOwnPropertyNames||function(t){return function(t,n){var e,r=m(t),o=0,i=[];for(e in r)!j(K,e)&&j(r,e)&&i.push(e);for(;n.length>o;)j(r,e=n[o++])&&(~ft(i,e)||i.push(e));return i}(t,at)}},lt={f:Object.getOwnPropertySymbols},pt=$(\\"Reflect\\",\\"ownKeys\\")||function(t){var n=st.f(M(t)),e=lt.f;return e?n.concat(e(t)):n},vt=function(t,n){for(var e=pt(n),r=_.f,o=x.f,i=0;i<e.length;i++){var c=e[i];j(t,c)||r(t,c,o(n,c))}},ht=/#|\\\\.prototype\\\\./,dt=function(t,n){var e=mt[yt(t)];return e==bt||e!=gt&&(\\"function\\"==typeof n?u(n):!!n)},yt=dt.normalize=function(t){return String(t).replace(ht,\\".\\").toLowerCase()},mt=dt.data={},gt=dt.NATIVE=\\"N\\",bt=dt.POLYFILL=\\"P\\",wt=dt,jt=x.f,Pt=function(t,n){var e,r,o,i,u,f=t.target,a=t.global,s=t.stat;if(e=a?c:s?c[f]||I(f,{}):(c[f]||{}).prototype)for(r in n){if(i=n[r],o=t.noTargetGet?(u=jt(e,r))&&u.value:e[r],!wt(a?r:f+(s?\\".\\":\\"#\\")+r,t.forced)&&void 0!==o){if(typeof i==typeof o)continue;vt(i,o)}(t.sham||o&&o.sham)&&F(i,\\"sham\\",!0),Q(e,r,i,t)}},St=c.Promise,Ot=!!Object.getOwnPropertySymbols&&!u(function(){return!String(Symbol())}),Et=Ot&&!Symbol.sham&&\\"symbol\\"==typeof Symbol(),Tt=C(\\"wks\\"),xt=c.Symbol,Mt=Et?xt:q,kt=function(t){return j(Tt,t)||(Tt[t]=Ot&&j(xt,t)?xt[t]:Mt(\\"Symbol.\\"+t)),Tt[t]},_t=_.f,Ft=kt(\\"toStringTag\\"),It=kt(\\"species\\"),At=function(t){if(\\"function\\"!=typeof t)throw TypeError(String(t)+\\" is not a function\\");return t},Ct={},Lt=kt(\\"iterator\\"),Nt=Array.prototype,zt=function(t,n,e){if(At(t),void 0===n)return t;switch(e){case 0:return function(){return t.call(n)};case 1:return function(e){return t.call(n,e)};case 2:return function(e,r){return t.call(n,e,r)};case 3:return function(e,r,o){return t.call(n,e,r,o)}}return function(){return t.apply(n,arguments)}},Dt={};Dt[kt(\\"toStringTag\\")]=\\"z\\";var Rt=\\"[object z]\\"===String(Dt),Wt=kt(\\"toStringTag\\"),qt=\\"Arguments\\"==h(function(){return arguments}()),Gt=Rt?h:function(t){var n,e,r;return void 0===t?\\"Undefined\\":null===t?\\"Null\\":\\"string\\"==typeof(e=function(t,n){try{return t[n]}catch(t){}}(n=Object(t),Wt))?e:qt?h(n):\\"Object\\"==(r=h(n))&&\\"function\\"==typeof n.callee?\\"Arguments\\":r},Kt=kt(\\"iterator\\"),Ut=function(t,n,e,r){try{return r?n(M(e)[0],e[1]):n(e)}catch(n){var o=t.return;throw void 0!==o&&M(o.call(t)),n}},Bt=n(function(t){var n=function(t,n){this.stopped=t,this.result=n};(t.exports=function(t,e,r,o,i){var c,u,f,a,s,l,p,v,h=zt(e,r,o?2:1);if(i)c=t;else{if(\\"function\\"!=typeof(u=function(t){if(null!=t)return t[Kt]||t[\\"@@iterator\\"]||Ct[Gt(t)]}(t)))throw TypeError(\\"Target is not iterable\\");if(void 0!==(v=u)&&(Ct.Array===v||Nt[Lt]===v)){for(f=0,a=ot(t.length);a>f;f++)if((s=o?h(M(p=t[f])[0],p[1]):h(t[f]))&&s instanceof n)return s;return new n(!1)}c=u.call(t)}for(l=c.next;!(p=l.call(c)).done;)if(\\"object\\"==typeof(s=Ut(c,h,p.value,o))&&s&&s instanceof n)return s;return new n(!1)}).stop=function(t){return new n(!0,t)}}),Ht=kt(\\"iterator\\"),Vt=!1;try{var Yt=0,Jt={next:function(){return{done:!!Yt++}},return:function(){Vt=!0}};Jt[Ht]=function(){return this},Array.from(Jt,function(){throw 2})}catch(t){}var Qt,Xt,Zt,$t=kt(\\"species\\"),tn=$(\\"document\\",\\"documentElement\\"),nn=$(\\"navigator\\",\\"userAgent\\")||\\"\\",en=/(iphone|ipod|ipad).*applewebkit/i.test(nn),rn=c.location,on=c.setImmediate,cn=c.clearImmediate,un=c.process,fn=c.MessageChannel,an=c.Dispatch,sn=0,ln={},pn=function(t){if(ln.hasOwnProperty(t)){var n=ln[t];delete ln[t],n()}},vn=function(t){return function(){pn(t)}},hn=function(t){pn(t.data)},dn=function(t){c.postMessage(t+\\"\\",rn.protocol+\\"//\\"+rn.host)};on&&cn||(on=function(t){for(var n=[],e=1;arguments.length>e;)n.push(arguments[e++]);return ln[++sn]=function(){(\\"function\\"==typeof t?t:Function(t)).apply(void 0,n)},Qt(sn),sn},cn=function(t){delete ln[t]},\\"process\\"==h(un)?Qt=function(t){un.nextTick(vn(t))}:an&&an.now?Qt=function(t){an.now(vn(t))}:fn&&!en?(Zt=(Xt=new fn).port2,Xt.port1.onmessage=hn,Qt=zt(Zt.postMessage,Zt,1)):!c.addEventListener||\\"function\\"!=typeof postMessage||c.importScripts||u(dn)?Qt=\\"onreadystatechange\\"in O(\\"script\\")?function(t){tn.appendChild(O(\\"script\\")).onreadystatechange=function(){tn.removeChild(this),pn(t)}}:function(t){setTimeout(vn(t),0)}:(Qt=dn,c.addEventListener(\\"message\\",hn,!1)));var yn,mn,gn,bn,wn,jn,Pn,Sn,On={set:on,clear:cn},En=x.f,Tn=On.set,xn=c.MutationObserver||c.WebKitMutationObserver,Mn=c.process,kn=c.Promise,_n=\\"process\\"==h(Mn),Fn=En(c,\\"queueMicrotask\\"),In=Fn&&Fn.value;In||(yn=function(){var t,n;for(_n&&(t=Mn.domain)&&t.exit();mn;){n=mn.fn,mn=mn.next;try{n()}catch(t){throw mn?bn():gn=void 0,t}}gn=void 0,t&&t.enter()},_n?bn=function(){Mn.nextTick(yn)}:xn&&!en?(wn=!0,jn=document.createTextNode(\\"\\"),new xn(yn).observe(jn,{characterData:!0}),bn=function(){jn.data=wn=!wn}):kn&&kn.resolve?(Pn=kn.resolve(void 0),Sn=Pn.then,bn=function(){Sn.call(Pn,yn)}):bn=function(){Tn.call(c,yn)});var An,Cn,Ln=In||function(t){var n={fn:t,next:void 0};gn&&(gn.next=n),mn||(mn=n,bn()),gn=n},Nn=function(t){var n,e;this.promise=new t(function(t,r){if(void 0!==n||void 0!==e)throw TypeError(\\"Bad Promise constructor\\");n=t,e=r}),this.resolve=At(n),this.reject=At(e)},zn={f:function(t){return new Nn(t)}},Dn=function(t,n){if(M(t),g(n)&&n.constructor===t)return n;var e=zn.f(t);return(0,e.resolve)(n),e.promise},Rn=function(t){try{return{error:!1,value:t()}}catch(t){return{error:!0,value:t}}},Wn=c.process,qn=Wn&&Wn.versions,Gn=qn&&qn.v8;Gn?Cn=(An=Gn.split(\\".\\"))[0]+An[1]:nn&&(!(An=nn.match(/Edge\\\\/(\\\\d+)/))||An[1]>=74)&&(An=nn.match(/Chrome\\\\/(\\\\d+)/))&&(Cn=An[1]);var Kn,Un,Bn,Hn,Vn,Yn,Jn=Cn&&+Cn,Qn=On.set,Xn=kt(\\"species\\"),Zn=J.get,$n=J.set,te=J.getterFor(\\"Promise\\"),ne=St,ee=c.TypeError,re=c.document,oe=c.process,ie=$(\\"fetch\\"),ce=zn.f,ue=ce,fe=\\"process\\"==h(oe),ae=!!(re&&re.createEvent&&c.dispatchEvent),se=wt(\\"Promise\\",function(){if(N(ne)===String(ne)){if(66===Jn)return!0;if(!fe&&\\"function\\"!=typeof PromiseRejectionEvent)return!0}if(Jn>=51&&/native code/.test(ne))return!1;var t=ne.resolve(1),n=function(t){t(function(){},function(){})};return(t.constructor={})[Xn]=n,!(t.then(function(){})instanceof n)}),le=se||!function(t,n){if(!Vt)return!1;var e=!1;try{var r={};r[Ht]=function(){return{next:function(){return{done:e=!0}}}},ne.all(r).catch(function(){})}catch(t){}return e}(),pe=function(t){var n;return!(!g(t)||\\"function\\"!=typeof(n=t.then))&&n},ve=function(t,n,e){if(!n.notified){n.notified=!0;var r=n.reactions;Ln(function(){for(var o=n.value,i=1==n.state,c=0;r.length>c;){var u,f,a,s=r[c++],l=i?s.ok:s.fail,p=s.resolve,v=s.reject,h=s.domain;try{l?(i||(2===n.rejection&&me(t,n),n.rejection=1),!0===l?u=o:(h&&h.enter(),u=l(o),h&&(h.exit(),a=!0)),u===s.promise?v(ee(\\"Promise-chain cycle\\")):(f=pe(u))?f.call(u,p,v):p(u)):v(o)}catch(t){h&&!a&&h.exit(),v(t)}}n.reactions=[],n.notified=!1,e&&!n.rejection&&de(t,n)})}},he=function(t,n,e){var r,o;ae?((r=re.createEvent(\\"Event\\")).promise=n,r.reason=e,r.initEvent(t,!1,!0),c.dispatchEvent(r)):r={promise:n,reason:e},(o=c[\\"on\\"+t])?o(r):\\"unhandledrejection\\"===t&&function(t,n){var e=c.console;e&&e.error&&(1===arguments.length?e.error(t):e.error(t,n))}(\\"Unhandled promise rejection\\",e)},de=function(t,n){Qn.call(c,function(){var e,r=n.value;if(ye(n)&&(e=Rn(function(){fe?oe.emit(\\"unhandledRejection\\",r,t):he(\\"unhandledrejection\\",t,r)}),n.rejection=fe||ye(n)?2:1,e.error))throw e.value})},ye=function(t){return 1!==t.rejection&&!t.parent},me=function(t,n){Qn.call(c,function(){fe?oe.emit(\\"rejectionHandled\\",t):he(\\"rejectionhandled\\",t,n.value)})},ge=function(t,n,e,r){return function(o){t(n,e,o,r)}},be=function(t,n,e,r){n.done||(n.done=!0,r&&(n=r),n.value=e,n.state=2,ve(t,n,!0))},we=function t(n,e,r,o){if(!e.done){e.done=!0,o&&(e=o);try{if(n===r)throw ee(\\"Promise can't be resolved itself\\");var i=pe(r);i?Ln(function(){var o={done:!1};try{i.call(r,ge(t,n,o,e),ge(be,n,o,e))}catch(t){be(n,o,t,e)}}):(e.value=r,e.state=1,ve(n,e,!1))}catch(t){be(n,{done:!1},t,e)}}};se&&(ne=function(t){!function(t,n,e){if(!(t instanceof ne))throw TypeError(\\"Incorrect Promise invocation\\")}(this),At(t),Kn.call(this);var n=Zn(this);try{t(ge(we,this,n),ge(be,this,n))}catch(t){be(this,n,t)}},(Kn=function(t){$n(this,{type:\\"Promise\\",done:!1,notified:!1,parent:!1,reactions:[],rejection:!1,state:0,value:void 0})}).prototype=function(t,n,e){for(var r in n)Q(t,r,n[r],void 0);return t}(ne.prototype,{then:function(t,n){var e,r,o,i=te(this),c=ce((e=ne,void 0===(o=M(this).constructor)||null==(r=M(o)[$t])?e:At(r)));return c.ok=\\"function\\"!=typeof t||t,c.fail=\\"function\\"==typeof n&&n,c.domain=fe?oe.domain:void 0,i.parent=!0,i.reactions.push(c),0!=i.state&&ve(this,i,!1),c.promise},catch:function(t){return this.then(void 0,t)}}),Un=function(){var t=new Kn,n=Zn(t);this.promise=t,this.resolve=ge(we,t,n),this.reject=ge(be,t,n)},zn.f=ce=function(t){return t===ne||t===Bn?new Un(t):ue(t)},\\"function\\"==typeof St&&(Hn=St.prototype.then,Q(St.prototype,\\"then\\",function(t,n){var e=this;return new ne(function(t,n){Hn.call(e,t,n)}).then(t,n)},{unsafe:!0}),\\"function\\"==typeof ie&&Pt({global:!0,enumerable:!0,forced:!0},{fetch:function(t){return Dn(ne,ie.apply(c,arguments))}}))),Pt({global:!0,wrap:!0,forced:se},{Promise:ne}),(Vn=ne)&&!j(Vn=Vn.prototype,Ft)&&_t(Vn,Ft,{configurable:!0,value:\\"Promise\\"}),Yn=$(\\"Promise\\"),f&&Yn&&!Yn[It]&&(0,_.f)(Yn,It,{configurable:!0,get:function(){return this}}),Bn=$(\\"Promise\\"),Pt({target:\\"Promise\\",stat:!0,forced:se},{reject:function(t){var n=ce(this);return n.reject.call(void 0,t),n.promise}}),Pt({target:\\"Promise\\",stat:!0,forced:se},{resolve:function(t){return Dn(this,t)}}),Pt({target:\\"Promise\\",stat:!0,forced:le},{all:function(t){var n=this,e=ce(n),r=e.resolve,o=e.reject,i=Rn(function(){var e=At(n.resolve),i=[],c=0,u=1;Bt(t,function(t){var f=c++,a=!1;i.push(void 0),u++,e.call(n,t).then(function(t){a||(a=!0,i[f]=t,--u||r(i))},o)}),--u||r(i)});return i.error&&o(i.value),e.promise},race:function(t){var n=this,e=ce(n),r=e.reject,o=Rn(function(){var o=At(n.resolve);Bt(t,function(t){o.call(n,t).then(e.resolve,r)})});return o.error&&r(o.value),e.promise}}),exports.MyClass=class{constructor(){!function(t,n,e){n in t?Object.defineProperty(t,n,{value:e,enumerable:!0,configurable:!0,writable:!0}):t[n]=e}(this,\\"myFields\\",[\\"foo\\",\\"bar\\"])}foo(){try{return Promise.resolve(this.myFields.find(t=>\\"bar\\"===t))}catch(t){return Promise.reject(t)}}};
+//# sourceMappingURL=custom-babelrc.js.map
 "
 `;
 
 exports[`fixtures build custom-babelrc with microbundle 5`] = `
-"!function(e,s){\\"object\\"==typeof exports&&\\"undefined\\"!=typeof module?s(exports,require(\\"core-js/modules/es.promise\\")):\\"function\\"==typeof define&&define.amd?define([\\"exports\\",\\"core-js/modules/es.promise\\"],s):s((e=e||self).customBabelrc={})}(this,function(e){e.MyClass=class{constructor(){var e;e=[\\"foo\\",\\"bar\\"],\\"myFields\\"in this?Object.defineProperty(this,\\"myFields\\",{value:e,enumerable:!0,configurable:!0,writable:!0}):this.myFields=e}foo(){try{return this.myFields.find(e=>\\"bar\\"===e)}catch(e){return Promise.reject(e)}}}});
+"!function(t,e){\\"object\\"==typeof exports&&\\"undefined\\"!=typeof module?e(exports):\\"function\\"==typeof define&&define.amd?define([\\"exports\\"],e):e((t=t||self).customBabelrc={})}(this,function(t){var e=\\"undefined\\"!=typeof globalThis?globalThis:\\"undefined\\"!=typeof window?window:\\"undefined\\"!=typeof global?global:\\"undefined\\"!=typeof self?self:{};function n(t,e){return t(e={exports:{}},e.exports),e.exports}var r,o,i,c=function(t){return t&&t.Math==Math&&t},u=c(\\"object\\"==typeof globalThis&&globalThis)||c(\\"object\\"==typeof window&&window)||c(\\"object\\"==typeof self&&self)||c(\\"object\\"==typeof e&&e)||Function(\\"return this\\")(),f=function(t){try{return!!t()}catch(t){return!0}},a=!f(function(){return 7!=Object.defineProperty({},\\"a\\",{get:function(){return 7}}).a}),s={}.propertyIsEnumerable,l=Object.getOwnPropertyDescriptor,p={f:l&&!s.call({1:2},1)?function(t){var e=l(this,t);return!!e&&e.enumerable}:s},v=function(t,e){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:e}},h={}.toString,d=function(t){return h.call(t).slice(8,-1)},y=\\"\\".split,m=f(function(){return!Object(\\"z\\").propertyIsEnumerable(0)})?function(t){return\\"String\\"==d(t)?y.call(t,\\"\\"):Object(t)}:Object,g=function(t){return m(function(t){if(null==t)throw TypeError(\\"Can't call method on \\"+t);return t}(t))},b=function(t){return\\"object\\"==typeof t?null!==t:\\"function\\"==typeof t},w=function(t,e){if(!b(t))return t;var n,r;if(e&&\\"function\\"==typeof(n=t.toString)&&!b(r=n.call(t)))return r;if(\\"function\\"==typeof(n=t.valueOf)&&!b(r=n.call(t)))return r;if(!e&&\\"function\\"==typeof(n=t.toString)&&!b(r=n.call(t)))return r;throw TypeError(\\"Can't convert object to primitive value\\")},j={}.hasOwnProperty,P=function(t,e){return j.call(t,e)},S=u.document,O=b(S)&&b(S.createElement),E=function(t){return O?S.createElement(t):{}},T=!a&&!f(function(){return 7!=Object.defineProperty(E(\\"div\\"),\\"a\\",{get:function(){return 7}}).a}),x=Object.getOwnPropertyDescriptor,M={f:a?x:function(t,e){if(t=g(t),e=w(e,!0),T)try{return x(t,e)}catch(t){}if(P(t,e))return v(!p.f.call(t,e),t[e])}},k=function(t){if(!b(t))throw TypeError(String(t)+\\" is not an object\\");return t},_=Object.defineProperty,F={f:a?_:function(t,e,n){if(k(t),e=w(e,!0),k(n),T)try{return _(t,e,n)}catch(t){}if(\\"get\\"in n||\\"set\\"in n)throw TypeError(\\"Accessors not supported\\");return\\"value\\"in n&&(t[e]=n.value),t}},I=a?function(t,e,n){return F.f(t,e,v(1,n))}:function(t,e,n){return t[e]=n,t},A=function(t,e){try{I(u,t,e)}catch(n){u[t]=e}return e},C=u[\\"__core-js_shared__\\"]||A(\\"__core-js_shared__\\",{}),L=n(function(t){(t.exports=function(t,e){return C[t]||(C[t]=void 0!==e?e:{})})(\\"versions\\",[]).push({version:\\"3.4.7\\",mode:\\"global\\",copyright:\\"© 2019 Denis Pushkarev (zloirock.ru)\\"})}),N=Function.toString,z=L(\\"inspectSource\\",function(t){return N.call(t)}),D=u.WeakMap,R=\\"function\\"==typeof D&&/native code/.test(z(D)),W=0,q=Math.random(),B=function(t){return\\"Symbol(\\"+String(void 0===t?\\"\\":t)+\\")_\\"+(++W+q).toString(36)},G=L(\\"keys\\"),K={};if(R){var U=new(0,u.WeakMap),H=U.get,V=U.has,Y=U.set;r=function(t,e){return Y.call(U,t,e),e},o=function(t){return H.call(U,t)||{}},i=function(t){return V.call(U,t)}}else{var J=G.state||(G.state=B(\\"state\\"));K[J]=!0,r=function(t,e){return I(t,J,e),e},o=function(t){return P(t,J)?t[J]:{}},i=function(t){return P(t,J)}}var Q={set:r,get:o,has:i,enforce:function(t){return i(t)?o(t):r(t,{})},getterFor:function(t){return function(e){var n;if(!b(e)||(n=o(e)).type!==t)throw TypeError(\\"Incompatible receiver, \\"+t+\\" required\\");return n}}},X=n(function(t){var e=Q.get,n=Q.enforce,r=String(String).split(\\"String\\");(t.exports=function(t,e,o,i){var c=!!i&&!!i.unsafe,f=!!i&&!!i.enumerable,a=!!i&&!!i.noTargetGet;\\"function\\"==typeof o&&(\\"string\\"!=typeof e||P(o,\\"name\\")||I(o,\\"name\\",e),n(o).source=r.join(\\"string\\"==typeof e?e:\\"\\")),t!==u?(c?!a&&t[e]&&(f=!0):delete t[e],f?t[e]=o:I(t,e,o)):f?t[e]=o:A(e,o)})(Function.prototype,\\"toString\\",function(){return\\"function\\"==typeof this&&e(this).source||z(this)})}),Z=u,$=function(t){return\\"function\\"==typeof t?t:void 0},tt=function(t,e){return arguments.length<2?$(Z[t])||$(u[t]):Z[t]&&Z[t][e]||u[t]&&u[t][e]},et=Math.ceil,nt=Math.floor,rt=function(t){return isNaN(t=+t)?0:(t>0?nt:et)(t)},ot=Math.min,it=function(t){return t>0?ot(rt(t),9007199254740991):0},ct=Math.max,ut=Math.min,ft=function(t){return function(e,n,r){var o,i=g(e),c=it(i.length),u=function(t,e){var n=rt(t);return n<0?ct(n+e,0):ut(n,e)}(r,c);if(t&&n!=n){for(;c>u;)if((o=i[u++])!=o)return!0}else for(;c>u;u++)if((t||u in i)&&i[u]===n)return t||u||0;return!t&&-1}},at=(ft(!0),ft(!1)),st=[\\"constructor\\",\\"hasOwnProperty\\",\\"isPrototypeOf\\",\\"propertyIsEnumerable\\",\\"toLocaleString\\",\\"toString\\",\\"valueOf\\"].concat(\\"length\\",\\"prototype\\"),lt={f:Object.getOwnPropertyNames||function(t){return function(t,e){var n,r=g(t),o=0,i=[];for(n in r)!P(K,n)&&P(r,n)&&i.push(n);for(;e.length>o;)P(r,n=e[o++])&&(~at(i,n)||i.push(n));return i}(t,st)}},pt={f:Object.getOwnPropertySymbols},vt=tt(\\"Reflect\\",\\"ownKeys\\")||function(t){var e=lt.f(k(t)),n=pt.f;return n?e.concat(n(t)):e},ht=function(t,e){for(var n=vt(e),r=F.f,o=M.f,i=0;i<n.length;i++){var c=n[i];P(t,c)||r(t,c,o(e,c))}},dt=/#|\\\\.prototype\\\\./,yt=function(t,e){var n=gt[mt(t)];return n==wt||n!=bt&&(\\"function\\"==typeof e?f(e):!!e)},mt=yt.normalize=function(t){return String(t).replace(dt,\\".\\").toLowerCase()},gt=yt.data={},bt=yt.NATIVE=\\"N\\",wt=yt.POLYFILL=\\"P\\",jt=yt,Pt=M.f,St=function(t,e){var n,r,o,i,c,f=t.target,a=t.global,s=t.stat;if(n=a?u:s?u[f]||A(f,{}):(u[f]||{}).prototype)for(r in e){if(i=e[r],o=t.noTargetGet?(c=Pt(n,r))&&c.value:n[r],!jt(a?r:f+(s?\\".\\":\\"#\\")+r,t.forced)&&void 0!==o){if(typeof i==typeof o)continue;ht(i,o)}(t.sham||o&&o.sham)&&I(i,\\"sham\\",!0),X(n,r,i,t)}},Ot=u.Promise,Et=!!Object.getOwnPropertySymbols&&!f(function(){return!String(Symbol())}),Tt=Et&&!Symbol.sham&&\\"symbol\\"==typeof Symbol(),xt=L(\\"wks\\"),Mt=u.Symbol,kt=Tt?Mt:B,_t=function(t){return P(xt,t)||(xt[t]=Et&&P(Mt,t)?Mt[t]:kt(\\"Symbol.\\"+t)),xt[t]},Ft=F.f,It=_t(\\"toStringTag\\"),At=_t(\\"species\\"),Ct=function(t){if(\\"function\\"!=typeof t)throw TypeError(String(t)+\\" is not a function\\");return t},Lt={},Nt=_t(\\"iterator\\"),zt=Array.prototype,Dt=function(t,e,n){if(Ct(t),void 0===e)return t;switch(n){case 0:return function(){return t.call(e)};case 1:return function(n){return t.call(e,n)};case 2:return function(n,r){return t.call(e,n,r)};case 3:return function(n,r,o){return t.call(e,n,r,o)}}return function(){return t.apply(e,arguments)}},Rt={};Rt[_t(\\"toStringTag\\")]=\\"z\\";var Wt=\\"[object z]\\"===String(Rt),qt=_t(\\"toStringTag\\"),Bt=\\"Arguments\\"==d(function(){return arguments}()),Gt=Wt?d:function(t){var e,n,r;return void 0===t?\\"Undefined\\":null===t?\\"Null\\":\\"string\\"==typeof(n=function(t,e){try{return t[e]}catch(t){}}(e=Object(t),qt))?n:Bt?d(e):\\"Object\\"==(r=d(e))&&\\"function\\"==typeof e.callee?\\"Arguments\\":r},Kt=_t(\\"iterator\\"),Ut=function(t,e,n,r){try{return r?e(k(n)[0],n[1]):e(n)}catch(e){var o=t.return;throw void 0!==o&&k(o.call(t)),e}},Ht=n(function(t){var e=function(t,e){this.stopped=t,this.result=e};(t.exports=function(t,n,r,o,i){var c,u,f,a,s,l,p,v,h=Dt(n,r,o?2:1);if(i)c=t;else{if(\\"function\\"!=typeof(u=function(t){if(null!=t)return t[Kt]||t[\\"@@iterator\\"]||Lt[Gt(t)]}(t)))throw TypeError(\\"Target is not iterable\\");if(void 0!==(v=u)&&(Lt.Array===v||zt[Nt]===v)){for(f=0,a=it(t.length);a>f;f++)if((s=o?h(k(p=t[f])[0],p[1]):h(t[f]))&&s instanceof e)return s;return new e(!1)}c=u.call(t)}for(l=c.next;!(p=l.call(c)).done;)if(\\"object\\"==typeof(s=Ut(c,h,p.value,o))&&s&&s instanceof e)return s;return new e(!1)}).stop=function(t){return new e(!0,t)}}),Vt=_t(\\"iterator\\"),Yt=!1;try{var Jt=0,Qt={next:function(){return{done:!!Jt++}},return:function(){Yt=!0}};Qt[Vt]=function(){return this},Array.from(Qt,function(){throw 2})}catch(t){}var Xt,Zt,$t,te=_t(\\"species\\"),ee=tt(\\"document\\",\\"documentElement\\"),ne=tt(\\"navigator\\",\\"userAgent\\")||\\"\\",re=/(iphone|ipod|ipad).*applewebkit/i.test(ne),oe=u.location,ie=u.setImmediate,ce=u.clearImmediate,ue=u.process,fe=u.MessageChannel,ae=u.Dispatch,se=0,le={},pe=function(t){if(le.hasOwnProperty(t)){var e=le[t];delete le[t],e()}},ve=function(t){return function(){pe(t)}},he=function(t){pe(t.data)},de=function(t){u.postMessage(t+\\"\\",oe.protocol+\\"//\\"+oe.host)};ie&&ce||(ie=function(t){for(var e=[],n=1;arguments.length>n;)e.push(arguments[n++]);return le[++se]=function(){(\\"function\\"==typeof t?t:Function(t)).apply(void 0,e)},Xt(se),se},ce=function(t){delete le[t]},\\"process\\"==d(ue)?Xt=function(t){ue.nextTick(ve(t))}:ae&&ae.now?Xt=function(t){ae.now(ve(t))}:fe&&!re?($t=(Zt=new fe).port2,Zt.port1.onmessage=he,Xt=Dt($t.postMessage,$t,1)):!u.addEventListener||\\"function\\"!=typeof postMessage||u.importScripts||f(de)?Xt=\\"onreadystatechange\\"in E(\\"script\\")?function(t){ee.appendChild(E(\\"script\\")).onreadystatechange=function(){ee.removeChild(this),pe(t)}}:function(t){setTimeout(ve(t),0)}:(Xt=de,u.addEventListener(\\"message\\",he,!1)));var ye,me,ge,be,we,je,Pe,Se,Oe={set:ie,clear:ce},Ee=M.f,Te=Oe.set,xe=u.MutationObserver||u.WebKitMutationObserver,Me=u.process,ke=u.Promise,_e=\\"process\\"==d(Me),Fe=Ee(u,\\"queueMicrotask\\"),Ie=Fe&&Fe.value;Ie||(ye=function(){var t,e;for(_e&&(t=Me.domain)&&t.exit();me;){e=me.fn,me=me.next;try{e()}catch(t){throw me?be():ge=void 0,t}}ge=void 0,t&&t.enter()},_e?be=function(){Me.nextTick(ye)}:xe&&!re?(we=!0,je=document.createTextNode(\\"\\"),new xe(ye).observe(je,{characterData:!0}),be=function(){je.data=we=!we}):ke&&ke.resolve?(Pe=ke.resolve(void 0),Se=Pe.then,be=function(){Se.call(Pe,ye)}):be=function(){Te.call(u,ye)});var Ae,Ce,Le=Ie||function(t){var e={fn:t,next:void 0};ge&&(ge.next=e),me||(me=e,be()),ge=e},Ne=function(t){var e,n;this.promise=new t(function(t,r){if(void 0!==e||void 0!==n)throw TypeError(\\"Bad Promise constructor\\");e=t,n=r}),this.resolve=Ct(e),this.reject=Ct(n)},ze={f:function(t){return new Ne(t)}},De=function(t,e){if(k(t),b(e)&&e.constructor===t)return e;var n=ze.f(t);return(0,n.resolve)(e),n.promise},Re=function(t){try{return{error:!1,value:t()}}catch(t){return{error:!0,value:t}}},We=u.process,qe=We&&We.versions,Be=qe&&qe.v8;Be?Ce=(Ae=Be.split(\\".\\"))[0]+Ae[1]:ne&&(!(Ae=ne.match(/Edge\\\\/(\\\\d+)/))||Ae[1]>=74)&&(Ae=ne.match(/Chrome\\\\/(\\\\d+)/))&&(Ce=Ae[1]);var Ge,Ke,Ue,He,Ve,Ye,Je=Ce&&+Ce,Qe=Oe.set,Xe=_t(\\"species\\"),Ze=Q.get,$e=Q.set,tn=Q.getterFor(\\"Promise\\"),en=Ot,nn=u.TypeError,rn=u.document,on=u.process,cn=tt(\\"fetch\\"),un=ze.f,fn=un,an=\\"process\\"==d(on),sn=!!(rn&&rn.createEvent&&u.dispatchEvent),ln=jt(\\"Promise\\",function(){if(z(en)===String(en)){if(66===Je)return!0;if(!an&&\\"function\\"!=typeof PromiseRejectionEvent)return!0}if(Je>=51&&/native code/.test(en))return!1;var t=en.resolve(1),e=function(t){t(function(){},function(){})};return(t.constructor={})[Xe]=e,!(t.then(function(){})instanceof e)}),pn=ln||!function(t,e){if(!Yt)return!1;var n=!1;try{var r={};r[Vt]=function(){return{next:function(){return{done:n=!0}}}},en.all(r).catch(function(){})}catch(t){}return n}(),vn=function(t){var e;return!(!b(t)||\\"function\\"!=typeof(e=t.then))&&e},hn=function(t,e,n){if(!e.notified){e.notified=!0;var r=e.reactions;Le(function(){for(var o=e.value,i=1==e.state,c=0;r.length>c;){var u,f,a,s=r[c++],l=i?s.ok:s.fail,p=s.resolve,v=s.reject,h=s.domain;try{l?(i||(2===e.rejection&&gn(t,e),e.rejection=1),!0===l?u=o:(h&&h.enter(),u=l(o),h&&(h.exit(),a=!0)),u===s.promise?v(nn(\\"Promise-chain cycle\\")):(f=vn(u))?f.call(u,p,v):p(u)):v(o)}catch(t){h&&!a&&h.exit(),v(t)}}e.reactions=[],e.notified=!1,n&&!e.rejection&&yn(t,e)})}},dn=function(t,e,n){var r,o;sn?((r=rn.createEvent(\\"Event\\")).promise=e,r.reason=n,r.initEvent(t,!1,!0),u.dispatchEvent(r)):r={promise:e,reason:n},(o=u[\\"on\\"+t])?o(r):\\"unhandledrejection\\"===t&&function(t,e){var n=u.console;n&&n.error&&(1===arguments.length?n.error(t):n.error(t,e))}(\\"Unhandled promise rejection\\",n)},yn=function(t,e){Qe.call(u,function(){var n,r=e.value;if(mn(e)&&(n=Re(function(){an?on.emit(\\"unhandledRejection\\",r,t):dn(\\"unhandledrejection\\",t,r)}),e.rejection=an||mn(e)?2:1,n.error))throw n.value})},mn=function(t){return 1!==t.rejection&&!t.parent},gn=function(t,e){Qe.call(u,function(){an?on.emit(\\"rejectionHandled\\",t):dn(\\"rejectionhandled\\",t,e.value)})},bn=function(t,e,n,r){return function(o){t(e,n,o,r)}},wn=function(t,e,n,r){e.done||(e.done=!0,r&&(e=r),e.value=n,e.state=2,hn(t,e,!0))},jn=function t(e,n,r,o){if(!n.done){n.done=!0,o&&(n=o);try{if(e===r)throw nn(\\"Promise can't be resolved itself\\");var i=vn(r);i?Le(function(){var o={done:!1};try{i.call(r,bn(t,e,o,n),bn(wn,e,o,n))}catch(t){wn(e,o,t,n)}}):(n.value=r,n.state=1,hn(e,n,!1))}catch(t){wn(e,{done:!1},t,n)}}};ln&&(en=function(t){!function(t,e,n){if(!(t instanceof e))throw TypeError(\\"Incorrect Promise invocation\\")}(this,en),Ct(t),Ge.call(this);var e=Ze(this);try{t(bn(jn,this,e),bn(wn,this,e))}catch(t){wn(this,e,t)}},(Ge=function(t){$e(this,{type:\\"Promise\\",done:!1,notified:!1,parent:!1,reactions:[],rejection:!1,state:0,value:void 0})}).prototype=function(t,e,n){for(var r in e)X(t,r,e[r],void 0);return t}(en.prototype,{then:function(t,e){var n,r,o,i=tn(this),c=un((n=en,void 0===(o=k(this).constructor)||null==(r=k(o)[te])?n:Ct(r)));return c.ok=\\"function\\"!=typeof t||t,c.fail=\\"function\\"==typeof e&&e,c.domain=an?on.domain:void 0,i.parent=!0,i.reactions.push(c),0!=i.state&&hn(this,i,!1),c.promise},catch:function(t){return this.then(void 0,t)}}),Ke=function(){var t=new Ge,e=Ze(t);this.promise=t,this.resolve=bn(jn,t,e),this.reject=bn(wn,t,e)},ze.f=un=function(t){return t===en||t===Ue?new Ke(t):fn(t)},\\"function\\"==typeof Ot&&(He=Ot.prototype.then,X(Ot.prototype,\\"then\\",function(t,e){var n=this;return new en(function(t,e){He.call(n,t,e)}).then(t,e)},{unsafe:!0}),\\"function\\"==typeof cn&&St({global:!0,enumerable:!0,forced:!0},{fetch:function(t){return De(en,cn.apply(u,arguments))}}))),St({global:!0,wrap:!0,forced:ln},{Promise:en}),(Ve=en)&&!P(Ve=Ve.prototype,It)&&Ft(Ve,It,{configurable:!0,value:\\"Promise\\"}),Ye=tt(\\"Promise\\"),a&&Ye&&!Ye[At]&&(0,F.f)(Ye,At,{configurable:!0,get:function(){return this}}),Ue=tt(\\"Promise\\"),St({target:\\"Promise\\",stat:!0,forced:ln},{reject:function(t){var e=un(this);return e.reject.call(void 0,t),e.promise}}),St({target:\\"Promise\\",stat:!0,forced:ln},{resolve:function(t){return De(this,t)}}),St({target:\\"Promise\\",stat:!0,forced:pn},{all:function(t){var e=this,n=un(e),r=n.resolve,o=n.reject,i=Re(function(){var n=Ct(e.resolve),i=[],c=0,u=1;Ht(t,function(t){var f=c++,a=!1;i.push(void 0),u++,n.call(e,t).then(function(t){a||(a=!0,i[f]=t,--u||r(i))},o)}),--u||r(i)});return i.error&&o(i.value),n.promise},race:function(t){var e=this,n=un(e),r=n.reject,o=Re(function(){var o=Ct(e.resolve);Ht(t,function(t){o.call(e,t).then(n.resolve,r)})});return o.error&&r(o.value),n.promise}}),t.MyClass=class{constructor(){!function(t,e,n){e in t?Object.defineProperty(t,e,{value:n,enumerable:!0,configurable:!0,writable:!0}):t[e]=n}(this,\\"myFields\\",[\\"foo\\",\\"bar\\"])}foo(){try{return Promise.resolve(this.myFields.find(t=>\\"bar\\"===t))}catch(t){return Promise.reject(t)}}}});
 //# sourceMappingURL=custom-babelrc.umd.js.map
 "
 `;
@@ -1094,10 +1142,10 @@ Directory tree:
 
 custom-source
   dist
+    custom-source.esm.js
+    custom-source.esm.js.map
     custom-source.js
     custom-source.js.map
-    custom-source.mjs
-    custom-source.mjs.map
     custom-source.umd.js
     custom-source.umd.js.map
   package.json
@@ -1109,8 +1157,8 @@ custom-source
 Build \\"customSource\\" to dist:
 229 B: custom-source.js.gz
 174 B: custom-source.js.br
-230 B: custom-source.mjs.gz
-177 B: custom-source.mjs.br
+230 B: custom-source.esm.js.gz
+177 B: custom-source.esm.js.br
 316 B: custom-source.umd.js.gz
 247 B: custom-source.umd.js.br"
 `;
@@ -1118,14 +1166,14 @@ Build \\"customSource\\" to dist:
 exports[`fixtures build custom-source with microbundle 2`] = `6`;
 
 exports[`fixtures build custom-source with microbundle 3`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
-//# sourceMappingURL=custom-source.js.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
+//# sourceMappingURL=custom-source.esm.js.map
 "
 `;
 
 exports[`fixtures build custom-source with microbundle 4`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
-//# sourceMappingURL=custom-source.mjs.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
+//# sourceMappingURL=custom-source.js.map
 "
 `;
 
@@ -1142,10 +1190,10 @@ Directory tree:
 
 custom-source
   dist
+    custom-src.esm.js
+    custom-src.esm.js.map
     custom-src.js
     custom-src.js.map
-    custom-src.mjs
-    custom-src.mjs.map
     custom-src.umd.js
     custom-src.umd.js.map
   package.json
@@ -1157,8 +1205,8 @@ custom-source
 Build \\"customSrc\\" to dist:
 229 B: custom-src.js.gz
 174 B: custom-src.js.br
-230 B: custom-src.mjs.gz
-177 B: custom-src.mjs.br
+230 B: custom-src.esm.js.gz
+177 B: custom-src.esm.js.br
 314 B: custom-src.umd.js.gz
 247 B: custom-src.umd.js.br"
 `;
@@ -1166,14 +1214,14 @@ Build \\"customSrc\\" to dist:
 exports[`fixtures build custom-source-with-cwd with microbundle 2`] = `6`;
 
 exports[`fixtures build custom-source-with-cwd with microbundle 3`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
-//# sourceMappingURL=custom-src.js.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
+//# sourceMappingURL=custom-src.esm.js.map
 "
 `;
 
 exports[`fixtures build custom-source-with-cwd with microbundle 4`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
-//# sourceMappingURL=custom-src.mjs.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
+//# sourceMappingURL=custom-src.js.map
 "
 `;
 
@@ -1190,10 +1238,10 @@ Directory tree:
 
 default-named
   dist
+    default-named.esm.js
+    default-named.esm.js.map
     default-named.js
     default-named.js.map
-    default-named.mjs
-    default-named.mjs.map
     default-named.umd.js
     default-named.umd.js.map
   package.json
@@ -1204,8 +1252,8 @@ default-named
 Build \\"defaultNamed\\" to dist:
 60 B: default-named.js.gz
 46 B: default-named.js.br
-70 B: default-named.mjs.gz
-58 B: default-named.mjs.br
+70 B: default-named.esm.js.gz
+58 B: default-named.esm.js.br
 170 B: default-named.umd.js.gz
 124 B: default-named.umd.js.br"
 `;
@@ -1213,14 +1261,14 @@ Build \\"defaultNamed\\" to dist:
 exports[`fixtures build default-named with microbundle 2`] = `6`;
 
 exports[`fixtures build default-named with microbundle 3`] = `
-"exports.default=function(){},exports.foo=42;
-//# sourceMappingURL=default-named.js.map
+"var t=42;export default function(){}export{t as foo};
+//# sourceMappingURL=default-named.esm.js.map
 "
 `;
 
 exports[`fixtures build default-named with microbundle 4`] = `
-"var t=42;export default function(){}export{t as foo};
-//# sourceMappingURL=default-named.mjs.map
+"exports.default=function(){},exports.foo=42;
+//# sourceMappingURL=default-named.js.map
 "
 `;
 
@@ -1237,8 +1285,8 @@ Directory tree:
 
 define
   dist
+    define.esm.js
     define.js
-    define.mjs
     define.umd.js
   index.js
   package.json
@@ -1247,8 +1295,8 @@ define
 Build \\"define\\" to dist:
 55 B: define.js.gz
 37 B: define.js.br
-55 B: define.mjs.gz
-37 B: define.mjs.br
+55 B: define.esm.js.gz
+37 B: define.esm.js.br
 108 B: define.umd.js.gz
 78 B: define.umd.js.br"
 `;
@@ -1277,10 +1325,10 @@ Directory tree:
 
 esnext-ts
   dist
+    esnext-ts.esm.js
+    esnext-ts.esm.js.map
     esnext-ts.js
     esnext-ts.js.map
-    esnext-ts.mjs
-    esnext-ts.mjs.map
     esnext-ts.umd.js
     esnext-ts.umd.js.map
     index.d.ts
@@ -1292,30 +1340,30 @@ esnext-ts
 
 
 Build \\"esnextTs\\" to dist:
-1022 B: esnext-ts.js.gz
-926 B: esnext-ts.js.br
-1022 B: esnext-ts.mjs.gz
-925 B: esnext-ts.mjs.br
-1081 B: esnext-ts.umd.js.gz
+1020 B: esnext-ts.js.gz
+925 B: esnext-ts.js.br
+1020 B: esnext-ts.esm.js.gz
+924 B: esnext-ts.esm.js.br
+1080 B: esnext-ts.umd.js.gz
 982 B: esnext-ts.umd.js.br"
 `;
 
 exports[`fixtures build esnext-ts with microbundle 2`] = `7`;
 
 exports[`fixtures build esnext-ts with microbundle 3`] = `
-"var n=function(){function n(){}return n.prototype.then=function(r,e){var o=new n,i=this.s;if(i){var u=1&i?r:e;if(u){try{t(o,1,u(this.v))}catch(n){t(o,2,n)}return o}return this}return this.o=function(n){try{var i=n.v;1&n.s?t(o,1,r?r(i):i):e?t(o,1,e(i)):t(o,2,i)}catch(n){t(o,2,n)}},o},n}();function t(r,e,o){if(!r.s){if(o instanceof n){if(!o.s)return void(o.o=t.bind(null,r,e));1&e&&(e=o.s),o=o.v}if(o&&o.then)return void o.then(t.bind(null,r,e),t.bind(null,r,2));r.s=e,r.v=o;var i=r.o;i&&i(r)}}function r(t){return t instanceof n&&1&t.s}function e(n,t){try{var r=n()}catch(n){return t(!0,n)}return r&&r.then?r.then(t.bind(null,!1),t.bind(null,!0)):t(!1,value)}\\"undefined\\"!=typeof Symbol&&(Symbol.iterator||(Symbol.iterator=Symbol(\\"Symbol.iterator\\"))),\\"undefined\\"!=typeof Symbol&&(Symbol.asyncIterator||(Symbol.asyncIterator=Symbol(\\"Symbol.asyncIterator\\")));var o=function(){try{var o,i,u,f,h=!1,c=[],a=!0,l=!1,v=e(function(){return function(e,f){try{var h=function(){o=function(n){var t;if(\\"undefined\\"!=typeof Symbol){if(Symbol.asyncIterator&&null!=(t=n[Symbol.asyncIterator]))return t.call(n);if(Symbol.iterator&&null!=(t=n[Symbol.iterator]))return t.call(n)}throw new TypeError(\\"Object is not async iterable\\")}([1,2]);var e=function(e,o,i){for(var u;;){var f=e();if(r(f)&&(f=f.v),!f)return h;if(f.then){u=0;break}var h=i();if(h&&h.then){if(!r(h)){u=1;break}h=h.s}if(o){var c=o();if(c&&c.then&&!r(c)){u=2;break}}}var a=new n,l=t.bind(null,a,2);return(0===u?f.then(s):1===u?h.then(v):c.then(y)).then(void 0,l),a;function v(n){h=n;do{if(o&&(c=o())&&c.then&&!r(c))return void c.then(y).then(void 0,l);if(!(f=e())||r(f)&&!f.v)return void t(a,1,h);if(f.then)return void f.then(s).then(void 0,l);r(h=i())&&(h=h.v)}while(!h||!h.then);h.then(v).then(void 0,l)}function s(n){n?(h=i())&&h.then?h.then(v).then(void 0,l):v(h):t(a,1,h)}function y(){(f=e())?f.then?f.then(s).then(void 0,l):s(f):t(a,1,h)}}(function(){return!!Promise.resolve(o.next()).then(function(n){return a=i.done,i=n,Promise.resolve(i.value).then(function(n){return u=n,!a})})},function(){return!!(a=!0)},function(){c.push(u)});if(e&&e.then)return e.then(function(){})}()}catch(n){return f(n)}return h&&h.then?h.then(void 0,f):h}(0,function(n){l=!0,f=n})},function(n,t){function r(r){if(h)return r;if(n)throw t;return t}var i=e(function(){var n=function(){if(!a&&null!=o.return)return Promise.resolve(o.return()).then(function(){})}();if(n&&n.then)return n.then(function(){})},function(n,t){if(l)throw f;if(n)throw t;return t});return i&&i.then?i.then(r):r(i)});return Promise.resolve(v&&v.then?v.then(function(n){return h?n:c}):h?v:c)}catch(n){return Promise.reject(n)}};o().then(console.log),module.exports=o;
-//# sourceMappingURL=esnext-ts.js.map
+"var n=function(){function n(){}return n.prototype.then=function(r,e){var o=new n,i=this.s;if(i){var u=1&i?r:e;if(u){try{t(o,1,u(this.v))}catch(n){t(o,2,n)}return o}return this}return this.o=function(n){try{var i=n.v;1&n.s?t(o,1,r?r(i):i):e?t(o,1,e(i)):t(o,2,i)}catch(n){t(o,2,n)}},o},n}();function t(r,e,o){if(!r.s){if(o instanceof n){if(!o.s)return void(o.o=t.bind(null,r,e));1&e&&(e=o.s),o=o.v}if(o&&o.then)return void o.then(t.bind(null,r,e),t.bind(null,r,2));r.s=e,r.v=o;var i=r.o;i&&i(r)}}function r(t){return t instanceof n&&1&t.s}function e(n,t){try{var r=n()}catch(n){return t(!0,n)}return r&&r.then?r.then(t.bind(null,!1),t.bind(null,!0)):t(!1,r)}\\"undefined\\"!=typeof Symbol&&(Symbol.iterator||(Symbol.iterator=Symbol(\\"Symbol.iterator\\"))),\\"undefined\\"!=typeof Symbol&&(Symbol.asyncIterator||(Symbol.asyncIterator=Symbol(\\"Symbol.asyncIterator\\")));var o=function(){try{var o,i,u,f,h=!1,c=[],a=!0,l=!1,v=e(function(){return function(e,f){try{var h=function(){o=function(n){var t;if(\\"undefined\\"!=typeof Symbol){if(Symbol.asyncIterator&&null!=(t=n[Symbol.asyncIterator]))return t.call(n);if(Symbol.iterator&&null!=(t=n[Symbol.iterator]))return t.call(n)}throw new TypeError(\\"Object is not async iterable\\")}([1,2]);var e=function(e,o,i){for(var u;;){var f=e();if(r(f)&&(f=f.v),!f)return h;if(f.then){u=0;break}var h=i();if(h&&h.then){if(!r(h)){u=1;break}h=h.s}if(o){var c=o();if(c&&c.then&&!r(c)){u=2;break}}}var a=new n,l=t.bind(null,a,2);return(0===u?f.then(s):1===u?h.then(v):c.then(y)).then(void 0,l),a;function v(n){h=n;do{if(o&&(c=o())&&c.then&&!r(c))return void c.then(y).then(void 0,l);if(!(f=e())||r(f)&&!f.v)return void t(a,1,h);if(f.then)return void f.then(s).then(void 0,l);r(h=i())&&(h=h.v)}while(!h||!h.then);h.then(v).then(void 0,l)}function s(n){n?(h=i())&&h.then?h.then(v).then(void 0,l):v(h):t(a,1,h)}function y(){(f=e())?f.then?f.then(s).then(void 0,l):s(f):t(a,1,h)}}(function(){return!!Promise.resolve(o.next()).then(function(n){return a=i.done,i=n,Promise.resolve(i.value).then(function(n){return u=n,!a})})},function(){return!!(a=!0)},function(){c.push(u)});if(e&&e.then)return e.then(function(){})}()}catch(n){return f(n)}return h&&h.then?h.then(void 0,f):h}(0,function(n){l=!0,f=n})},function(n,t){function r(r){if(h)return r;if(n)throw t;return t}var i=e(function(){var n=function(){if(!a&&null!=o.return)return Promise.resolve(o.return()).then(function(){})}();if(n&&n.then)return n.then(function(){})},function(n,t){if(l)throw f;if(n)throw t;return t});return i&&i.then?i.then(r):r(i)});return Promise.resolve(v&&v.then?v.then(function(n){return h?n:c}):h?v:c)}catch(n){return Promise.reject(n)}};o().then(console.log);export default o;
+//# sourceMappingURL=esnext-ts.esm.js.map
 "
 `;
 
 exports[`fixtures build esnext-ts with microbundle 4`] = `
-"var n=function(){function n(){}return n.prototype.then=function(r,e){var o=new n,i=this.s;if(i){var u=1&i?r:e;if(u){try{t(o,1,u(this.v))}catch(n){t(o,2,n)}return o}return this}return this.o=function(n){try{var i=n.v;1&n.s?t(o,1,r?r(i):i):e?t(o,1,e(i)):t(o,2,i)}catch(n){t(o,2,n)}},o},n}();function t(r,e,o){if(!r.s){if(o instanceof n){if(!o.s)return void(o.o=t.bind(null,r,e));1&e&&(e=o.s),o=o.v}if(o&&o.then)return void o.then(t.bind(null,r,e),t.bind(null,r,2));r.s=e,r.v=o;var i=r.o;i&&i(r)}}function r(t){return t instanceof n&&1&t.s}function e(n,t){try{var r=n()}catch(n){return t(!0,n)}return r&&r.then?r.then(t.bind(null,!1),t.bind(null,!0)):t(!1,value)}\\"undefined\\"!=typeof Symbol&&(Symbol.iterator||(Symbol.iterator=Symbol(\\"Symbol.iterator\\"))),\\"undefined\\"!=typeof Symbol&&(Symbol.asyncIterator||(Symbol.asyncIterator=Symbol(\\"Symbol.asyncIterator\\")));var o=function(){try{var o,i,u,f,h=!1,c=[],a=!0,l=!1,v=e(function(){return function(e,f){try{var h=function(){o=function(n){var t;if(\\"undefined\\"!=typeof Symbol){if(Symbol.asyncIterator&&null!=(t=n[Symbol.asyncIterator]))return t.call(n);if(Symbol.iterator&&null!=(t=n[Symbol.iterator]))return t.call(n)}throw new TypeError(\\"Object is not async iterable\\")}([1,2]);var e=function(e,o,i){for(var u;;){var f=e();if(r(f)&&(f=f.v),!f)return h;if(f.then){u=0;break}var h=i();if(h&&h.then){if(!r(h)){u=1;break}h=h.s}if(o){var c=o();if(c&&c.then&&!r(c)){u=2;break}}}var a=new n,l=t.bind(null,a,2);return(0===u?f.then(s):1===u?h.then(v):c.then(y)).then(void 0,l),a;function v(n){h=n;do{if(o&&(c=o())&&c.then&&!r(c))return void c.then(y).then(void 0,l);if(!(f=e())||r(f)&&!f.v)return void t(a,1,h);if(f.then)return void f.then(s).then(void 0,l);r(h=i())&&(h=h.v)}while(!h||!h.then);h.then(v).then(void 0,l)}function s(n){n?(h=i())&&h.then?h.then(v).then(void 0,l):v(h):t(a,1,h)}function y(){(f=e())?f.then?f.then(s).then(void 0,l):s(f):t(a,1,h)}}(function(){return!!Promise.resolve(o.next()).then(function(n){return a=i.done,i=n,Promise.resolve(i.value).then(function(n){return u=n,!a})})},function(){return!!(a=!0)},function(){c.push(u)});if(e&&e.then)return e.then(function(){})}()}catch(n){return f(n)}return h&&h.then?h.then(void 0,f):h}(0,function(n){l=!0,f=n})},function(n,t){function r(r){if(h)return r;if(n)throw t;return t}var i=e(function(){var n=function(){if(!a&&null!=o.return)return Promise.resolve(o.return()).then(function(){})}();if(n&&n.then)return n.then(function(){})},function(n,t){if(l)throw f;if(n)throw t;return t});return i&&i.then?i.then(r):r(i)});return Promise.resolve(v&&v.then?v.then(function(n){return h?n:c}):h?v:c)}catch(n){return Promise.reject(n)}};o().then(console.log);export default o;
-//# sourceMappingURL=esnext-ts.mjs.map
+"var n=function(){function n(){}return n.prototype.then=function(r,e){var o=new n,i=this.s;if(i){var u=1&i?r:e;if(u){try{t(o,1,u(this.v))}catch(n){t(o,2,n)}return o}return this}return this.o=function(n){try{var i=n.v;1&n.s?t(o,1,r?r(i):i):e?t(o,1,e(i)):t(o,2,i)}catch(n){t(o,2,n)}},o},n}();function t(r,e,o){if(!r.s){if(o instanceof n){if(!o.s)return void(o.o=t.bind(null,r,e));1&e&&(e=o.s),o=o.v}if(o&&o.then)return void o.then(t.bind(null,r,e),t.bind(null,r,2));r.s=e,r.v=o;var i=r.o;i&&i(r)}}function r(t){return t instanceof n&&1&t.s}function e(n,t){try{var r=n()}catch(n){return t(!0,n)}return r&&r.then?r.then(t.bind(null,!1),t.bind(null,!0)):t(!1,r)}\\"undefined\\"!=typeof Symbol&&(Symbol.iterator||(Symbol.iterator=Symbol(\\"Symbol.iterator\\"))),\\"undefined\\"!=typeof Symbol&&(Symbol.asyncIterator||(Symbol.asyncIterator=Symbol(\\"Symbol.asyncIterator\\")));var o=function(){try{var o,i,u,f,h=!1,c=[],a=!0,l=!1,v=e(function(){return function(e,f){try{var h=function(){o=function(n){var t;if(\\"undefined\\"!=typeof Symbol){if(Symbol.asyncIterator&&null!=(t=n[Symbol.asyncIterator]))return t.call(n);if(Symbol.iterator&&null!=(t=n[Symbol.iterator]))return t.call(n)}throw new TypeError(\\"Object is not async iterable\\")}([1,2]);var e=function(e,o,i){for(var u;;){var f=e();if(r(f)&&(f=f.v),!f)return h;if(f.then){u=0;break}var h=i();if(h&&h.then){if(!r(h)){u=1;break}h=h.s}if(o){var c=o();if(c&&c.then&&!r(c)){u=2;break}}}var a=new n,l=t.bind(null,a,2);return(0===u?f.then(s):1===u?h.then(v):c.then(y)).then(void 0,l),a;function v(n){h=n;do{if(o&&(c=o())&&c.then&&!r(c))return void c.then(y).then(void 0,l);if(!(f=e())||r(f)&&!f.v)return void t(a,1,h);if(f.then)return void f.then(s).then(void 0,l);r(h=i())&&(h=h.v)}while(!h||!h.then);h.then(v).then(void 0,l)}function s(n){n?(h=i())&&h.then?h.then(v).then(void 0,l):v(h):t(a,1,h)}function y(){(f=e())?f.then?f.then(s).then(void 0,l):s(f):t(a,1,h)}}(function(){return!!Promise.resolve(o.next()).then(function(n){return a=i.done,i=n,Promise.resolve(i.value).then(function(n){return u=n,!a})})},function(){return!!(a=!0)},function(){c.push(u)});if(e&&e.then)return e.then(function(){})}()}catch(n){return f(n)}return h&&h.then?h.then(void 0,f):h}(0,function(n){l=!0,f=n})},function(n,t){function r(r){if(h)return r;if(n)throw t;return t}var i=e(function(){var n=function(){if(!a&&null!=o.return)return Promise.resolve(o.return()).then(function(){})}();if(n&&n.then)return n.then(function(){})},function(n,t){if(l)throw f;if(n)throw t;return t});return i&&i.then?i.then(r):r(i)});return Promise.resolve(v&&v.then?v.then(function(n){return h?n:c}):h?v:c)}catch(n){return Promise.reject(n)}};o().then(console.log),module.exports=o;
+//# sourceMappingURL=esnext-ts.js.map
 "
 `;
 
 exports[`fixtures build esnext-ts with microbundle 5`] = `
-"!function(n,t){\\"object\\"==typeof exports&&\\"undefined\\"!=typeof module?module.exports=t():\\"function\\"==typeof define&&define.amd?define(t):(n=n||self).esnextTs=t()}(this,function(){var n=function(){function n(){}return n.prototype.then=function(e,r){var o=new n,i=this.s;if(i){var u=1&i?e:r;if(u){try{t(o,1,u(this.v))}catch(n){t(o,2,n)}return o}return this}return this.o=function(n){try{var i=n.v;1&n.s?t(o,1,e?e(i):i):r?t(o,1,r(i)):t(o,2,i)}catch(n){t(o,2,n)}},o},n}();function t(e,r,o){if(!e.s){if(o instanceof n){if(!o.s)return void(o.o=t.bind(null,e,r));1&r&&(r=o.s),o=o.v}if(o&&o.then)return void o.then(t.bind(null,e,r),t.bind(null,e,2));e.s=r,e.v=o;var i=e.o;i&&i(e)}}function e(t){return t instanceof n&&1&t.s}function r(n,t){try{var e=n()}catch(n){return t(!0,n)}return e&&e.then?e.then(t.bind(null,!1),t.bind(null,!0)):t(!1,value)}\\"undefined\\"!=typeof Symbol&&(Symbol.iterator||(Symbol.iterator=Symbol(\\"Symbol.iterator\\"))),\\"undefined\\"!=typeof Symbol&&(Symbol.asyncIterator||(Symbol.asyncIterator=Symbol(\\"Symbol.asyncIterator\\")));var o=function(){try{var o,i,u,f,c=!1,h=[],a=!0,l=!1,v=r(function(){return function(r,f){try{var c=function(){o=function(n){var t;if(\\"undefined\\"!=typeof Symbol){if(Symbol.asyncIterator&&null!=(t=n[Symbol.asyncIterator]))return t.call(n);if(Symbol.iterator&&null!=(t=n[Symbol.iterator]))return t.call(n)}throw new TypeError(\\"Object is not async iterable\\")}([1,2]);var r=function(r,o,i){for(var u;;){var f=r();if(e(f)&&(f=f.v),!f)return c;if(f.then){u=0;break}var c=i();if(c&&c.then){if(!e(c)){u=1;break}c=c.s}if(o){var h=o();if(h&&h.then&&!e(h)){u=2;break}}}var a=new n,l=t.bind(null,a,2);return(0===u?f.then(s):1===u?c.then(v):h.then(d)).then(void 0,l),a;function v(n){c=n;do{if(o&&(h=o())&&h.then&&!e(h))return void h.then(d).then(void 0,l);if(!(f=r())||e(f)&&!f.v)return void t(a,1,c);if(f.then)return void f.then(s).then(void 0,l);e(c=i())&&(c=c.v)}while(!c||!c.then);c.then(v).then(void 0,l)}function s(n){n?(c=i())&&c.then?c.then(v).then(void 0,l):v(c):t(a,1,c)}function d(){(f=r())?f.then?f.then(s).then(void 0,l):s(f):t(a,1,c)}}(function(){return!!Promise.resolve(o.next()).then(function(n){return a=i.done,i=n,Promise.resolve(i.value).then(function(n){return u=n,!a})})},function(){return!!(a=!0)},function(){h.push(u)});if(r&&r.then)return r.then(function(){})}()}catch(n){return f(n)}return c&&c.then?c.then(void 0,f):c}(0,function(n){l=!0,f=n})},function(n,t){function e(e){if(c)return e;if(n)throw t;return t}var i=r(function(){var n=function(){if(!a&&null!=o.return)return Promise.resolve(o.return()).then(function(){})}();if(n&&n.then)return n.then(function(){})},function(n,t){if(l)throw f;if(n)throw t;return t});return i&&i.then?i.then(e):e(i)});return Promise.resolve(v&&v.then?v.then(function(n){return c?n:h}):c?v:h)}catch(n){return Promise.reject(n)}};return o().then(console.log),o});
+"!function(n,t){\\"object\\"==typeof exports&&\\"undefined\\"!=typeof module?module.exports=t():\\"function\\"==typeof define&&define.amd?define(t):(n=n||self).esnextTs=t()}(this,function(){var n=function(){function n(){}return n.prototype.then=function(e,r){var o=new n,i=this.s;if(i){var u=1&i?e:r;if(u){try{t(o,1,u(this.v))}catch(n){t(o,2,n)}return o}return this}return this.o=function(n){try{var i=n.v;1&n.s?t(o,1,e?e(i):i):r?t(o,1,r(i)):t(o,2,i)}catch(n){t(o,2,n)}},o},n}();function t(e,r,o){if(!e.s){if(o instanceof n){if(!o.s)return void(o.o=t.bind(null,e,r));1&r&&(r=o.s),o=o.v}if(o&&o.then)return void o.then(t.bind(null,e,r),t.bind(null,e,2));e.s=r,e.v=o;var i=e.o;i&&i(e)}}function e(t){return t instanceof n&&1&t.s}function r(n,t){try{var e=n()}catch(n){return t(!0,n)}return e&&e.then?e.then(t.bind(null,!1),t.bind(null,!0)):t(!1,e)}\\"undefined\\"!=typeof Symbol&&(Symbol.iterator||(Symbol.iterator=Symbol(\\"Symbol.iterator\\"))),\\"undefined\\"!=typeof Symbol&&(Symbol.asyncIterator||(Symbol.asyncIterator=Symbol(\\"Symbol.asyncIterator\\")));var o=function(){try{var o,i,u,f,c=!1,h=[],a=!0,l=!1,v=r(function(){return function(r,f){try{var c=function(){o=function(n){var t;if(\\"undefined\\"!=typeof Symbol){if(Symbol.asyncIterator&&null!=(t=n[Symbol.asyncIterator]))return t.call(n);if(Symbol.iterator&&null!=(t=n[Symbol.iterator]))return t.call(n)}throw new TypeError(\\"Object is not async iterable\\")}([1,2]);var r=function(r,o,i){for(var u;;){var f=r();if(e(f)&&(f=f.v),!f)return c;if(f.then){u=0;break}var c=i();if(c&&c.then){if(!e(c)){u=1;break}c=c.s}if(o){var h=o();if(h&&h.then&&!e(h)){u=2;break}}}var a=new n,l=t.bind(null,a,2);return(0===u?f.then(s):1===u?c.then(v):h.then(d)).then(void 0,l),a;function v(n){c=n;do{if(o&&(h=o())&&h.then&&!e(h))return void h.then(d).then(void 0,l);if(!(f=r())||e(f)&&!f.v)return void t(a,1,c);if(f.then)return void f.then(s).then(void 0,l);e(c=i())&&(c=c.v)}while(!c||!c.then);c.then(v).then(void 0,l)}function s(n){n?(c=i())&&c.then?c.then(v).then(void 0,l):v(c):t(a,1,c)}function d(){(f=r())?f.then?f.then(s).then(void 0,l):s(f):t(a,1,c)}}(function(){return!!Promise.resolve(o.next()).then(function(n){return a=i.done,i=n,Promise.resolve(i.value).then(function(n){return u=n,!a})})},function(){return!!(a=!0)},function(){h.push(u)});if(r&&r.then)return r.then(function(){})}()}catch(n){return f(n)}return c&&c.then?c.then(void 0,f):c}(0,function(n){l=!0,f=n})},function(n,t){function e(e){if(c)return e;if(n)throw t;return t}var i=r(function(){var n=function(){if(!a&&null!=o.return)return Promise.resolve(o.return()).then(function(){})}();if(n&&n.then)return n.then(function(){})},function(n,t){if(l)throw f;if(n)throw t;return t});return i&&i.then?i.then(e):e(i)});return Promise.resolve(v&&v.then?v.then(function(n){return c?n:h}):c?v:h)}catch(n){return Promise.reject(n)}};return o().then(console.log),o});
 //# sourceMappingURL=esnext-ts.umd.js.map
 "
 `;
@@ -1332,10 +1380,10 @@ Directory tree:
 
 jsx
   dist
+    jsx.esm.js
+    jsx.esm.js.map
     jsx.js
     jsx.js.map
-    jsx.mjs
-    jsx.mjs.map
     jsx.umd.js
     jsx.umd.js.map
   index.js
@@ -1345,8 +1393,8 @@ jsx
 Build \\"jsx\\" to dist:
 262 B: jsx.js.gz
 209 B: jsx.js.br
-263 B: jsx.mjs.gz
-212 B: jsx.mjs.br
+263 B: jsx.esm.js.gz
+212 B: jsx.esm.js.br
 335 B: jsx.umd.js.gz
 278 B: jsx.umd.js.br"
 `;
@@ -1354,14 +1402,14 @@ Build \\"jsx\\" to dist:
 exports[`fixtures build jsx with microbundle 2`] = `6`;
 
 exports[`fixtures build jsx with microbundle 3`] = `
-"var n=function(n,r){for(var e=arguments.length,t=new Array(e>2?e-2:0),l=2;l<e;l++)t[l-2]=arguments[l];return{tag:n,props:r,children:t}},r=function(n){return n.children};module.exports=function(){function e(){}return e.prototype.render=function(){return n(\\"div\\",{id:\\"app\\"},n(\\"h1\\",null,\\"Hello, World!\\"),n(\\"p\\",null,\\"A JSX demo.\\"),n(r,null,n(\\"p\\",null,\\"Test fragment\\")))},e}();
-//# sourceMappingURL=jsx.js.map
+"var n=function(n,r){for(var e=arguments.length,t=new Array(e>2?e-2:0),l=2;l<e;l++)t[l-2]=arguments[l];return{tag:n,props:r,children:t}},r=function(n){return n.children},e=function(){function e(){}return e.prototype.render=function(){return n(\\"div\\",{id:\\"app\\"},n(\\"h1\\",null,\\"Hello, World!\\"),n(\\"p\\",null,\\"A JSX demo.\\"),n(r,null,n(\\"p\\",null,\\"Test fragment\\")))},e}();export default e;
+//# sourceMappingURL=jsx.esm.js.map
 "
 `;
 
 exports[`fixtures build jsx with microbundle 4`] = `
-"var n=function(n,r){for(var e=arguments.length,t=new Array(e>2?e-2:0),l=2;l<e;l++)t[l-2]=arguments[l];return{tag:n,props:r,children:t}},r=function(n){return n.children},e=function(){function e(){}return e.prototype.render=function(){return n(\\"div\\",{id:\\"app\\"},n(\\"h1\\",null,\\"Hello, World!\\"),n(\\"p\\",null,\\"A JSX demo.\\"),n(r,null,n(\\"p\\",null,\\"Test fragment\\")))},e}();export default e;
-//# sourceMappingURL=jsx.mjs.map
+"var n=function(n,r){for(var e=arguments.length,t=new Array(e>2?e-2:0),l=2;l<e;l++)t[l-2]=arguments[l];return{tag:n,props:r,children:t}},r=function(n){return n.children};module.exports=function(){function e(){}return e.prototype.render=function(){return n(\\"div\\",{id:\\"app\\"},n(\\"h1\\",null,\\"Hello, World!\\"),n(\\"p\\",null,\\"A JSX demo.\\"),n(r,null,n(\\"p\\",null,\\"Test fragment\\")))},e}();
+//# sourceMappingURL=jsx.js.map
 "
 `;
 
@@ -1378,10 +1426,10 @@ Directory tree:
 
 macro
   dist
+    macro-lib.esm.js
+    macro-lib.esm.js.map
     macro-lib.js
     macro-lib.js.map
-    macro-lib.mjs
-    macro-lib.mjs.map
     macro-lib.umd.js
     macro-lib.umd.js.map
   package.json
@@ -1393,8 +1441,8 @@ macro
 Build \\"macroLib\\" to dist:
 49 B: macro-lib.js.gz
 33 B: macro-lib.js.br
-48 B: macro-lib.mjs.gz
-32 B: macro-lib.mjs.br
+48 B: macro-lib.esm.js.gz
+32 B: macro-lib.esm.js.br
 157 B: macro-lib.umd.js.gz
 125 B: macro-lib.umd.js.br"
 `;
@@ -1402,14 +1450,14 @@ Build \\"macroLib\\" to dist:
 exports[`fixtures build macro with microbundle 2`] = `6`;
 
 exports[`fixtures build macro with microbundle 3`] = `
-"module.exports=\\"name-macro\\";
-//# sourceMappingURL=macro-lib.js.map
+"export default\\"name-macro\\";
+//# sourceMappingURL=macro-lib.esm.js.map
 "
 `;
 
 exports[`fixtures build macro with microbundle 4`] = `
-"export default\\"name-macro\\";
-//# sourceMappingURL=macro-lib.mjs.map
+"module.exports=\\"name-macro\\";
+//# sourceMappingURL=macro-lib.js.map
 "
 `;
 
@@ -1426,10 +1474,10 @@ Directory tree:
 
 mangle-json-file
   dist
+    mangle-json-file.esm.js
+    mangle-json-file.esm.js.map
     mangle-json-file.js
     mangle-json-file.js.map
-    mangle-json-file.mjs
-    mangle-json-file.mjs.map
     mangle-json-file.umd.js
     mangle-json-file.umd.js.map
   mangle.json
@@ -1442,8 +1490,8 @@ mangle-json-file
 Build \\"mangleJsonFile\\" to dist:
 103 B: mangle-json-file.js.gz
 89 B: mangle-json-file.js.br
-103 B: mangle-json-file.mjs.gz
-95 B: mangle-json-file.mjs.br
+103 B: mangle-json-file.esm.js.gz
+95 B: mangle-json-file.esm.js.br
 198 B: mangle-json-file.umd.js.gz
 164 B: mangle-json-file.umd.js.br"
 `;
@@ -1451,14 +1499,14 @@ Build \\"mangleJsonFile\\" to dist:
 exports[`fixtures build mangle-json-file with microbundle 2`] = `6`;
 
 exports[`fixtures build mangle-json-file with microbundle 3`] = `
-"var o={prop1:1,__p2:2};module.exports=function(){return console.log(o.prop1),console.log(o.__p2),o};
-//# sourceMappingURL=mangle-json-file.js.map
+"var o={prop1:1,__p2:2};export default function(){return console.log(o.prop1),console.log(o.__p2),o}
+//# sourceMappingURL=mangle-json-file.esm.js.map
 "
 `;
 
 exports[`fixtures build mangle-json-file with microbundle 4`] = `
-"var o={prop1:1,__p2:2};export default function(){return console.log(o.prop1),console.log(o.__p2),o}
-//# sourceMappingURL=mangle-json-file.mjs.map
+"var o={prop1:1,__p2:2};module.exports=function(){return console.log(o.prop1),console.log(o.__p2),o};
+//# sourceMappingURL=mangle-json-file.js.map
 "
 `;
 
@@ -1475,10 +1523,10 @@ Directory tree:
 
 minify-config
   dist
+    minify-config.esm.js
+    minify-config.esm.js.map
     minify-config.js
     minify-config.js.map
-    minify-config.mjs
-    minify-config.mjs.map
     minify-config.umd.js
     minify-config.umd.js.map
   package.json
@@ -1490,8 +1538,8 @@ minify-config
 Build \\"minifyConfig\\" to dist:
 99 B: minify-config.js.gz
 85 B: minify-config.js.br
-99 B: minify-config.mjs.gz
-88 B: minify-config.mjs.br
+99 B: minify-config.esm.js.gz
+88 B: minify-config.esm.js.br
 190 B: minify-config.umd.js.gz
 144 B: minify-config.umd.js.br"
 `;
@@ -1499,14 +1547,14 @@ Build \\"minifyConfig\\" to dist:
 exports[`fixtures build minify-config with microbundle 2`] = `6`;
 
 exports[`fixtures build minify-config with microbundle 3`] = `
-"var o={prop1:1,o:2};module.exports=function(){return console.log(o.prop1),console.log(o.o),o};
-//# sourceMappingURL=minify-config.js.map
+"var o={prop1:1,o:2};export default function(){return console.log(o.prop1),console.log(o.o),o}
+//# sourceMappingURL=minify-config.esm.js.map
 "
 `;
 
 exports[`fixtures build minify-config with microbundle 4`] = `
-"var o={prop1:1,o:2};export default function(){return console.log(o.prop1),console.log(o.o),o}
-//# sourceMappingURL=minify-config.mjs.map
+"var o={prop1:1,o:2};module.exports=function(){return console.log(o.prop1),console.log(o.o),o};
+//# sourceMappingURL=minify-config.js.map
 "
 `;
 
@@ -1523,10 +1571,10 @@ Directory tree:
 
 minify-path-config
   dist
+    minify-path-config.esm.js
+    minify-path-config.esm.js.map
     minify-path-config.js
     minify-path-config.js.map
-    minify-path-config.mjs
-    minify-path-config.mjs.map
     minify-path-config.umd.js
     minify-path-config.umd.js.map
   minify.json
@@ -1539,8 +1587,8 @@ minify-path-config
 Build \\"minifyPathConfig\\" to dist:
 103 B: minify-path-config.js.gz
 89 B: minify-path-config.js.br
-103 B: minify-path-config.mjs.gz
-95 B: minify-path-config.mjs.br
+103 B: minify-path-config.esm.js.gz
+95 B: minify-path-config.esm.js.br
 200 B: minify-path-config.umd.js.gz
 155 B: minify-path-config.umd.js.br"
 `;
@@ -1548,14 +1596,14 @@ Build \\"minifyPathConfig\\" to dist:
 exports[`fixtures build minify-path-config with microbundle 2`] = `6`;
 
 exports[`fixtures build minify-path-config with microbundle 3`] = `
-"var o={prop1:1,__p2:2};module.exports=function(){return console.log(o.prop1),console.log(o.__p2),o};
-//# sourceMappingURL=minify-path-config.js.map
+"var o={prop1:1,__p2:2};export default function(){return console.log(o.prop1),console.log(o.__p2),o}
+//# sourceMappingURL=minify-path-config.esm.js.map
 "
 `;
 
 exports[`fixtures build minify-path-config with microbundle 4`] = `
-"var o={prop1:1,__p2:2};export default function(){return console.log(o.prop1),console.log(o.__p2),o}
-//# sourceMappingURL=minify-path-config.mjs.map
+"var o={prop1:1,__p2:2};module.exports=function(){return console.log(o.prop1),console.log(o.__p2),o};
+//# sourceMappingURL=minify-path-config.js.map
 "
 `;
 
@@ -1572,10 +1620,10 @@ Directory tree:
 
 minify-path-parent-dir
   dist
+    minify-path-parent-dir.esm.js
+    minify-path-parent-dir.esm.js.map
     minify-path-parent-dir.js
     minify-path-parent-dir.js.map
-    minify-path-parent-dir.mjs
-    minify-path-parent-dir.mjs.map
     minify-path-parent-dir.umd.js
     minify-path-parent-dir.umd.js.map
   index.js
@@ -1586,8 +1634,8 @@ minify-path-parent-dir
 Build \\"minifyPathParentDir\\" to dist:
 103 B: minify-path-parent-dir.js.gz
 89 B: minify-path-parent-dir.js.br
-103 B: minify-path-parent-dir.mjs.gz
-95 B: minify-path-parent-dir.mjs.br
+103 B: minify-path-parent-dir.esm.js.gz
+95 B: minify-path-parent-dir.esm.js.br
 202 B: minify-path-parent-dir.umd.js.gz
 169 B: minify-path-parent-dir.umd.js.br"
 `;
@@ -1595,14 +1643,14 @@ Build \\"minifyPathParentDir\\" to dist:
 exports[`fixtures build minify-path-parent-dir-with-cwd with microbundle 2`] = `6`;
 
 exports[`fixtures build minify-path-parent-dir-with-cwd with microbundle 3`] = `
-"var o={prop1:1,__p2:2};module.exports=function(){return console.log(o.prop1),console.log(o.__p2),o};
-//# sourceMappingURL=minify-path-parent-dir.js.map
+"var o={prop1:1,__p2:2};export default function(){return console.log(o.prop1),console.log(o.__p2),o}
+//# sourceMappingURL=minify-path-parent-dir.esm.js.map
 "
 `;
 
 exports[`fixtures build minify-path-parent-dir-with-cwd with microbundle 4`] = `
-"var o={prop1:1,__p2:2};export default function(){return console.log(o.prop1),console.log(o.__p2),o}
-//# sourceMappingURL=minify-path-parent-dir.mjs.map
+"var o={prop1:1,__p2:2};module.exports=function(){return console.log(o.prop1),console.log(o.__p2),o};
+//# sourceMappingURL=minify-path-parent-dir.js.map
 "
 `;
 
@@ -1619,8 +1667,8 @@ Directory tree:
 
 modern
   dist
-    modern-lib.modern.mjs
-    modern-lib.modern.mjs.map
+    modern-lib.modern.js
+    modern-lib.modern.js.map
   package.json
   src
     index.js
@@ -1628,15 +1676,15 @@ modern
 
 
 Build \\"modernLib\\" to dist:
-159 B: modern-lib.modern.mjs.gz
-114 B: modern-lib.modern.mjs.br"
+159 B: modern-lib.modern.js.gz
+114 B: modern-lib.modern.js.br"
 `;
 
 exports[`fixtures build modern with microbundle 2`] = `2`;
 
 exports[`fixtures build modern with microbundle 3`] = `
 "async function n(){for(var n=arguments.length,r=new Array(n),a=0;a<n;a++)r[a]=arguments[a];return r.reduce((n,r)=>n+r,0)}export default async function(){return[await n(...arguments),await n(...arguments)]}
-//# sourceMappingURL=modern-lib.modern.mjs.map
+//# sourceMappingURL=modern-lib.modern.js.map
 "
 `;
 
@@ -1647,10 +1695,10 @@ Directory tree:
 
 name-custom-amd
   dist
+    name-custom-amd.esm.js
+    name-custom-amd.esm.js.map
     name-custom-amd.js
     name-custom-amd.js.map
-    name-custom-amd.mjs
-    name-custom-amd.mjs.map
     name-custom-amd.umd.js
     name-custom-amd.umd.js.map
   package.json
@@ -1662,8 +1710,8 @@ name-custom-amd
 Build \\"customNameAmd\\" to dist:
 229 B: name-custom-amd.js.gz
 174 B: name-custom-amd.js.br
-230 B: name-custom-amd.mjs.gz
-177 B: name-custom-amd.mjs.br
+230 B: name-custom-amd.esm.js.gz
+177 B: name-custom-amd.esm.js.br
 317 B: name-custom-amd.umd.js.gz
 253 B: name-custom-amd.umd.js.br"
 `;
@@ -1671,14 +1719,14 @@ Build \\"customNameAmd\\" to dist:
 exports[`fixtures build name-custom-amd with microbundle 2`] = `6`;
 
 exports[`fixtures build name-custom-amd with microbundle 3`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
-//# sourceMappingURL=name-custom-amd.js.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
+//# sourceMappingURL=name-custom-amd.esm.js.map
 "
 `;
 
 exports[`fixtures build name-custom-amd with microbundle 4`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
-//# sourceMappingURL=name-custom-amd.mjs.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
+//# sourceMappingURL=name-custom-amd.js.map
 "
 `;
 
@@ -1695,10 +1743,10 @@ Directory tree:
 
 name-custom-cli
   dist
+    name-custom.esm.js
+    name-custom.esm.js.map
     name-custom.js
     name-custom.js.map
-    name-custom.mjs
-    name-custom.mjs.map
     name-custom.umd.js
     name-custom.umd.js.map
   package.json
@@ -1710,8 +1758,8 @@ name-custom-cli
 Build \\"nameCustomCli\\" to dist:
 229 B: name-custom.js.gz
 174 B: name-custom.js.br
-230 B: name-custom.mjs.gz
-177 B: name-custom.mjs.br
+230 B: name-custom.esm.js.gz
+177 B: name-custom.esm.js.br
 316 B: name-custom.umd.js.gz
 255 B: name-custom.umd.js.br"
 `;
@@ -1719,14 +1767,14 @@ Build \\"nameCustomCli\\" to dist:
 exports[`fixtures build name-custom-cli with microbundle 2`] = `6`;
 
 exports[`fixtures build name-custom-cli with microbundle 3`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
-//# sourceMappingURL=name-custom.js.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
+//# sourceMappingURL=name-custom.esm.js.map
 "
 `;
 
 exports[`fixtures build name-custom-cli with microbundle 4`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
-//# sourceMappingURL=name-custom.mjs.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
+//# sourceMappingURL=name-custom.js.map
 "
 `;
 
@@ -1743,10 +1791,10 @@ Directory tree:
 
 no-pkg
   dist
+    no-pkg.esm.js
+    no-pkg.esm.js.map
     no-pkg.js
     no-pkg.js.map
-    no-pkg.mjs
-    no-pkg.mjs.map
     no-pkg.umd.js
     no-pkg.umd.js.map
   src
@@ -1757,8 +1805,8 @@ no-pkg
 Build \\"noPkg\\" to dist:
 229 B: no-pkg.js.gz
 174 B: no-pkg.js.br
-230 B: no-pkg.mjs.gz
-177 B: no-pkg.mjs.br
+230 B: no-pkg.esm.js.gz
+177 B: no-pkg.esm.js.br
 310 B: no-pkg.umd.js.gz
 248 B: no-pkg.umd.js.br"
 `;
@@ -1766,14 +1814,14 @@ Build \\"noPkg\\" to dist:
 exports[`fixtures build no-pkg with microbundle 2`] = `6`;
 
 exports[`fixtures build no-pkg with microbundle 3`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
-//# sourceMappingURL=no-pkg.js.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
+//# sourceMappingURL=no-pkg.esm.js.map
 "
 `;
 
 exports[`fixtures build no-pkg with microbundle 4`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
-//# sourceMappingURL=no-pkg.mjs.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
+//# sourceMappingURL=no-pkg.js.map
 "
 `;
 
@@ -1790,10 +1838,10 @@ Directory tree:
 
 no-pkg-name
   dist
+    no-pkg-name.esm.js
+    no-pkg-name.esm.js.map
     no-pkg-name.js
     no-pkg-name.js.map
-    no-pkg-name.mjs
-    no-pkg-name.mjs.map
     no-pkg-name.umd.js
     no-pkg-name.umd.js.map
   package.json
@@ -1805,8 +1853,8 @@ no-pkg-name
 Build \\"noPkgName\\" to dist:
 229 B: no-pkg-name.js.gz
 174 B: no-pkg-name.js.br
-230 B: no-pkg-name.mjs.gz
-177 B: no-pkg-name.mjs.br
+230 B: no-pkg-name.esm.js.gz
+177 B: no-pkg-name.esm.js.br
 314 B: no-pkg-name.umd.js.gz
 246 B: no-pkg-name.umd.js.br"
 `;
@@ -1814,14 +1862,14 @@ Build \\"noPkgName\\" to dist:
 exports[`fixtures build no-pkg-name with microbundle 2`] = `6`;
 
 exports[`fixtures build no-pkg-name with microbundle 3`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
-//# sourceMappingURL=no-pkg-name.js.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
+//# sourceMappingURL=no-pkg-name.esm.js.map
 "
 `;
 
 exports[`fixtures build no-pkg-name with microbundle 4`] = `
-"var r=function(){try{for(var r=arguments.length,e=new Array(r),t=0;t<r;t++)e[t]=arguments[t];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};export default function(){for(var e=arguments.length,t=new Array(e),n=0;n<e;n++)t[n]=arguments[n];try{return Promise.resolve(r.apply(void 0,t)).then(function(e){return Promise.resolve(r.apply(void 0,t)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}}
-//# sourceMappingURL=no-pkg-name.mjs.map
+"var r=function(){try{for(var r=arguments.length,e=new Array(r),n=0;n<r;n++)e[n]=arguments[n];return Promise.resolve(e.reduce(function(r,e){return r+e},0))}catch(r){return Promise.reject(r)}};module.exports=function(){for(var e=arguments.length,n=new Array(e),t=0;t<e;t++)n[t]=arguments[t];try{return Promise.resolve(r.apply(void 0,n)).then(function(e){return Promise.resolve(r.apply(void 0,n)).then(function(r){return[e,r]})})}catch(r){return Promise.reject(r)}};
+//# sourceMappingURL=no-pkg-name.js.map
 "
 `;
 
@@ -1838,10 +1886,10 @@ Directory tree:
 
 pretty
   dist
+    pretty.esm.js
+    pretty.esm.js.map
     pretty.js
     pretty.js.map
-    pretty.mjs
-    pretty.mjs.map
     pretty.umd.js
     pretty.umd.js.map
   package.json
@@ -1852,8 +1900,8 @@ pretty
 Build \\"pretty\\" to dist:
 6.33 kB: pretty.js.gz
 5.19 kB: pretty.js.br
-6.34 kB: pretty.mjs.gz
-5.21 kB: pretty.mjs.br
+6.34 kB: pretty.esm.js.gz
+5.21 kB: pretty.esm.js.br
 6.47 kB: pretty.umd.js.gz
 5.36 kB: pretty.umd.js.br"
 `;
@@ -1861,14 +1909,14 @@ Build \\"pretty\\" to dist:
 exports[`fixtures build pretty with microbundle 2`] = `6`;
 
 exports[`fixtures build pretty with microbundle 3`] = `
-"exports.allTheIpsum=\\"\\\\n\\\\nThere is immense joy in just watching - watching all the little creatures in nature. I'll go over the colors one more\\\\ntime that we use: Titanium white, Thalo green, Prussian blue, Van Dyke brown, Alizarin crimson, Sap green, Cad yellow,\\\\nand Permanent red. If you don't like it - change it. It's your world. Be brave. Sometimes you learn more from your\\\\nmistakes than you do from your masterpieces.\\\\n\\\\nTrees grow in all kinds of ways. They're not all perfectly straight. Not every limb is perfect. Now let's put some happy\\\\nlittle clouds in here. We have no limits to our world. We're only limited by our imagination. The first step to doing\\\\nanything is to believe you can do it. See it finished in your mind before you ever start. Even trees need a friend. We\\\\nall need friends. And that's when it becomes fun - you don't have to spend your time thinking about what's happening -\\\\nyou just let it happen.\\\\n\\\\nरिती संपादक बेंगलूर अन्तरराष्ट्रीयकरन शीघ्र भाषा चिदंश उद्योग विस्तरणक्षमता चिदंश एकएस तरहथा। प्रोत्साहित उपेक्ष बिन्दुओ\\\\nध्येय देने गुजरना ऎसाजीस निर्माण नवंबर लिए। एसेएवं उपलब्धता मुश्किले डाले। बहतर सहायता माध्यम भाषाओ समूह\\\\n\\\\n井待品亡写回横提和指生志考結。重特天県偏切運録広詳三人転者数代歳。秀天戦機広八型希金生作事国第。年米教止証車断級弘報安楽\\\\n銀必約現獲料切。点額講問課覧傷邸出送跡出懲。編米人験由社迷入解公著片法記択昇必崎掲清。摩出元自越食多県実間旅売主注理併間\\\\n話策。小政退時年福米越給新家入解美露方堀港朝。俊間髪物縦該高報見甲購形州日事。\\\\n\\\\n🌸🍂🌃🐧🍘🏧🍮 🌶👢🔗🐥🔼🎮 🐤🍲📆👧🎼🐒 💑🍖📴🐠🍼 🎱🔮🍦💳👹 💫🏮📅🍑📭🎎 🏭💿🏫🔢👚💩 👇🌄🌗🔵💦 🔺🔡🌍🐗🏀📫\\\\n📻🍵🐰🔜🕧 🌴🌞🕙🎨🎾🔊🏰 🎑🌆🔁🌂 🕐📣📉🌴🕠📢 🎀📖🎋🔱📒💰 🍅🐻🌃🌖. 🎁🕔👎🎷📀📞 🍁🔫🍀🌃📹 💈📂💶👕 🍡📰👛🐻\\\\n🍖🐽💫📼 🍆🎀💛👫🔹 🎷🕙🌱👸🕁🔝 🍸🔅👿🐡. 🐟🔐🏡🔅👾 🐱💱👺🍶 🎠🔆🎤🏥🌻🗾 👽🎯💈🏣🔊📴💆🏫 🔉🌉🍃🌻 🎅🔌🔻💣 🌸🍎🐀🌇\\\\n🗻👔📤💤🔶. 🍆👣🕕👦📦👑 🐍🐉🔶🕕 🍲👩🍍🌕📻👒📵 🔣🌋🌟👼 🔏📀🐆🍖🍮 🐁🌘🐻🏥🐡🔶🔘🏭 👡🔫🔗📊📻 🍂💧🌿📥🔚 📹💻🔌💠🌚\\\\n🐦💴🌎🌞🏤.\\\\n\\\\nThere is immense joy in just watching - watching all the little creatures in nature. I'll go over the colors one more\\\\ntime that we use: Titanium white, Thalo green, Prussian blue, Van Dyke brown, Alizarin crimson, Sap green, Cad yellow,\\\\nand Permanent red. If you don't like it - change it. It's your world. Be brave. Sometimes you learn more from your\\\\nmistakes than you do from your masterpieces. That's why I paint - because I can create the kind of world I want - and I\\\\ncan make this world as happy as I want it. I was blessed with a very steady hand; and it comes in very handy when you're\\\\ndoing these little delicate things. We'll paint one happy little tree right here. These things happen automatically. All\\\\nyou have to do is just let them happen.\\\\n\\\\n🐻🍘💀🐪 🕧🎂🕃🍵🏠 💎🌄🐐📘🐄 🍂🏤👊🍖 👆🍂📫👪🐈🕢👓 👯🕞🏉🍚🎆🔠🌵 🎭🎎💵📮📭 🔪💨📢📕 🐔📬👪🏄🐙🗽📤.\\\\n💛👴💧🎁👗💟👡💎 🎷🕡👮🗾🍷 🎪🍇🍩💰 📫🐗🎄🍍🎃 🎯🌴🐍🔉📰 👼👧🐢🕔🔷📞🍩 🔘👑🌆🌒🔣 🔆👺📴👾 🔝💑💸💒🏡🔸 🔟👞📷🔱👠\\\\n📵🏠📕🕝🐂👪 💐🎾🕁🗾👊📪. 🍉🏁👰🏡🕔💒🐯 🐟🍡📴🌿👱👢 📵💄🌊🌵🐫🍏 🎎🕠🍍💭💀👖 🎵💘🔗🍖 📧🌘🍅🕚📘🔮 👤🌾👿🐍🎽🌹\\\\n🎲🎎💅📪🐐🍢📈 🏣🐑👇👼🐄🍔 🍠📧🌊🕁🔛🐩. 🌺📊🍼🐁💼 🔈💬🌱🎑🔊🐙💲👩 🍇👞📎👻🌔 💑🕁🎲💤 🎮📃🕖📖 📻💬🔢💔🐇👬 🔨🌃📈🔞\\\\n🌒🎈👙🔥🐊 📭👍📢👊📟.\\\\n\\\\n出死問民同歴術荘面族上自。窃指写氷名続球投込光試事樹増。作合副者扶実権守安展感意環待質出。告供体企紙勢構込君奪属仕子業戦\\\\n浮私。長論攻士踊再連公雪地約政近第公。界地島命党浮国沼出問気混心未独院。朝原妙画岡性制領子金次問無浦妥混口時研。道記険健\\\\n集立根聖間前設集族山要本覧。変注再悩式付療場図験問県家界月止収文。\\\\n\\\\nलेकिन उसके संपादक उपलब्ध दिनांक प्रति सम्पर्क प्राधिकरन नाकर मुक्त कलइस वेबजाल वर्तमान समस्याओ देखने भोगोलिक केन्द्रिय\\\\nकिया खयालात विज्ञान ध्येय गटको साधन चिदंश पासपाई व्याख्या मार्गदर्शन संदेश जिवन प्रतिबध वार्तालाप किके विश्व खरिदने\\\\nहुआआदी तकनीकी संदेश सारांश असरकारक वार्तालाप चाहे पहोच। अतित पुर्णता केन्द्रिय\\\\n\\\\n👅💾🐂🔙 🐂🎠👶🐮🐛 👛💗💶🌿💒 🐐🌱🐶🌴🏤🐒 🔪🍡🎸🐛🍖 📗🎓🏊🕀🎿 🔅📋📥👳🔝 🐗👝🏄🐲 📂🎷🐎🏯💎🐹 📲🍍🏥🔂🕚🐉🎤\\\\n🌕🐴📐🎪💋. 💔👂🐗📷🎐 🌹📔💒📝👎📭 🔖🍶💺🕘 🔡💘🎪🔚🔯👉 💯🎉👠🎁🐌💵 👌🔉🎹🕒💕🍁 🏡🍢🔹🔷👀💦🏉👀 👑🐺🐁🏤\\\\n🎺🍁🐙🐮🌃🕢🐟 🍶🎃🕕🔦 🐧🔝💔💚🔫👍 🌉🔁🌄📺 👓🎳📧🌆💖🍋🕔. 🍥🔘🗼📟 🍹🔸🔰🕣🌍 🏡💽🍬👗👧 📩👬🌻🐐🌞🌎🐵🔛 🏆🌹🍰🔬📕\\\\n👋🎩🍓🌏👙 🎁🏃🎌🍳🔋👎📔 🐈🌽🔘💮 🏬🐷💿🕕. 📕👖📦📡 🎅🎺🏭🍗💜💷🐦 💻💚🐪🕠🔀 💰🍹💶🍶🎥📄 🌛👕🐲🐣🍷🎬 🐥🎯🔵🎹\\\\n🌿👌🐚🍛🏪 🌵📞💃📗👱👩 📟🐸🌺🐅👮 💚🐦💉💞🌛 🔼🔤👓🏡💩.\\\\n\\\\n\\\\nयधपि बाजार तकरीबन आंतरजाल प्राधिकरन लगती संदेश एसलिये बिन्दुओ प्रोत्साहित जानकारी ढांचामात्रुभाषा बाजार बदले प्रमान\\\\nअनुवाद विकेन्द्रित पसंद ढांचा हमारि जोवे उद्योग संस्थान और्४५० विकसित उदेश लेकिन सकती वार्तालाप लाभान्वित संदेश उदेश\\\\nपहोच। लचकनहि अनुवाद सुविधा एकत्रित कीने सक्षम भीयह अत्यंत लचकनहि निरपेक्ष कराना हमारि प्राप्त पुर्णता प्रतिबध्दता होगा\\\\nउन्हे जाएन खयालात पहोचाना\\\\n\\\\n散待望会窮縮囲前賀理格顔欧製暮景初子加。首稿覧析回未帯則号医間本取退埋帯品。右歳約幻病護指極講賞京応。野受移供頑特公却報\\\\n法利務水提士政駐物際。角媛分地昧況面日残金真福方雨入顔作化。最刊情感売校見強移本説注辞。経必好以小球生音明優去験見政感治\\\\n報付。講刊切記勝帯載豪著転読金止。金子森午模移言兆埠関価亡出目載。\\\\n\\\\nWork on one thing at a time. Don't get carried away - we have plenty of time. Everything is happy if you choose to make\\\\nit that way. Happy painting, God bless. You can create anything that makes you happy. Just make a decision and let it\\\\ngo. Nice little clouds playing around in the sky.You can do anything here - the only pre-requisite is that it makes you\\\\nhappy. I'm going to mix up a little color. We’ll use Van Dyke Brown, Permanent Red, and a little bit of Prussian Blue.\\\\nLet's make some happy little clouds in our world.\\\\n\\\\nपहेला गएआप स्वतंत्र प्राधिकरन सेऔर अनुकूल ब्रौशर बिन्दुओमे सदस्य गुजरना तकनिकल वैश्विक सकते बनाति चिदंश चाहे कुशलता\\\\nवर्तमान प्रोत्साहित देने विवरन पहोचाना विकेन्द्रियकरण अनुकूल विभाजनक्षमता औषधिक अन्य खरिदे दिये आवश्यक समस्याए कम्प्युटर\\\\nविनिमय अविरोधता लाभान्वित लाभो ढांचा\\\\n\\\\n抄聞調時得直決移警撃覧進聞滑公政央。日探劇票選伊追短青功書更将奈府成多。味治理育月漬安意散護良読京。芳豚大度面傾府山応著\\\\n器地捜志。止高棋戻管明証経処流自勝動続。装載聞視属王減通橋説主費事業情芸。追若得本臭稿事馬予治川劇覧記今竹犯破育食。参兆\\\\n徹括単写東家素講舞校食医咋存務代連子。球設国事検問周東集題聞供奈。\\\\n\\\\n🍊🌆📛🍛🌊🍡🍒 🔦🐟🐵🍚🌐🍛🐏 🔆💍📟🎧 🔐📤💺🐒 🔥🔬🐣💹🌻👚 🎰👯🎡🗻💯🐉🌗 🍐👣🐯🔖📚 💡📟👨🍮🍼💛📞 🕕🐁🌾🏧💻📷\\\\n💗🐢🏥🎵🐰🍉 🏥🔎💛💘🔧🍛🎿 🍟🌰🐴🏫🎀 🎷🌿🌴🏤🍢📳🍺 🐗👷🌳👦📩🌁 🐂🔜🔙📕. 🌎🍠📓📠🕡 🎽🔺🔱🌔📗🎤 🎫🍃👚🍤🐽🌰\\\\n🕠🌉📪🍒🐃💲 🎢🔯👶🔙🔚🕝 🍮📒🏉🏨🐝🌿 👔💫🏁🎺 🐸💞🌈🐸 📣🔯📅🐍🐴 🌑🌍🌛👀 🕂👟🐕📃🎇🔞 🍮🔏🍥👨 🐪📲🐐🎁 🍥🔁📑💮🌘.\\\\n🌏🎎🍛👯 🔈🎸💨🏧📚 🏪💼🎣🔚 🐤💳💁👓 👃🍆🕘🐋👬🐣 🕚🏃🌄🔷🌈🔖 💥💧🔴🌛🍁👦 💣🐐🕓🎠🕚🕞🏭 💨👓🏢🌓🔄. 📪🔜💹👤👂🐭\\\\n🕚🔎🐂🏂👍📻 👾💠🌕📻🎍 🐟🔬🏢💍 👓👠👤🎐💸👝 🔟💕🕛💊 🍩🌙👬🐘 🍪🔙📉💔🐝🕝 📭🕡🎼💈📇🔡 👓🍁🎾👯👨 🏇🍱🐢🌛\\\\n🎇🐩📴🎋🕁📎🎈 🐌👱📎🍹👆 👐🍐📗👽🐹💜 📭🌔🌅🍯👀.\\\\n\\\\n🔜🐰🏊🍃🐮 🔪🔐📇🐩 🐬👔🍙🍩💉 🏉👩👔🍞🍟🌂 🍺🕔🌖🔪🔩🍥 🎓🍒🌅🐘💛 🐔🐊📶🐊 👂📌👂🍺 💗🐳🎠📧🏭💧 🐝📅🍆🔞🏆\\\\n👇🔂🐺🔬🎯🔳🎐🎍 💖💅🐲🔭📔🏊🔋 🐨📫🕢🎁. 🐯💁🔘📰🐪 💥👭🍘🎴📣💂💄 🐏🔊🐚👔🎿🐙 🔕🐞💹📁 🔊👴👬👪 👠📱👃📍 🏢🐃🍯🍹🗻\\\\n🐩💮👲👠 🍏🎽📄🐋 🔣💉🔉📒💸🎭👎 💁🗾🔵🐪🍣 🍃🔝💥🔒👴. 📦🔟🔶💷🍥 🍚🕤👦🍻🔥🍹 👄🌜🐑🌀🐃🔪🕦 🌟🐶🍞🕥🌛 👮🐄🏬🎴👂💼📵\\\\n🌋📐🐲👥 🔒🏭🔭💿🎫🎄 💓🐓🎐🎁👔📟 💌🍇🎶👷🎬 🌌💀🎸💡 📔🐢💁🔊👘🐳🌞 🎩📝💟🍼💦🔄 🕒🍼🏧🎄🔃💐. 🎆🌜👗👿 🐁🌑💮👙🎌👞\\\\n🏫📙🌌🕙🐥 👓🌑💎💸📹📒 👋🐎🍡🎾👸🗽 📢📓🌍🏮📳🔈 👶🐷🐭🎿🔴🗾🏬 🌆🔈🍡💞💭🎨. \\";
-//# sourceMappingURL=pretty.js.map
+"var n=\\"\\\\n\\\\nThere is immense joy in just watching - watching all the little creatures in nature. I'll go over the colors one more\\\\ntime that we use: Titanium white, Thalo green, Prussian blue, Van Dyke brown, Alizarin crimson, Sap green, Cad yellow,\\\\nand Permanent red. If you don't like it - change it. It's your world. Be brave. Sometimes you learn more from your\\\\nmistakes than you do from your masterpieces.\\\\n\\\\nTrees grow in all kinds of ways. They're not all perfectly straight. Not every limb is perfect. Now let's put some happy\\\\nlittle clouds in here. We have no limits to our world. We're only limited by our imagination. The first step to doing\\\\nanything is to believe you can do it. See it finished in your mind before you ever start. Even trees need a friend. We\\\\nall need friends. And that's when it becomes fun - you don't have to spend your time thinking about what's happening -\\\\nyou just let it happen.\\\\n\\\\nरिती संपादक बेंगलूर अन्तरराष्ट्रीयकरन शीघ्र भाषा चिदंश उद्योग विस्तरणक्षमता चिदंश एकएस तरहथा। प्रोत्साहित उपेक्ष बिन्दुओ\\\\nध्येय देने गुजरना ऎसाजीस निर्माण नवंबर लिए। एसेएवं उपलब्धता मुश्किले डाले। बहतर सहायता माध्यम भाषाओ समूह\\\\n\\\\n井待品亡写回横提和指生志考結。重特天県偏切運録広詳三人転者数代歳。秀天戦機広八型希金生作事国第。年米教止証車断級弘報安楽\\\\n銀必約現獲料切。点額講問課覧傷邸出送跡出懲。編米人験由社迷入解公著片法記択昇必崎掲清。摩出元自越食多県実間旅売主注理併間\\\\n話策。小政退時年福米越給新家入解美露方堀港朝。俊間髪物縦該高報見甲購形州日事。\\\\n\\\\n🌸🍂🌃🐧🍘🏧🍮 🌶👢🔗🐥🔼🎮 🐤🍲📆👧🎼🐒 💑🍖📴🐠🍼 🎱🔮🍦💳👹 💫🏮📅🍑📭🎎 🏭💿🏫🔢👚💩 👇🌄🌗🔵💦 🔺🔡🌍🐗🏀📫\\\\n📻🍵🐰🔜🕧 🌴🌞🕙🎨🎾🔊🏰 🎑🌆🔁🌂 🕐📣📉🌴🕠📢 🎀📖🎋🔱📒💰 🍅🐻🌃🌖. 🎁🕔👎🎷📀📞 🍁🔫🍀🌃📹 💈📂💶👕 🍡📰👛🐻\\\\n🍖🐽💫📼 🍆🎀💛👫🔹 🎷🕙🌱👸🕁🔝 🍸🔅👿🐡. 🐟🔐🏡🔅👾 🐱💱👺🍶 🎠🔆🎤🏥🌻🗾 👽🎯💈🏣🔊📴💆🏫 🔉🌉🍃🌻 🎅🔌🔻💣 🌸🍎🐀🌇\\\\n🗻👔📤💤🔶. 🍆👣🕕👦📦👑 🐍🐉🔶🕕 🍲👩🍍🌕📻👒📵 🔣🌋🌟👼 🔏📀🐆🍖🍮 🐁🌘🐻🏥🐡🔶🔘🏭 👡🔫🔗📊📻 🍂💧🌿📥🔚 📹💻🔌💠🌚\\\\n🐦💴🌎🌞🏤.\\\\n\\\\nThere is immense joy in just watching - watching all the little creatures in nature. I'll go over the colors one more\\\\ntime that we use: Titanium white, Thalo green, Prussian blue, Van Dyke brown, Alizarin crimson, Sap green, Cad yellow,\\\\nand Permanent red. If you don't like it - change it. It's your world. Be brave. Sometimes you learn more from your\\\\nmistakes than you do from your masterpieces. That's why I paint - because I can create the kind of world I want - and I\\\\ncan make this world as happy as I want it. I was blessed with a very steady hand; and it comes in very handy when you're\\\\ndoing these little delicate things. We'll paint one happy little tree right here. These things happen automatically. All\\\\nyou have to do is just let them happen.\\\\n\\\\n🐻🍘💀🐪 🕧🎂🕃🍵🏠 💎🌄🐐📘🐄 🍂🏤👊🍖 👆🍂📫👪🐈🕢👓 👯🕞🏉🍚🎆🔠🌵 🎭🎎💵📮📭 🔪💨📢📕 🐔📬👪🏄🐙🗽📤.\\\\n💛👴💧🎁👗💟👡💎 🎷🕡👮🗾🍷 🎪🍇🍩💰 📫🐗🎄🍍🎃 🎯🌴🐍🔉📰 👼👧🐢🕔🔷📞🍩 🔘👑🌆🌒🔣 🔆👺📴👾 🔝💑💸💒🏡🔸 🔟👞📷🔱👠\\\\n📵🏠📕🕝🐂👪 💐🎾🕁🗾👊📪. 🍉🏁👰🏡🕔💒🐯 🐟🍡📴🌿👱👢 📵💄🌊🌵🐫🍏 🎎🕠🍍💭💀👖 🎵💘🔗🍖 📧🌘🍅🕚📘🔮 👤🌾👿🐍🎽🌹\\\\n🎲🎎💅📪🐐🍢📈 🏣🐑👇👼🐄🍔 🍠📧🌊🕁🔛🐩. 🌺📊🍼🐁💼 🔈💬🌱🎑🔊🐙💲👩 🍇👞📎👻🌔 💑🕁🎲💤 🎮📃🕖📖 📻💬🔢💔🐇👬 🔨🌃📈🔞\\\\n🌒🎈👙🔥🐊 📭👍📢👊📟.\\\\n\\\\n出死問民同歴術荘面族上自。窃指写氷名続球投込光試事樹増。作合副者扶実権守安展感意環待質出。告供体企紙勢構込君奪属仕子業戦\\\\n浮私。長論攻士踊再連公雪地約政近第公。界地島命党浮国沼出問気混心未独院。朝原妙画岡性制領子金次問無浦妥混口時研。道記険健\\\\n集立根聖間前設集族山要本覧。変注再悩式付療場図験問県家界月止収文。\\\\n\\\\nलेकिन उसके संपादक उपलब्ध दिनांक प्रति सम्पर्क प्राधिकरन नाकर मुक्त कलइस वेबजाल वर्तमान समस्याओ देखने भोगोलिक केन्द्रिय\\\\nकिया खयालात विज्ञान ध्येय गटको साधन चिदंश पासपाई व्याख्या मार्गदर्शन संदेश जिवन प्रतिबध वार्तालाप किके विश्व खरिदने\\\\nहुआआदी तकनीकी संदेश सारांश असरकारक वार्तालाप चाहे पहोच। अतित पुर्णता केन्द्रिय\\\\n\\\\n👅💾🐂🔙 🐂🎠👶🐮🐛 👛💗💶🌿💒 🐐🌱🐶🌴🏤🐒 🔪🍡🎸🐛🍖 📗🎓🏊🕀🎿 🔅📋📥👳🔝 🐗👝🏄🐲 📂🎷🐎🏯💎🐹 📲🍍🏥🔂🕚🐉🎤\\\\n🌕🐴📐🎪💋. 💔👂🐗📷🎐 🌹📔💒📝👎📭 🔖🍶💺🕘 🔡💘🎪🔚🔯👉 💯🎉👠🎁🐌💵 👌🔉🎹🕒💕🍁 🏡🍢🔹🔷👀💦🏉👀 👑🐺🐁🏤\\\\n🎺🍁🐙🐮🌃🕢🐟 🍶🎃🕕🔦 🐧🔝💔💚🔫👍 🌉🔁🌄📺 👓🎳📧🌆💖🍋🕔. 🍥🔘🗼📟 🍹🔸🔰🕣🌍 🏡💽🍬👗👧 📩👬🌻🐐🌞🌎🐵🔛 🏆🌹🍰🔬📕\\\\n👋🎩🍓🌏👙 🎁🏃🎌🍳🔋👎📔 🐈🌽🔘💮 🏬🐷💿🕕. 📕👖📦📡 🎅🎺🏭🍗💜💷🐦 💻💚🐪🕠🔀 💰🍹💶🍶🎥📄 🌛👕🐲🐣🍷🎬 🐥🎯🔵🎹\\\\n🌿👌🐚🍛🏪 🌵📞💃📗👱👩 📟🐸🌺🐅👮 💚🐦💉💞🌛 🔼🔤👓🏡💩.\\\\n\\\\n\\\\nयधपि बाजार तकरीबन आंतरजाल प्राधिकरन लगती संदेश एसलिये बिन्दुओ प्रोत्साहित जानकारी ढांचामात्रुभाषा बाजार बदले प्रमान\\\\nअनुवाद विकेन्द्रित पसंद ढांचा हमारि जोवे उद्योग संस्थान और्४५० विकसित उदेश लेकिन सकती वार्तालाप लाभान्वित संदेश उदेश\\\\nपहोच। लचकनहि अनुवाद सुविधा एकत्रित कीने सक्षम भीयह अत्यंत लचकनहि निरपेक्ष कराना हमारि प्राप्त पुर्णता प्रतिबध्दता होगा\\\\nउन्हे जाएन खयालात पहोचाना\\\\n\\\\n散待望会窮縮囲前賀理格顔欧製暮景初子加。首稿覧析回未帯則号医間本取退埋帯品。右歳約幻病護指極講賞京応。野受移供頑特公却報\\\\n法利務水提士政駐物際。角媛分地昧況面日残金真福方雨入顔作化。最刊情感売校見強移本説注辞。経必好以小球生音明優去験見政感治\\\\n報付。講刊切記勝帯載豪著転読金止。金子森午模移言兆埠関価亡出目載。\\\\n\\\\nWork on one thing at a time. Don't get carried away - we have plenty of time. Everything is happy if you choose to make\\\\nit that way. Happy painting, God bless. You can create anything that makes you happy. Just make a decision and let it\\\\ngo. Nice little clouds playing around in the sky.You can do anything here - the only pre-requisite is that it makes you\\\\nhappy. I'm going to mix up a little color. We’ll use Van Dyke Brown, Permanent Red, and a little bit of Prussian Blue.\\\\nLet's make some happy little clouds in our world.\\\\n\\\\nपहेला गएआप स्वतंत्र प्राधिकरन सेऔर अनुकूल ब्रौशर बिन्दुओमे सदस्य गुजरना तकनिकल वैश्विक सकते बनाति चिदंश चाहे कुशलता\\\\nवर्तमान प्रोत्साहित देने विवरन पहोचाना विकेन्द्रियकरण अनुकूल विभाजनक्षमता औषधिक अन्य खरिदे दिये आवश्यक समस्याए कम्प्युटर\\\\nविनिमय अविरोधता लाभान्वित लाभो ढांचा\\\\n\\\\n抄聞調時得直決移警撃覧進聞滑公政央。日探劇票選伊追短青功書更将奈府成多。味治理育月漬安意散護良読京。芳豚大度面傾府山応著\\\\n器地捜志。止高棋戻管明証経処流自勝動続。装載聞視属王減通橋説主費事業情芸。追若得本臭稿事馬予治川劇覧記今竹犯破育食。参兆\\\\n徹括単写東家素講舞校食医咋存務代連子。球設国事検問周東集題聞供奈。\\\\n\\\\n🍊🌆📛🍛🌊🍡🍒 🔦🐟🐵🍚🌐🍛🐏 🔆💍📟🎧 🔐📤💺🐒 🔥🔬🐣💹🌻👚 🎰👯🎡🗻💯🐉🌗 🍐👣🐯🔖📚 💡📟👨🍮🍼💛📞 🕕🐁🌾🏧💻📷\\\\n💗🐢🏥🎵🐰🍉 🏥🔎💛💘🔧🍛🎿 🍟🌰🐴🏫🎀 🎷🌿🌴🏤🍢📳🍺 🐗👷🌳👦📩🌁 🐂🔜🔙📕. 🌎🍠📓📠🕡 🎽🔺🔱🌔📗🎤 🎫🍃👚🍤🐽🌰\\\\n🕠🌉📪🍒🐃💲 🎢🔯👶🔙🔚🕝 🍮📒🏉🏨🐝🌿 👔💫🏁🎺 🐸💞🌈🐸 📣🔯📅🐍🐴 🌑🌍🌛👀 🕂👟🐕📃🎇🔞 🍮🔏🍥👨 🐪📲🐐🎁 🍥🔁📑💮🌘.\\\\n🌏🎎🍛👯 🔈🎸💨🏧📚 🏪💼🎣🔚 🐤💳💁👓 👃🍆🕘🐋👬🐣 🕚🏃🌄🔷🌈🔖 💥💧🔴🌛🍁👦 💣🐐🕓🎠🕚🕞🏭 💨👓🏢🌓🔄. 📪🔜💹👤👂🐭\\\\n🕚🔎🐂🏂👍📻 👾💠🌕📻🎍 🐟🔬🏢💍 👓👠👤🎐💸👝 🔟💕🕛💊 🍩🌙👬🐘 🍪🔙📉💔🐝🕝 📭🕡🎼💈📇🔡 👓🍁🎾👯👨 🏇🍱🐢🌛\\\\n🎇🐩📴🎋🕁📎🎈 🐌👱📎🍹👆 👐🍐📗👽🐹💜 📭🌔🌅🍯👀.\\\\n\\\\n🔜🐰🏊🍃🐮 🔪🔐📇🐩 🐬👔🍙🍩💉 🏉👩👔🍞🍟🌂 🍺🕔🌖🔪🔩🍥 🎓🍒🌅🐘💛 🐔🐊📶🐊 👂📌👂🍺 💗🐳🎠📧🏭💧 🐝📅🍆🔞🏆\\\\n👇🔂🐺🔬🎯🔳🎐🎍 💖💅🐲🔭📔🏊🔋 🐨📫🕢🎁. 🐯💁🔘📰🐪 💥👭🍘🎴📣💂💄 🐏🔊🐚👔🎿🐙 🔕🐞💹📁 🔊👴👬👪 👠📱👃📍 🏢🐃🍯🍹🗻\\\\n🐩💮👲👠 🍏🎽📄🐋 🔣💉🔉📒💸🎭👎 💁🗾🔵🐪🍣 🍃🔝💥🔒👴. 📦🔟🔶💷🍥 🍚🕤👦🍻🔥🍹 👄🌜🐑🌀🐃🔪🕦 🌟🐶🍞🕥🌛 👮🐄🏬🎴👂💼📵\\\\n🌋📐🐲👥 🔒🏭🔭💿🎫🎄 💓🐓🎐🎁👔📟 💌🍇🎶👷🎬 🌌💀🎸💡 📔🐢💁🔊👘🐳🌞 🎩📝💟🍼💦🔄 🕒🍼🏧🎄🔃💐. 🎆🌜👗👿 🐁🌑💮👙🎌👞\\\\n🏫📙🌌🕙🐥 👓🌑💎💸📹📒 👋🐎🍡🎾👸🗽 📢📓🌍🏮📳🔈 👶🐷🐭🎿🔴🗾🏬 🌆🔈🍡💞💭🎨. \\";export{n as allTheIpsum};
+//# sourceMappingURL=pretty.esm.js.map
 "
 `;
 
 exports[`fixtures build pretty with microbundle 4`] = `
-"var n=\\"\\\\n\\\\nThere is immense joy in just watching - watching all the little creatures in nature. I'll go over the colors one more\\\\ntime that we use: Titanium white, Thalo green, Prussian blue, Van Dyke brown, Alizarin crimson, Sap green, Cad yellow,\\\\nand Permanent red. If you don't like it - change it. It's your world. Be brave. Sometimes you learn more from your\\\\nmistakes than you do from your masterpieces.\\\\n\\\\nTrees grow in all kinds of ways. They're not all perfectly straight. Not every limb is perfect. Now let's put some happy\\\\nlittle clouds in here. We have no limits to our world. We're only limited by our imagination. The first step to doing\\\\nanything is to believe you can do it. See it finished in your mind before you ever start. Even trees need a friend. We\\\\nall need friends. And that's when it becomes fun - you don't have to spend your time thinking about what's happening -\\\\nyou just let it happen.\\\\n\\\\nरिती संपादक बेंगलूर अन्तरराष्ट्रीयकरन शीघ्र भाषा चिदंश उद्योग विस्तरणक्षमता चिदंश एकएस तरहथा। प्रोत्साहित उपेक्ष बिन्दुओ\\\\nध्येय देने गुजरना ऎसाजीस निर्माण नवंबर लिए। एसेएवं उपलब्धता मुश्किले डाले। बहतर सहायता माध्यम भाषाओ समूह\\\\n\\\\n井待品亡写回横提和指生志考結。重特天県偏切運録広詳三人転者数代歳。秀天戦機広八型希金生作事国第。年米教止証車断級弘報安楽\\\\n銀必約現獲料切。点額講問課覧傷邸出送跡出懲。編米人験由社迷入解公著片法記択昇必崎掲清。摩出元自越食多県実間旅売主注理併間\\\\n話策。小政退時年福米越給新家入解美露方堀港朝。俊間髪物縦該高報見甲購形州日事。\\\\n\\\\n🌸🍂🌃🐧🍘🏧🍮 🌶👢🔗🐥🔼🎮 🐤🍲📆👧🎼🐒 💑🍖📴🐠🍼 🎱🔮🍦💳👹 💫🏮📅🍑📭🎎 🏭💿🏫🔢👚💩 👇🌄🌗🔵💦 🔺🔡🌍🐗🏀📫\\\\n📻🍵🐰🔜🕧 🌴🌞🕙🎨🎾🔊🏰 🎑🌆🔁🌂 🕐📣📉🌴🕠📢 🎀📖🎋🔱📒💰 🍅🐻🌃🌖. 🎁🕔👎🎷📀📞 🍁🔫🍀🌃📹 💈📂💶👕 🍡📰👛🐻\\\\n🍖🐽💫📼 🍆🎀💛👫🔹 🎷🕙🌱👸🕁🔝 🍸🔅👿🐡. 🐟🔐🏡🔅👾 🐱💱👺🍶 🎠🔆🎤🏥🌻🗾 👽🎯💈🏣🔊📴💆🏫 🔉🌉🍃🌻 🎅🔌🔻💣 🌸🍎🐀🌇\\\\n🗻👔📤💤🔶. 🍆👣🕕👦📦👑 🐍🐉🔶🕕 🍲👩🍍🌕📻👒📵 🔣🌋🌟👼 🔏📀🐆🍖🍮 🐁🌘🐻🏥🐡🔶🔘🏭 👡🔫🔗📊📻 🍂💧🌿📥🔚 📹💻🔌💠🌚\\\\n🐦💴🌎🌞🏤.\\\\n\\\\nThere is immense joy in just watching - watching all the little creatures in nature. I'll go over the colors one more\\\\ntime that we use: Titanium white, Thalo green, Prussian blue, Van Dyke brown, Alizarin crimson, Sap green, Cad yellow,\\\\nand Permanent red. If you don't like it - change it. It's your world. Be brave. Sometimes you learn more from your\\\\nmistakes than you do from your masterpieces. That's why I paint - because I can create the kind of world I want - and I\\\\ncan make this world as happy as I want it. I was blessed with a very steady hand; and it comes in very handy when you're\\\\ndoing these little delicate things. We'll paint one happy little tree right here. These things happen automatically. All\\\\nyou have to do is just let them happen.\\\\n\\\\n🐻🍘💀🐪 🕧🎂🕃🍵🏠 💎🌄🐐📘🐄 🍂🏤👊🍖 👆🍂📫👪🐈🕢👓 👯🕞🏉🍚🎆🔠🌵 🎭🎎💵📮📭 🔪💨📢📕 🐔📬👪🏄🐙🗽📤.\\\\n💛👴💧🎁👗💟👡💎 🎷🕡👮🗾🍷 🎪🍇🍩💰 📫🐗🎄🍍🎃 🎯🌴🐍🔉📰 👼👧🐢🕔🔷📞🍩 🔘👑🌆🌒🔣 🔆👺📴👾 🔝💑💸💒🏡🔸 🔟👞📷🔱👠\\\\n📵🏠📕🕝🐂👪 💐🎾🕁🗾👊📪. 🍉🏁👰🏡🕔💒🐯 🐟🍡📴🌿👱👢 📵💄🌊🌵🐫🍏 🎎🕠🍍💭💀👖 🎵💘🔗🍖 📧🌘🍅🕚📘🔮 👤🌾👿🐍🎽🌹\\\\n🎲🎎💅📪🐐🍢📈 🏣🐑👇👼🐄🍔 🍠📧🌊🕁🔛🐩. 🌺📊🍼🐁💼 🔈💬🌱🎑🔊🐙💲👩 🍇👞📎👻🌔 💑🕁🎲💤 🎮📃🕖📖 📻💬🔢💔🐇👬 🔨🌃📈🔞\\\\n🌒🎈👙🔥🐊 📭👍📢👊📟.\\\\n\\\\n出死問民同歴術荘面族上自。窃指写氷名続球投込光試事樹増。作合副者扶実権守安展感意環待質出。告供体企紙勢構込君奪属仕子業戦\\\\n浮私。長論攻士踊再連公雪地約政近第公。界地島命党浮国沼出問気混心未独院。朝原妙画岡性制領子金次問無浦妥混口時研。道記険健\\\\n集立根聖間前設集族山要本覧。変注再悩式付療場図験問県家界月止収文。\\\\n\\\\nलेकिन उसके संपादक उपलब्ध दिनांक प्रति सम्पर्क प्राधिकरन नाकर मुक्त कलइस वेबजाल वर्तमान समस्याओ देखने भोगोलिक केन्द्रिय\\\\nकिया खयालात विज्ञान ध्येय गटको साधन चिदंश पासपाई व्याख्या मार्गदर्शन संदेश जिवन प्रतिबध वार्तालाप किके विश्व खरिदने\\\\nहुआआदी तकनीकी संदेश सारांश असरकारक वार्तालाप चाहे पहोच। अतित पुर्णता केन्द्रिय\\\\n\\\\n👅💾🐂🔙 🐂🎠👶🐮🐛 👛💗💶🌿💒 🐐🌱🐶🌴🏤🐒 🔪🍡🎸🐛🍖 📗🎓🏊🕀🎿 🔅📋📥👳🔝 🐗👝🏄🐲 📂🎷🐎🏯💎🐹 📲🍍🏥🔂🕚🐉🎤\\\\n🌕🐴📐🎪💋. 💔👂🐗📷🎐 🌹📔💒📝👎📭 🔖🍶💺🕘 🔡💘🎪🔚🔯👉 💯🎉👠🎁🐌💵 👌🔉🎹🕒💕🍁 🏡🍢🔹🔷👀💦🏉👀 👑🐺🐁🏤\\\\n🎺🍁🐙🐮🌃🕢🐟 🍶🎃🕕🔦 🐧🔝💔💚🔫👍 🌉🔁🌄📺 👓🎳📧🌆💖🍋🕔. 🍥🔘🗼📟 🍹🔸🔰🕣🌍 🏡💽🍬👗👧 📩👬🌻🐐🌞🌎🐵🔛 🏆🌹🍰🔬📕\\\\n👋🎩🍓🌏👙 🎁🏃🎌🍳🔋👎📔 🐈🌽🔘💮 🏬🐷💿🕕. 📕👖📦📡 🎅🎺🏭🍗💜💷🐦 💻💚🐪🕠🔀 💰🍹💶🍶🎥📄 🌛👕🐲🐣🍷🎬 🐥🎯🔵🎹\\\\n🌿👌🐚🍛🏪 🌵📞💃📗👱👩 📟🐸🌺🐅👮 💚🐦💉💞🌛 🔼🔤👓🏡💩.\\\\n\\\\n\\\\nयधपि बाजार तकरीबन आंतरजाल प्राधिकरन लगती संदेश एसलिये बिन्दुओ प्रोत्साहित जानकारी ढांचामात्रुभाषा बाजार बदले प्रमान\\\\nअनुवाद विकेन्द्रित पसंद ढांचा हमारि जोवे उद्योग संस्थान और्४५० विकसित उदेश लेकिन सकती वार्तालाप लाभान्वित संदेश उदेश\\\\nपहोच। लचकनहि अनुवाद सुविधा एकत्रित कीने सक्षम भीयह अत्यंत लचकनहि निरपेक्ष कराना हमारि प्राप्त पुर्णता प्रतिबध्दता होगा\\\\nउन्हे जाएन खयालात पहोचाना\\\\n\\\\n散待望会窮縮囲前賀理格顔欧製暮景初子加。首稿覧析回未帯則号医間本取退埋帯品。右歳約幻病護指極講賞京応。野受移供頑特公却報\\\\n法利務水提士政駐物際。角媛分地昧況面日残金真福方雨入顔作化。最刊情感売校見強移本説注辞。経必好以小球生音明優去験見政感治\\\\n報付。講刊切記勝帯載豪著転読金止。金子森午模移言兆埠関価亡出目載。\\\\n\\\\nWork on one thing at a time. Don't get carried away - we have plenty of time. Everything is happy if you choose to make\\\\nit that way. Happy painting, God bless. You can create anything that makes you happy. Just make a decision and let it\\\\ngo. Nice little clouds playing around in the sky.You can do anything here - the only pre-requisite is that it makes you\\\\nhappy. I'm going to mix up a little color. We’ll use Van Dyke Brown, Permanent Red, and a little bit of Prussian Blue.\\\\nLet's make some happy little clouds in our world.\\\\n\\\\nपहेला गएआप स्वतंत्र प्राधिकरन सेऔर अनुकूल ब्रौशर बिन्दुओमे सदस्य गुजरना तकनिकल वैश्विक सकते बनाति चिदंश चाहे कुशलता\\\\nवर्तमान प्रोत्साहित देने विवरन पहोचाना विकेन्द्रियकरण अनुकूल विभाजनक्षमता औषधिक अन्य खरिदे दिये आवश्यक समस्याए कम्प्युटर\\\\nविनिमय अविरोधता लाभान्वित लाभो ढांचा\\\\n\\\\n抄聞調時得直決移警撃覧進聞滑公政央。日探劇票選伊追短青功書更将奈府成多。味治理育月漬安意散護良読京。芳豚大度面傾府山応著\\\\n器地捜志。止高棋戻管明証経処流自勝動続。装載聞視属王減通橋説主費事業情芸。追若得本臭稿事馬予治川劇覧記今竹犯破育食。参兆\\\\n徹括単写東家素講舞校食医咋存務代連子。球設国事検問周東集題聞供奈。\\\\n\\\\n🍊🌆📛🍛🌊🍡🍒 🔦🐟🐵🍚🌐🍛🐏 🔆💍📟🎧 🔐📤💺🐒 🔥🔬🐣💹🌻👚 🎰👯🎡🗻💯🐉🌗 🍐👣🐯🔖📚 💡📟👨🍮🍼💛📞 🕕🐁🌾🏧💻📷\\\\n💗🐢🏥🎵🐰🍉 🏥🔎💛💘🔧🍛🎿 🍟🌰🐴🏫🎀 🎷🌿🌴🏤🍢📳🍺 🐗👷🌳👦📩🌁 🐂🔜🔙📕. 🌎🍠📓📠🕡 🎽🔺🔱🌔📗🎤 🎫🍃👚🍤🐽🌰\\\\n🕠🌉📪🍒🐃💲 🎢🔯👶🔙🔚🕝 🍮📒🏉🏨🐝🌿 👔💫🏁🎺 🐸💞🌈🐸 📣🔯📅🐍🐴 🌑🌍🌛👀 🕂👟🐕📃🎇🔞 🍮🔏🍥👨 🐪📲🐐🎁 🍥🔁📑💮🌘.\\\\n🌏🎎🍛👯 🔈🎸💨🏧📚 🏪💼🎣🔚 🐤💳💁👓 👃🍆🕘🐋👬🐣 🕚🏃🌄🔷🌈🔖 💥💧🔴🌛🍁👦 💣🐐🕓🎠🕚🕞🏭 💨👓🏢🌓🔄. 📪🔜💹👤👂🐭\\\\n🕚🔎🐂🏂👍📻 👾💠🌕📻🎍 🐟🔬🏢💍 👓👠👤🎐💸👝 🔟💕🕛💊 🍩🌙👬🐘 🍪🔙📉💔🐝🕝 📭🕡🎼💈📇🔡 👓🍁🎾👯👨 🏇🍱🐢🌛\\\\n🎇🐩📴🎋🕁📎🎈 🐌👱📎🍹👆 👐🍐📗👽🐹💜 📭🌔🌅🍯👀.\\\\n\\\\n🔜🐰🏊🍃🐮 🔪🔐📇🐩 🐬👔🍙🍩💉 🏉👩👔🍞🍟🌂 🍺🕔🌖🔪🔩🍥 🎓🍒🌅🐘💛 🐔🐊📶🐊 👂📌👂🍺 💗🐳🎠📧🏭💧 🐝📅🍆🔞🏆\\\\n👇🔂🐺🔬🎯🔳🎐🎍 💖💅🐲🔭📔🏊🔋 🐨📫🕢🎁. 🐯💁🔘📰🐪 💥👭🍘🎴📣💂💄 🐏🔊🐚👔🎿🐙 🔕🐞💹📁 🔊👴👬👪 👠📱👃📍 🏢🐃🍯🍹🗻\\\\n🐩💮👲👠 🍏🎽📄🐋 🔣💉🔉📒💸🎭👎 💁🗾🔵🐪🍣 🍃🔝💥🔒👴. 📦🔟🔶💷🍥 🍚🕤👦🍻🔥🍹 👄🌜🐑🌀🐃🔪🕦 🌟🐶🍞🕥🌛 👮🐄🏬🎴👂💼📵\\\\n🌋📐🐲👥 🔒🏭🔭💿🎫🎄 💓🐓🎐🎁👔📟 💌🍇🎶👷🎬 🌌💀🎸💡 📔🐢💁🔊👘🐳🌞 🎩📝💟🍼💦🔄 🕒🍼🏧🎄🔃💐. 🎆🌜👗👿 🐁🌑💮👙🎌👞\\\\n🏫📙🌌🕙🐥 👓🌑💎💸📹📒 👋🐎🍡🎾👸🗽 📢📓🌍🏮📳🔈 👶🐷🐭🎿🔴🗾🏬 🌆🔈🍡💞💭🎨. \\";export{n as allTheIpsum};
-//# sourceMappingURL=pretty.mjs.map
+"exports.allTheIpsum=\\"\\\\n\\\\nThere is immense joy in just watching - watching all the little creatures in nature. I'll go over the colors one more\\\\ntime that we use: Titanium white, Thalo green, Prussian blue, Van Dyke brown, Alizarin crimson, Sap green, Cad yellow,\\\\nand Permanent red. If you don't like it - change it. It's your world. Be brave. Sometimes you learn more from your\\\\nmistakes than you do from your masterpieces.\\\\n\\\\nTrees grow in all kinds of ways. They're not all perfectly straight. Not every limb is perfect. Now let's put some happy\\\\nlittle clouds in here. We have no limits to our world. We're only limited by our imagination. The first step to doing\\\\nanything is to believe you can do it. See it finished in your mind before you ever start. Even trees need a friend. We\\\\nall need friends. And that's when it becomes fun - you don't have to spend your time thinking about what's happening -\\\\nyou just let it happen.\\\\n\\\\nरिती संपादक बेंगलूर अन्तरराष्ट्रीयकरन शीघ्र भाषा चिदंश उद्योग विस्तरणक्षमता चिदंश एकएस तरहथा। प्रोत्साहित उपेक्ष बिन्दुओ\\\\nध्येय देने गुजरना ऎसाजीस निर्माण नवंबर लिए। एसेएवं उपलब्धता मुश्किले डाले। बहतर सहायता माध्यम भाषाओ समूह\\\\n\\\\n井待品亡写回横提和指生志考結。重特天県偏切運録広詳三人転者数代歳。秀天戦機広八型希金生作事国第。年米教止証車断級弘報安楽\\\\n銀必約現獲料切。点額講問課覧傷邸出送跡出懲。編米人験由社迷入解公著片法記択昇必崎掲清。摩出元自越食多県実間旅売主注理併間\\\\n話策。小政退時年福米越給新家入解美露方堀港朝。俊間髪物縦該高報見甲購形州日事。\\\\n\\\\n🌸🍂🌃🐧🍘🏧🍮 🌶👢🔗🐥🔼🎮 🐤🍲📆👧🎼🐒 💑🍖📴🐠🍼 🎱🔮🍦💳👹 💫🏮📅🍑📭🎎 🏭💿🏫🔢👚💩 👇🌄🌗🔵💦 🔺🔡🌍🐗🏀📫\\\\n📻🍵🐰🔜🕧 🌴🌞🕙🎨🎾🔊🏰 🎑🌆🔁🌂 🕐📣📉🌴🕠📢 🎀📖🎋🔱📒💰 🍅🐻🌃🌖. 🎁🕔👎🎷📀📞 🍁🔫🍀🌃📹 💈📂💶👕 🍡📰👛🐻\\\\n🍖🐽💫📼 🍆🎀💛👫🔹 🎷🕙🌱👸🕁🔝 🍸🔅👿🐡. 🐟🔐🏡🔅👾 🐱💱👺🍶 🎠🔆🎤🏥🌻🗾 👽🎯💈🏣🔊📴💆🏫 🔉🌉🍃🌻 🎅🔌🔻💣 🌸🍎🐀🌇\\\\n🗻👔📤💤🔶. 🍆👣🕕👦📦👑 🐍🐉🔶🕕 🍲👩🍍🌕📻👒📵 🔣🌋🌟👼 🔏📀🐆🍖🍮 🐁🌘🐻🏥🐡🔶🔘🏭 👡🔫🔗📊📻 🍂💧🌿📥🔚 📹💻🔌💠🌚\\\\n🐦💴🌎🌞🏤.\\\\n\\\\nThere is immense joy in just watching - watching all the little creatures in nature. I'll go over the colors one more\\\\ntime that we use: Titanium white, Thalo green, Prussian blue, Van Dyke brown, Alizarin crimson, Sap green, Cad yellow,\\\\nand Permanent red. If you don't like it - change it. It's your world. Be brave. Sometimes you learn more from your\\\\nmistakes than you do from your masterpieces. That's why I paint - because I can create the kind of world I want - and I\\\\ncan make this world as happy as I want it. I was blessed with a very steady hand; and it comes in very handy when you're\\\\ndoing these little delicate things. We'll paint one happy little tree right here. These things happen automatically. All\\\\nyou have to do is just let them happen.\\\\n\\\\n🐻🍘💀🐪 🕧🎂🕃🍵🏠 💎🌄🐐📘🐄 🍂🏤👊🍖 👆🍂📫👪🐈🕢👓 👯🕞🏉🍚🎆🔠🌵 🎭🎎💵📮📭 🔪💨📢📕 🐔📬👪🏄🐙🗽📤.\\\\n💛👴💧🎁👗💟👡💎 🎷🕡👮🗾🍷 🎪🍇🍩💰 📫🐗🎄🍍🎃 🎯🌴🐍🔉📰 👼👧🐢🕔🔷📞🍩 🔘👑🌆🌒🔣 🔆👺📴👾 🔝💑💸💒🏡🔸 🔟👞📷🔱👠\\\\n📵🏠📕🕝🐂👪 💐🎾🕁🗾👊📪. 🍉🏁👰🏡🕔💒🐯 🐟🍡📴🌿👱👢 📵💄🌊🌵🐫🍏 🎎🕠🍍💭💀👖 🎵💘🔗🍖 📧🌘🍅🕚📘🔮 👤🌾👿🐍🎽🌹\\\\n🎲🎎💅📪🐐🍢📈 🏣🐑👇👼🐄🍔 🍠📧🌊🕁🔛🐩. 🌺📊🍼🐁💼 🔈💬🌱🎑🔊🐙💲👩 🍇👞📎👻🌔 💑🕁🎲💤 🎮📃🕖📖 📻💬🔢💔🐇👬 🔨🌃📈🔞\\\\n🌒🎈👙🔥🐊 📭👍📢👊📟.\\\\n\\\\n出死問民同歴術荘面族上自。窃指写氷名続球投込光試事樹増。作合副者扶実権守安展感意環待質出。告供体企紙勢構込君奪属仕子業戦\\\\n浮私。長論攻士踊再連公雪地約政近第公。界地島命党浮国沼出問気混心未独院。朝原妙画岡性制領子金次問無浦妥混口時研。道記険健\\\\n集立根聖間前設集族山要本覧。変注再悩式付療場図験問県家界月止収文。\\\\n\\\\nलेकिन उसके संपादक उपलब्ध दिनांक प्रति सम्पर्क प्राधिकरन नाकर मुक्त कलइस वेबजाल वर्तमान समस्याओ देखने भोगोलिक केन्द्रिय\\\\nकिया खयालात विज्ञान ध्येय गटको साधन चिदंश पासपाई व्याख्या मार्गदर्शन संदेश जिवन प्रतिबध वार्तालाप किके विश्व खरिदने\\\\nहुआआदी तकनीकी संदेश सारांश असरकारक वार्तालाप चाहे पहोच। अतित पुर्णता केन्द्रिय\\\\n\\\\n👅💾🐂🔙 🐂🎠👶🐮🐛 👛💗💶🌿💒 🐐🌱🐶🌴🏤🐒 🔪🍡🎸🐛🍖 📗🎓🏊🕀🎿 🔅📋📥👳🔝 🐗👝🏄🐲 📂🎷🐎🏯💎🐹 📲🍍🏥🔂🕚🐉🎤\\\\n🌕🐴📐🎪💋. 💔👂🐗📷🎐 🌹📔💒📝👎📭 🔖🍶💺🕘 🔡💘🎪🔚🔯👉 💯🎉👠🎁🐌💵 👌🔉🎹🕒💕🍁 🏡🍢🔹🔷👀💦🏉👀 👑🐺🐁🏤\\\\n🎺🍁🐙🐮🌃🕢🐟 🍶🎃🕕🔦 🐧🔝💔💚🔫👍 🌉🔁🌄📺 👓🎳📧🌆💖🍋🕔. 🍥🔘🗼📟 🍹🔸🔰🕣🌍 🏡💽🍬👗👧 📩👬🌻🐐🌞🌎🐵🔛 🏆🌹🍰🔬📕\\\\n👋🎩🍓🌏👙 🎁🏃🎌🍳🔋👎📔 🐈🌽🔘💮 🏬🐷💿🕕. 📕👖📦📡 🎅🎺🏭🍗💜💷🐦 💻💚🐪🕠🔀 💰🍹💶🍶🎥📄 🌛👕🐲🐣🍷🎬 🐥🎯🔵🎹\\\\n🌿👌🐚🍛🏪 🌵📞💃📗👱👩 📟🐸🌺🐅👮 💚🐦💉💞🌛 🔼🔤👓🏡💩.\\\\n\\\\n\\\\nयधपि बाजार तकरीबन आंतरजाल प्राधिकरन लगती संदेश एसलिये बिन्दुओ प्रोत्साहित जानकारी ढांचामात्रुभाषा बाजार बदले प्रमान\\\\nअनुवाद विकेन्द्रित पसंद ढांचा हमारि जोवे उद्योग संस्थान और्४५० विकसित उदेश लेकिन सकती वार्तालाप लाभान्वित संदेश उदेश\\\\nपहोच। लचकनहि अनुवाद सुविधा एकत्रित कीने सक्षम भीयह अत्यंत लचकनहि निरपेक्ष कराना हमारि प्राप्त पुर्णता प्रतिबध्दता होगा\\\\nउन्हे जाएन खयालात पहोचाना\\\\n\\\\n散待望会窮縮囲前賀理格顔欧製暮景初子加。首稿覧析回未帯則号医間本取退埋帯品。右歳約幻病護指極講賞京応。野受移供頑特公却報\\\\n法利務水提士政駐物際。角媛分地昧況面日残金真福方雨入顔作化。最刊情感売校見強移本説注辞。経必好以小球生音明優去験見政感治\\\\n報付。講刊切記勝帯載豪著転読金止。金子森午模移言兆埠関価亡出目載。\\\\n\\\\nWork on one thing at a time. Don't get carried away - we have plenty of time. Everything is happy if you choose to make\\\\nit that way. Happy painting, God bless. You can create anything that makes you happy. Just make a decision and let it\\\\ngo. Nice little clouds playing around in the sky.You can do anything here - the only pre-requisite is that it makes you\\\\nhappy. I'm going to mix up a little color. We’ll use Van Dyke Brown, Permanent Red, and a little bit of Prussian Blue.\\\\nLet's make some happy little clouds in our world.\\\\n\\\\nपहेला गएआप स्वतंत्र प्राधिकरन सेऔर अनुकूल ब्रौशर बिन्दुओमे सदस्य गुजरना तकनिकल वैश्विक सकते बनाति चिदंश चाहे कुशलता\\\\nवर्तमान प्रोत्साहित देने विवरन पहोचाना विकेन्द्रियकरण अनुकूल विभाजनक्षमता औषधिक अन्य खरिदे दिये आवश्यक समस्याए कम्प्युटर\\\\nविनिमय अविरोधता लाभान्वित लाभो ढांचा\\\\n\\\\n抄聞調時得直決移警撃覧進聞滑公政央。日探劇票選伊追短青功書更将奈府成多。味治理育月漬安意散護良読京。芳豚大度面傾府山応著\\\\n器地捜志。止高棋戻管明証経処流自勝動続。装載聞視属王減通橋説主費事業情芸。追若得本臭稿事馬予治川劇覧記今竹犯破育食。参兆\\\\n徹括単写東家素講舞校食医咋存務代連子。球設国事検問周東集題聞供奈。\\\\n\\\\n🍊🌆📛🍛🌊🍡🍒 🔦🐟🐵🍚🌐🍛🐏 🔆💍📟🎧 🔐📤💺🐒 🔥🔬🐣💹🌻👚 🎰👯🎡🗻💯🐉🌗 🍐👣🐯🔖📚 💡📟👨🍮🍼💛📞 🕕🐁🌾🏧💻📷\\\\n💗🐢🏥🎵🐰🍉 🏥🔎💛💘🔧🍛🎿 🍟🌰🐴🏫🎀 🎷🌿🌴🏤🍢📳🍺 🐗👷🌳👦📩🌁 🐂🔜🔙📕. 🌎🍠📓📠🕡 🎽🔺🔱🌔📗🎤 🎫🍃👚🍤🐽🌰\\\\n🕠🌉📪🍒🐃💲 🎢🔯👶🔙🔚🕝 🍮📒🏉🏨🐝🌿 👔💫🏁🎺 🐸💞🌈🐸 📣🔯📅🐍🐴 🌑🌍🌛👀 🕂👟🐕📃🎇🔞 🍮🔏🍥👨 🐪📲🐐🎁 🍥🔁📑💮🌘.\\\\n🌏🎎🍛👯 🔈🎸💨🏧📚 🏪💼🎣🔚 🐤💳💁👓 👃🍆🕘🐋👬🐣 🕚🏃🌄🔷🌈🔖 💥💧🔴🌛🍁👦 💣🐐🕓🎠🕚🕞🏭 💨👓🏢🌓🔄. 📪🔜💹👤👂🐭\\\\n🕚🔎🐂🏂👍📻 👾💠🌕📻🎍 🐟🔬🏢💍 👓👠👤🎐💸👝 🔟💕🕛💊 🍩🌙👬🐘 🍪🔙📉💔🐝🕝 📭🕡🎼💈📇🔡 👓🍁🎾👯👨 🏇🍱🐢🌛\\\\n🎇🐩📴🎋🕁📎🎈 🐌👱📎🍹👆 👐🍐📗👽🐹💜 📭🌔🌅🍯👀.\\\\n\\\\n🔜🐰🏊🍃🐮 🔪🔐📇🐩 🐬👔🍙🍩💉 🏉👩👔🍞🍟🌂 🍺🕔🌖🔪🔩🍥 🎓🍒🌅🐘💛 🐔🐊📶🐊 👂📌👂🍺 💗🐳🎠📧🏭💧 🐝📅🍆🔞🏆\\\\n👇🔂🐺🔬🎯🔳🎐🎍 💖💅🐲🔭📔🏊🔋 🐨📫🕢🎁. 🐯💁🔘📰🐪 💥👭🍘🎴📣💂💄 🐏🔊🐚👔🎿🐙 🔕🐞💹📁 🔊👴👬👪 👠📱👃📍 🏢🐃🍯🍹🗻\\\\n🐩💮👲👠 🍏🎽📄🐋 🔣💉🔉📒💸🎭👎 💁🗾🔵🐪🍣 🍃🔝💥🔒👴. 📦🔟🔶💷🍥 🍚🕤👦🍻🔥🍹 👄🌜🐑🌀🐃🔪🕦 🌟🐶🍞🕥🌛 👮🐄🏬🎴👂💼📵\\\\n🌋📐🐲👥 🔒🏭🔭💿🎫🎄 💓🐓🎐🎁👔📟 💌🍇🎶👷🎬 🌌💀🎸💡 📔🐢💁🔊👘🐳🌞 🎩📝💟🍼💦🔄 🕒🍼🏧🎄🔃💐. 🎆🌜👗👿 🐁🌑💮👙🎌👞\\\\n🏫📙🌌🕙🐥 👓🌑💎💸📹📒 👋🐎🍡🎾👸🗽 📢📓🌍🏮📳🔈 👶🐷🐭🎿🔴🗾🏬 🌆🔈🍡💞💭🎨. \\";
+//# sourceMappingURL=pretty.js.map
 "
 `;
 
@@ -1885,10 +1933,10 @@ Directory tree:
 
 pure
   dist
+    pure.esm.js
+    pure.esm.js.map
     pure.js
     pure.js.map
-    pure.mjs
-    pure.mjs.map
     pure.umd.js
     pure.umd.js.map
   package.json
@@ -1899,8 +1947,8 @@ pure
 Build \\"pure\\" to dist:
 65 B: pure.js.gz
 44 B: pure.js.br
-71 B: pure.mjs.gz
-49 B: pure.mjs.br
+71 B: pure.esm.js.gz
+49 B: pure.esm.js.br
 168 B: pure.umd.js.gz
 127 B: pure.umd.js.br"
 `;
@@ -1908,14 +1956,14 @@ Build \\"pure\\" to dist:
 exports[`fixtures build pure with microbundle 2`] = `6`;
 
 exports[`fixtures build pure with microbundle 3`] = `
-"exports.foo=function(){return\\"hello world\\"};
-//# sourceMappingURL=pure.js.map
+"function o(){return\\"hello world\\"}export{o as foo};
+//# sourceMappingURL=pure.esm.js.map
 "
 `;
 
 exports[`fixtures build pure with microbundle 4`] = `
-"function o(){return\\"hello world\\"}export{o as foo};
-//# sourceMappingURL=pure.mjs.map
+"exports.foo=function(){return\\"hello world\\"};
+//# sourceMappingURL=pure.js.map
 "
 `;
 
@@ -1932,10 +1980,10 @@ Directory tree:
 
 raw
   dist
+    raw.esm.js
+    raw.esm.js.map
     raw.js
     raw.js.map
-    raw.mjs
-    raw.mjs.map
     raw.umd.js
     raw.umd.js.map
   package.json
@@ -1946,8 +1994,8 @@ raw
 Build \\"raw\\" to dist:
 1389 B: raw.js.gz
 1160 B: raw.js.br
-1398 B: raw.mjs.gz
-1169 B: raw.mjs.br
+1398 B: raw.esm.js.gz
+1169 B: raw.esm.js.br
 1502 B: raw.umd.js.gz
 1250 B: raw.umd.js.br"
 `;
@@ -1955,14 +2003,14 @@ Build \\"raw\\" to dist:
 exports[`fixtures build raw with microbundle 2`] = `6`;
 
 exports[`fixtures build raw with microbundle 3`] = `
-"exports.OneKilobyteOfBobRoss=\\"\\\\n\\\\tWe might as well make some Almighty mountains today as well, what the heck.\\\\n\\\\tIn your imagination you can go anywhere you want. Nice little fluffy clouds\\\\n\\\\tlaying around in the sky being lazy. You have to make those little noises or\\\\n\\\\tit won't work. Clouds are free they come and go as they please.\\\\n\\\\n\\\\tTrees grow in all kinds of ways. They're not all perfectly straight. Not\\\\n\\\\tevery limb is perfect. Now let's put some happy little clouds in here. We\\\\n\\\\thave no limits to our world. We're only limited by our imagination. The\\\\n\\\\tfirst step to doing anything is to believe you can do it. See it finished\\\\n\\\\tin your mind before you ever start. Even trees need a friend. We all need\\\\n\\\\tfriends. And that's when it becomes fun - you don't have to spend your\\\\n\\\\ttime thinking about what's happening - you just let it happen.\\\\n\\\\n\\\\tI thought today we would do a happy little picture. We don't have to be\\\\n\\\\tconcerned about it. We just have to let it fall where it will. I'm gonna\\\\n\\\\tstart with a little Alizarin crimson and a touch of Prussian blue Be so\\\\n\\\\tvery light. Be a gentle whisper. The only prerequisite is that it makes\\\\n\\\\tyou happy. If it makes you happy then it's good. This is truly an almighty\\\\n\\\\tmountain.\\\\n\\\\n\\\\tThat's why I paint - because I can create the kind of world I want - and I\\\\n\\\\tcan make this world as happy as I want it. I was blessed with a very steady\\\\n\\\\thand; and it comes in very handy when you're doing these little delicate\\\\n\\\\tthings. We'll paint one happy little tree right here. These things happen\\\\n\\\\tautomatically. All you have to do is just let them happen.\\\\n\\\\n\\\\tYou can do anything here - the only pre-requisite is that it makes you\\\\n\\\\thappy. I'm going to mix up a little color. We’ll use Van Dyke Brown,\\\\n\\\\tPermanent Red, and a little bit of Prussian Blue. Let's make some happy\\\\n\\\\tlittle clouds in our world.\\\\n\\\\n\\\\tWork on one thing at a time. Don't get carried away - we have plenty of\\\\n\\\\ttime. Everything is happy if you choose to make it that way. Happy\\\\n\\\\tpainting, God bless. You can create anything that makes you happy. Just\\\\n\\\\tmake a decision and let it go. Nice little clouds playing around in the\\\\n\\\\tsky.\\\\n\\\\n\\\\tAnytime you learn something your time and energy are not wasted. Van Dyke\\\\n\\\\tBrown is a very nice brown, it's almost like a chocolate brown. It's\\\\n\\\\timportant to me that you're happy. In nature, dead trees are just as normal\\\\n\\\\tas live trees. Painting should do one thing. It should put happiness in\\\\n\\\\tyour heart.\\\\n\\\\n\\\\tThere is immense joy in just watching - watching all the little creatures\\\\n\\\\tin nature. I'll go over the colors one more time that we use: Titanium\\\\n\\\\twhite, Thalo green, Prussian blue, Van Dyke brown, Alizarin crimson, Sap\\\\n\\\\tgreen, Cad yellow, and Permanent red. If you don't like it - change it.\\\\n\\\\tIt's your world. Be brave. Sometimes you learn more from your mistakes than\\\\n\\\\tyou do from your masterpieces.\\";
-//# sourceMappingURL=raw.js.map
+"var e=\\"\\\\n\\\\tWe might as well make some Almighty mountains today as well, what the heck.\\\\n\\\\tIn your imagination you can go anywhere you want. Nice little fluffy clouds\\\\n\\\\tlaying around in the sky being lazy. You have to make those little noises or\\\\n\\\\tit won't work. Clouds are free they come and go as they please.\\\\n\\\\n\\\\tTrees grow in all kinds of ways. They're not all perfectly straight. Not\\\\n\\\\tevery limb is perfect. Now let's put some happy little clouds in here. We\\\\n\\\\thave no limits to our world. We're only limited by our imagination. The\\\\n\\\\tfirst step to doing anything is to believe you can do it. See it finished\\\\n\\\\tin your mind before you ever start. Even trees need a friend. We all need\\\\n\\\\tfriends. And that's when it becomes fun - you don't have to spend your\\\\n\\\\ttime thinking about what's happening - you just let it happen.\\\\n\\\\n\\\\tI thought today we would do a happy little picture. We don't have to be\\\\n\\\\tconcerned about it. We just have to let it fall where it will. I'm gonna\\\\n\\\\tstart with a little Alizarin crimson and a touch of Prussian blue Be so\\\\n\\\\tvery light. Be a gentle whisper. The only prerequisite is that it makes\\\\n\\\\tyou happy. If it makes you happy then it's good. This is truly an almighty\\\\n\\\\tmountain.\\\\n\\\\n\\\\tThat's why I paint - because I can create the kind of world I want - and I\\\\n\\\\tcan make this world as happy as I want it. I was blessed with a very steady\\\\n\\\\thand; and it comes in very handy when you're doing these little delicate\\\\n\\\\tthings. We'll paint one happy little tree right here. These things happen\\\\n\\\\tautomatically. All you have to do is just let them happen.\\\\n\\\\n\\\\tYou can do anything here - the only pre-requisite is that it makes you\\\\n\\\\thappy. I'm going to mix up a little color. We’ll use Van Dyke Brown,\\\\n\\\\tPermanent Red, and a little bit of Prussian Blue. Let's make some happy\\\\n\\\\tlittle clouds in our world.\\\\n\\\\n\\\\tWork on one thing at a time. Don't get carried away - we have plenty of\\\\n\\\\ttime. Everything is happy if you choose to make it that way. Happy\\\\n\\\\tpainting, God bless. You can create anything that makes you happy. Just\\\\n\\\\tmake a decision and let it go. Nice little clouds playing around in the\\\\n\\\\tsky.\\\\n\\\\n\\\\tAnytime you learn something your time and energy are not wasted. Van Dyke\\\\n\\\\tBrown is a very nice brown, it's almost like a chocolate brown. It's\\\\n\\\\timportant to me that you're happy. In nature, dead trees are just as normal\\\\n\\\\tas live trees. Painting should do one thing. It should put happiness in\\\\n\\\\tyour heart.\\\\n\\\\n\\\\tThere is immense joy in just watching - watching all the little creatures\\\\n\\\\tin nature. I'll go over the colors one more time that we use: Titanium\\\\n\\\\twhite, Thalo green, Prussian blue, Van Dyke brown, Alizarin crimson, Sap\\\\n\\\\tgreen, Cad yellow, and Permanent red. If you don't like it - change it.\\\\n\\\\tIt's your world. Be brave. Sometimes you learn more from your mistakes than\\\\n\\\\tyou do from your masterpieces.\\";export{e as OneKilobyteOfBobRoss};
+//# sourceMappingURL=raw.esm.js.map
 "
 `;
 
 exports[`fixtures build raw with microbundle 4`] = `
-"var e=\\"\\\\n\\\\tWe might as well make some Almighty mountains today as well, what the heck.\\\\n\\\\tIn your imagination you can go anywhere you want. Nice little fluffy clouds\\\\n\\\\tlaying around in the sky being lazy. You have to make those little noises or\\\\n\\\\tit won't work. Clouds are free they come and go as they please.\\\\n\\\\n\\\\tTrees grow in all kinds of ways. They're not all perfectly straight. Not\\\\n\\\\tevery limb is perfect. Now let's put some happy little clouds in here. We\\\\n\\\\thave no limits to our world. We're only limited by our imagination. The\\\\n\\\\tfirst step to doing anything is to believe you can do it. See it finished\\\\n\\\\tin your mind before you ever start. Even trees need a friend. We all need\\\\n\\\\tfriends. And that's when it becomes fun - you don't have to spend your\\\\n\\\\ttime thinking about what's happening - you just let it happen.\\\\n\\\\n\\\\tI thought today we would do a happy little picture. We don't have to be\\\\n\\\\tconcerned about it. We just have to let it fall where it will. I'm gonna\\\\n\\\\tstart with a little Alizarin crimson and a touch of Prussian blue Be so\\\\n\\\\tvery light. Be a gentle whisper. The only prerequisite is that it makes\\\\n\\\\tyou happy. If it makes you happy then it's good. This is truly an almighty\\\\n\\\\tmountain.\\\\n\\\\n\\\\tThat's why I paint - because I can create the kind of world I want - and I\\\\n\\\\tcan make this world as happy as I want it. I was blessed with a very steady\\\\n\\\\thand; and it comes in very handy when you're doing these little delicate\\\\n\\\\tthings. We'll paint one happy little tree right here. These things happen\\\\n\\\\tautomatically. All you have to do is just let them happen.\\\\n\\\\n\\\\tYou can do anything here - the only pre-requisite is that it makes you\\\\n\\\\thappy. I'm going to mix up a little color. We’ll use Van Dyke Brown,\\\\n\\\\tPermanent Red, and a little bit of Prussian Blue. Let's make some happy\\\\n\\\\tlittle clouds in our world.\\\\n\\\\n\\\\tWork on one thing at a time. Don't get carried away - we have plenty of\\\\n\\\\ttime. Everything is happy if you choose to make it that way. Happy\\\\n\\\\tpainting, God bless. You can create anything that makes you happy. Just\\\\n\\\\tmake a decision and let it go. Nice little clouds playing around in the\\\\n\\\\tsky.\\\\n\\\\n\\\\tAnytime you learn something your time and energy are not wasted. Van Dyke\\\\n\\\\tBrown is a very nice brown, it's almost like a chocolate brown. It's\\\\n\\\\timportant to me that you're happy. In nature, dead trees are just as normal\\\\n\\\\tas live trees. Painting should do one thing. It should put happiness in\\\\n\\\\tyour heart.\\\\n\\\\n\\\\tThere is immense joy in just watching - watching all the little creatures\\\\n\\\\tin nature. I'll go over the colors one more time that we use: Titanium\\\\n\\\\twhite, Thalo green, Prussian blue, Van Dyke brown, Alizarin crimson, Sap\\\\n\\\\tgreen, Cad yellow, and Permanent red. If you don't like it - change it.\\\\n\\\\tIt's your world. Be brave. Sometimes you learn more from your mistakes than\\\\n\\\\tyou do from your masterpieces.\\";export{e as OneKilobyteOfBobRoss};
-//# sourceMappingURL=raw.mjs.map
+"exports.OneKilobyteOfBobRoss=\\"\\\\n\\\\tWe might as well make some Almighty mountains today as well, what the heck.\\\\n\\\\tIn your imagination you can go anywhere you want. Nice little fluffy clouds\\\\n\\\\tlaying around in the sky being lazy. You have to make those little noises or\\\\n\\\\tit won't work. Clouds are free they come and go as they please.\\\\n\\\\n\\\\tTrees grow in all kinds of ways. They're not all perfectly straight. Not\\\\n\\\\tevery limb is perfect. Now let's put some happy little clouds in here. We\\\\n\\\\thave no limits to our world. We're only limited by our imagination. The\\\\n\\\\tfirst step to doing anything is to believe you can do it. See it finished\\\\n\\\\tin your mind before you ever start. Even trees need a friend. We all need\\\\n\\\\tfriends. And that's when it becomes fun - you don't have to spend your\\\\n\\\\ttime thinking about what's happening - you just let it happen.\\\\n\\\\n\\\\tI thought today we would do a happy little picture. We don't have to be\\\\n\\\\tconcerned about it. We just have to let it fall where it will. I'm gonna\\\\n\\\\tstart with a little Alizarin crimson and a touch of Prussian blue Be so\\\\n\\\\tvery light. Be a gentle whisper. The only prerequisite is that it makes\\\\n\\\\tyou happy. If it makes you happy then it's good. This is truly an almighty\\\\n\\\\tmountain.\\\\n\\\\n\\\\tThat's why I paint - because I can create the kind of world I want - and I\\\\n\\\\tcan make this world as happy as I want it. I was blessed with a very steady\\\\n\\\\thand; and it comes in very handy when you're doing these little delicate\\\\n\\\\tthings. We'll paint one happy little tree right here. These things happen\\\\n\\\\tautomatically. All you have to do is just let them happen.\\\\n\\\\n\\\\tYou can do anything here - the only pre-requisite is that it makes you\\\\n\\\\thappy. I'm going to mix up a little color. We’ll use Van Dyke Brown,\\\\n\\\\tPermanent Red, and a little bit of Prussian Blue. Let's make some happy\\\\n\\\\tlittle clouds in our world.\\\\n\\\\n\\\\tWork on one thing at a time. Don't get carried away - we have plenty of\\\\n\\\\ttime. Everything is happy if you choose to make it that way. Happy\\\\n\\\\tpainting, God bless. You can create anything that makes you happy. Just\\\\n\\\\tmake a decision and let it go. Nice little clouds playing around in the\\\\n\\\\tsky.\\\\n\\\\n\\\\tAnytime you learn something your time and energy are not wasted. Van Dyke\\\\n\\\\tBrown is a very nice brown, it's almost like a chocolate brown. It's\\\\n\\\\timportant to me that you're happy. In nature, dead trees are just as normal\\\\n\\\\tas live trees. Painting should do one thing. It should put happiness in\\\\n\\\\tyour heart.\\\\n\\\\n\\\\tThere is immense joy in just watching - watching all the little creatures\\\\n\\\\tin nature. I'll go over the colors one more time that we use: Titanium\\\\n\\\\twhite, Thalo green, Prussian blue, Van Dyke brown, Alizarin crimson, Sap\\\\n\\\\tgreen, Cad yellow, and Permanent red. If you don't like it - change it.\\\\n\\\\tIt's your world. Be brave. Sometimes you learn more from your mistakes than\\\\n\\\\tyou do from your masterpieces.\\";
+//# sourceMappingURL=raw.js.map
 "
 `;
 
@@ -1979,10 +2027,10 @@ Directory tree:
 
 shebang
   dist
+    shebang.esm.js
+    shebang.esm.js.map
     shebang.js
     shebang.js.map
-    shebang.mjs
-    shebang.mjs.map
     shebang.umd.js
     shebang.umd.js.map
   package.json
@@ -1993,8 +2041,8 @@ shebang
 Build \\"shebang\\" to dist:
 85 B: shebang.js.gz
 62 B: shebang.js.br
-89 B: shebang.mjs.gz
-70 B: shebang.mjs.br
+89 B: shebang.esm.js.gz
+70 B: shebang.esm.js.br
 185 B: shebang.umd.js.gz
 146 B: shebang.umd.js.br"
 `;
@@ -2003,15 +2051,15 @@ exports[`fixtures build shebang with microbundle 2`] = `6`;
 
 exports[`fixtures build shebang with microbundle 3`] = `
 "#!/usr/bin/env node
-exports.foo=function(){return\\"hello world\\"};
-//# sourceMappingURL=shebang.js.map
+function o(){return\\"hello world\\"}export{o as foo};
+//# sourceMappingURL=shebang.esm.js.map
 "
 `;
 
 exports[`fixtures build shebang with microbundle 4`] = `
 "#!/usr/bin/env node
-function o(){return\\"hello world\\"}export{o as foo};
-//# sourceMappingURL=shebang.mjs.map
+exports.foo=function(){return\\"hello world\\"};
+//# sourceMappingURL=shebang.js.map
 "
 `;
 
@@ -2031,10 +2079,10 @@ ts-mixed-exports
   dist
     car.d.ts
     index.d.ts
+    ts-mixed-exports.esm.js
+    ts-mixed-exports.esm.js.map
     ts-mixed-exports.js
     ts-mixed-exports.js.map
-    ts-mixed-exports.mjs
-    ts-mixed-exports.mjs.map
     ts-mixed-exports.umd.js
     ts-mixed-exports.umd.js.map
   node_modules
@@ -2048,8 +2096,8 @@ ts-mixed-exports
 Build \\"tsMixedExports\\" to dist:
 112 B: ts-mixed-exports.js.gz
 89 B: ts-mixed-exports.js.br
-115 B: ts-mixed-exports.mjs.gz
-100 B: ts-mixed-exports.mjs.br
+115 B: ts-mixed-exports.esm.js.gz
+100 B: ts-mixed-exports.esm.js.br
 213 B: ts-mixed-exports.umd.js.gz
 171 B: ts-mixed-exports.umd.js.br"
 `;
@@ -2075,14 +2123,14 @@ export default Ferrari;
 `;
 
 exports[`fixtures build ts-mixed-exports with microbundle 5`] = `
-"var r=function(){function r(){}return r.prototype.drive=function(r){return!0},r}(),t=new r;exports.Car=r,exports.default=t;
-//# sourceMappingURL=ts-mixed-exports.js.map
+"var t=function(){function t(){}return t.prototype.drive=function(t){return!0},t}(),n=new t;export default n;export{t as Car};
+//# sourceMappingURL=ts-mixed-exports.esm.js.map
 "
 `;
 
 exports[`fixtures build ts-mixed-exports with microbundle 6`] = `
-"var t=function(){function t(){}return t.prototype.drive=function(t){return!0},t}(),n=new t;export default n;export{t as Car};
-//# sourceMappingURL=ts-mixed-exports.mjs.map
+"var r=function(){function r(){}return r.prototype.drive=function(r){return!0},r}(),t=new r;exports.Car=r,exports.default=t;
+//# sourceMappingURL=ts-mixed-exports.js.map
 "
 `;
 

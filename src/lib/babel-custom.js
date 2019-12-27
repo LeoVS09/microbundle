@@ -61,8 +61,11 @@ export default babelPlugin.custom(babelCore => {
 				[
 					{
 						name: '@babel/plugin-transform-react-jsx',
-						pragma: customOptions.jsx || 'h',
-						pragmaFrag: customOptions.jsxFragment || 'Fragment',
+						pragma: customOptions.pragma || 'h',
+						pragmaFrag: customOptions.pragmaFrag || 'Fragment',
+					},
+					!customOptions.typescript && {
+						name: '@babel/plugin-transform-flow-strip-types',
 					},
 					isTruthy(customOptions.defines) && {
 						name: 'babel-plugin-transform-replace-expressions',
@@ -110,7 +113,7 @@ export default babelPlugin.custom(babelCore => {
 									modules: false,
 									exclude: merge(
 										['transform-async-to-generator', 'transform-regenerator'],
-										preset.options.exclude || [],
+										(preset.options && preset.options.exclude) || [],
 									),
 								},
 							),
