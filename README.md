@@ -18,6 +18,7 @@
 - Creates multiple output formats for each entry _(<abbr title="CommonJS (node)">CJS</abbr>, <abbr title="Universal Module Definition">UMD</abbr> & <abbr title="ECMAScript Modules">ESM</abbr>)_
 - 0 configuration TypeScript support
 - Built-in Terser compression & gzipped bundle size tracking
+- Support CSS modules by default
 
 ## 🔧 Installation
 
@@ -75,6 +76,32 @@ This is enabled by default - all you have to do is add the field to your `packag
   }
 }
 ```
+
+### CSS Modules
+
+CSS Modules enabled by default for all `.module.css` files
+
+```css
+/* style.module.css */
+.className {
+	color: green;
+}
+```
+
+When importing the CSS Module from a JS Module, it exports an object with all mappings from local names to global names.
+
+```js
+import styles from './style.module.css';
+// import { className } from "./style.css";
+
+element.innerHTML = '<div class="' + styles.className + '">';
+```
+
+You can manage behavior of CSS Modules by `css-modules` options
+
+`microbundle --css-modules` Turn on CSS modules for all .css files
+`microbundle --css-modules false` Disable CSS modules, even for `.module.css` files
+`microbundle --css-modules "_[hash]"` Turn on CSS modules for all .css files and provide custom name generation
 
 ## 📦 Usage
 
@@ -150,6 +177,7 @@ Options
 	--sourcemap      Generate source map  (default true)
 	--raw            Show raw byte size  (default false)
 	--jsx            A custom JSX pragma like React.createElement (default: h)
+	--css-modules	 Turns on css-modules for all .css imports. By default enabled for "*.module.css" files
 	--tsconfig       Specify the path to a custom tsconfig.json
 	-h, --help       Displays this message
 
