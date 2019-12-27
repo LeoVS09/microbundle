@@ -1231,6 +1231,55 @@ exports[`fixtures build custom-source-with-cwd with microbundle 5`] = `
 "
 `;
 
+exports[`fixtures build default-css-modules with microbundle 1`] = `
+"Used script: microbundle --no-sourcemap
+
+Directory tree:
+
+default-css-modules
+  dist
+    default-css-modules.css
+    default-css-modules.esm.js
+    default-css-modules.js
+    default-css-modules.umd.js
+  package.json
+  src
+    index.js
+    one.module.css
+    two.css
+
+
+Build \\"defaultCssModules\\" to dist:
+131 B: default-css-modules.js.gz
+92 B: default-css-modules.js.br
+130 B: default-css-modules.esm.js.gz
+88 B: default-css-modules.esm.js.br
+221 B: default-css-modules.umd.js.gz
+157 B: default-css-modules.umd.js.br"
+`;
+
+exports[`fixtures build default-css-modules with microbundle 2`] = `4`;
+
+exports[`fixtures build default-css-modules with microbundle 3`] = `
+".one-module_testing-module__3LTyR{padding:10rem;margin:1rem;background:red}
+.testing-css{display:-webkit-box;display:flex;color:red;background:#00f}"
+`;
+
+exports[`fixtures build default-css-modules with microbundle 4`] = `
+"export default function(){var e=document.createElement(\\"div\\");return e.className=\\"one-module_testing-module__3LTyR testing-css\\",e}
+"
+`;
+
+exports[`fixtures build default-css-modules with microbundle 5`] = `
+"module.exports=function(){var e=document.createElement(\\"div\\");return e.className=\\"one-module_testing-module__3LTyR testing-css\\",e};
+"
+`;
+
+exports[`fixtures build default-css-modules with microbundle 6`] = `
+"!function(e,t){\\"object\\"==typeof exports&&\\"undefined\\"!=typeof module?module.exports=t():\\"function\\"==typeof define&&define.amd?define(t):(e=e||self).defaultCssModules=t()}(this,function(){return function(){var e=document.createElement(\\"div\\");return e.className=\\"one-module_testing-module__3LTyR testing-css\\",e}});
+"
+`;
+
 exports[`fixtures build default-named with microbundle 1`] = `
 "Used script: microbundle
 
@@ -1781,6 +1830,55 @@ exports[`fixtures build name-custom-cli with microbundle 4`] = `
 exports[`fixtures build name-custom-cli with microbundle 5`] = `
 "!function(e,r){\\"object\\"==typeof exports&&\\"undefined\\"!=typeof module?module.exports=r():\\"function\\"==typeof define&&define.amd?define(r):(e=e||self).nameCustomCli=r()}(this,function(){var e=function(){try{for(var e=arguments.length,r=new Array(e),n=0;n<e;n++)r[n]=arguments[n];return Promise.resolve(r.reduce(function(e,r){return e+r},0))}catch(e){return Promise.reject(e)}};return function(){for(var r=arguments.length,n=new Array(r),t=0;t<r;t++)n[t]=arguments[t];try{return Promise.resolve(e.apply(void 0,n)).then(function(r){return Promise.resolve(e.apply(void 0,n)).then(function(e){return[r,e]})})}catch(e){return Promise.reject(e)}}});
 //# sourceMappingURL=name-custom.umd.js.map
+"
+`;
+
+exports[`fixtures build no-css-modules with microbundle 1`] = `
+"Used script: microbundle --no-sourcemap --css-modules false
+
+Directory tree:
+
+no-css-modules
+  dist
+    no-css-modules.css
+    no-css-modules.esm.js
+    no-css-modules.js
+    no-css-modules.umd.js
+  package.json
+  src
+    index.js
+    one.module.css
+    two.css
+
+
+Build \\"noCssModules\\" to dist:
+119 B: no-css-modules.js.gz
+71 B: no-css-modules.js.br
+118 B: no-css-modules.esm.js.gz
+67 B: no-css-modules.esm.js.br
+205 B: no-css-modules.umd.js.gz
+145 B: no-css-modules.umd.js.br"
+`;
+
+exports[`fixtures build no-css-modules with microbundle 2`] = `4`;
+
+exports[`fixtures build no-css-modules with microbundle 3`] = `
+".testing-module{padding:10rem;margin:1rem;background:red}
+.testing-css{display:-webkit-box;display:flex;color:red;background:#00f}"
+`;
+
+exports[`fixtures build no-css-modules with microbundle 4`] = `
+"export default function(){var e=document.createElement(\\"div\\");return e.className=\\"testing-module testing-css\\",e}
+"
+`;
+
+exports[`fixtures build no-css-modules with microbundle 5`] = `
+"module.exports=function(){var e=document.createElement(\\"div\\");return e.className=\\"testing-module testing-css\\",e};
+"
+`;
+
+exports[`fixtures build no-css-modules with microbundle 6`] = `
+"!function(e,n){\\"object\\"==typeof exports&&\\"undefined\\"!=typeof module?module.exports=n():\\"function\\"==typeof define&&define.amd?define(n):(e=e||self).noCssModules=n()}(this,function(){return function(){var e=document.createElement(\\"div\\");return e.className=\\"testing-module testing-css\\",e}});
 "
 `;
 
