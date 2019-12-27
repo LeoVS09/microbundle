@@ -100,9 +100,14 @@ element.innerHTML = '<div class="' + styles.className + '">';
 You can manage behavior of CSS Modules by `css-modules` options
 
 ```bash
-microbundle --css-modules			# Turn on CSS modules for all .css files
-microbundle --css-modules false 	# Disable CSS modules, even for '.module.css' files
-microbundle --css-modules "_[hash]" # Turn on CSS modules for all .css files and provide custom name generation
+# Turn on CSS modules for all .css files
+microbundle --css-modules
+
+# Disable CSS modules, even for '.module.css' files
+microbundle --css-modules false
+
+# Turn on CSS modules for all '.css' files and provide custom name generation
+microbundle --css-modules "_[hash]"
 ```
 
 ## 📦 Usage
